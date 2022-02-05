@@ -1,24 +1,37 @@
 const { Schema, model } = require('mongoose');
 
-const matchupSchema = new Schema({
-  tech1: {
+const movieWatchedSchema = new mongoose.Schema({
+    title: { type: String, required: true },
+    year: {type: Number, required: true},
+    omdbId: {type: String, required: true},
+    isWatched: {type: Boolean, require: true, default: true} 
+  });
+
+const UserSchema = new Schema({
+  username: {
     type: String,
     required: true,
   },
-  tech2: {
+  email: {
     type: String,
     required: true,
   },
-  tech1_votes: {
-    type: Number,
-    default: 0,
+  password: {
+    type: String,
+    required: true,
   },
-  tech2_votes: {
+  watchedMovies: [movieWatchedSchema],
+  completedList: [{
     type: Number,
-    default: 0,
+  }],
+  quizHighScore: {
+      type: Number
   },
+  totalWatchedHours: {
+      type: Number
+  }
 });
 
-const Matchup = model('Matchup', matchupSchema);
+const User = model('user', UserSchema);
 
-module.exports = Matchup;
+module.exports = User;
