@@ -1,4 +1,4 @@
-const { Tech, Matchup } = require('../models');
+// const { Tech, Matchup } = require('../models');
 
 const resolvers = {
   Query: {
