@@ -1,0 +1,1005 @@
+  [
+    {
+      "name": "Mini-List: Cage Uncaged Trilogy",
+      "message": "Put the Cage back in the box!",
+      "badge": "image_tag Rails.root.join('public', 'images', 'Cage-Uncaged-Trilogy.png')",
+      "createdBy": "chaos",
+      "movies": [
+        {
+          "title": "Face/Off"
+
+        },
+        {
+          "title": "The Rock"
+        },
+        {
+          "title": "Con Air"
+        }
+      ]
+    },
+    {
+      "name": "Mini-List: The WWII List",
+      "message": "This was your finest 6 hours!",
+      "badge": "img",
+      "createdBy": "chaos",
+      "movies": [
+        {
+          "title": "The Kings Speech"
+        },
+        {
+          "title": "Darkest Hour"
+        },
+        {
+          "title": "Dunkirk"
+        },
+        {
+          "title": "Saving Private Ryan"
+        },
+        {
+          "title": "Fury"
+        }
+      ]
+    },
+    {
+      "name": "Mini-List: Cop Trapped in a Building Full of Bad Guys Trilogy",
+      "message": "Come watch on the couch, have a few laughs...",
+      "badge": "",
+      "createdBy": "chaos",
+      "movies": [
+        {
+          "title": "Die Hard"
+        },
+        {
+          "title": "The Raid"
+        },
+        {
+          "title": "Dredd"
+        }
+      ]
+    },
+    {
+      "name": "Mini-List: Tom Cruise as a Bad Guy Trilogy",
+      "message": "He really can play a bad guy!",
+      "badge": "",
+      "createdBy": "chaos",
+      "movies": [
+        {
+          "title": "Interview with the Vampire"
+        },
+        {
+          "title": "Collateral"
+        },
+        {
+          "title": "Tropic Thunder"
+        }
+      ]
+    },
+    {
+      "name": "Mini-List: Crime Drive List",
+      "message": "You ever heard the story about the scorpion and the frog?",
+      "badge": "",
+      "createdBy": "chaos",
+      "movies": [
+        {
+          "title": "Collateral"
+        },
+        {
+          "title": "Nightcrawler"
+        },
+        {
+          "title": "Drive"
+        },
+        {
+          "title": "Thief"
+        },
+        {
+          "title": "Heat"
+        }
+      ]
+    },
+    {
+      "name": "Worst Movies of 2000s List",
+      "message": "This has to be the longest list here...figuratively",
+      "badge": "",
+      "createdBy": "chaos",
+      "movies": [
+        {
+          "title": "Battlefield Earth"
+        },
+        {
+          "title": "Honest"
+        },
+        {
+          "title": "Titanic: The Legend Goes On"
+        },
+        {
+          "title": "Freddy Got Fingered"
+        },
+        {
+          "title": "Glitter"
+        },
+        {
+          "title": "Swept Away"
+        },
+        {
+          "title": "The Master of Disguise"
+        },
+        {
+          "title": "Ballistic: Ecks vs. Sever"
+        },
+        {
+          "title": "Ben and Arthur"
+        },
+        {
+          "title": "From Justin to Kelly"
+        },
+        {
+          "title": "The Room"
+        },
+        {
+          "title": "Gigli"
+        },
+        {
+          "title": "Sex Lives of the Potato Men"
+        },
+        {
+          "title": "Catwoman"
+        },
+        {
+          "title": "Daniel – Der Zauberer(Daniel – The Wizard)"
+        },
+        {
+          "title": "Superbabies: Baby Geniuses 2"
+        },
+        {
+          "title": "Alone in the Dark"
+        },
+        {
+          "title":  "Aag"
+        },
+        {
+          "title": "Epic Movie"
+        },
+        {
+          "title": "I Know Who Killed Me"
+        },
+        {
+          "title": "Meet the Spartans"
+        },
+        {
+          "title":  "Disaster Movie"
+        },
+        {
+          "title": "The Hottie and the Nottie"
+        },
+        {
+          "title": "Birdemic: Shock and Terror"
+        },
+        {
+          "title": "The Last Airbender"
+        },
+        {
+          "title": "Bucky Larson: Born to Be a Star"
+        },
+        {
+          "title": "Jack and Jill"
+        },
+        {
+          "title": "That's My Boy"
+        },
+        {
+          "title": "Foodfight!"
+        },
+        {
+          "title": "Run for Your Wife"
+        },
+        {
+          "title": "Movie 43"
+        },
+        {
+          "title": "Fateful Findings"
+        },
+        {
+          "title": "Humshakals"
+        },
+        {
+          "title": "Kidnapping, Caucasian Style!"
+        },
+        {
+          "title": "Saving Christmas"
+        },
+        {
+          "title": "United Passions"
+        },
+        {
+          "title": "Dirty Grandpa"
+        },
+        {
+          "title": "Guardians"
+        },
+        {
+          "title": "Cats"
+        },
+        {
+          "title": "365 Days"
+        }
+      ]
+    },
+    {
+      "name": "Worst Movies of the 80s & 90s",
+      "message": "This is why millenials are so angry",
+      "badge": "",
+      "createdBy": "chaos",
+      "movies": [
+        {
+          "title": "Heaven's Gate"
+        },
+        {
+          "title": "The Apple"
+        },
+        {
+          "title": "Inchon"
+        },
+        {
+          "title": "Tarzan, the Ape Man"
+        },
+        {
+          "title": "Mommie Dearest"
+        },
+        {
+          "title": "Dünyayı Kurtaran Adam"
+        },
+        {
+          "title": "The Lonely Lady"
+        },
+        {
+          "title": "Bolero"
+        },
+        {
+          "title": "Howard the Duck"
+        },
+        {
+          "title": "Ishtar"
+        },
+        {
+          "title": "Nukie"
+        },
+        {
+          "title": "Superman IV: The Quest for Peace"
+        },
+        {
+          "title": "The Garbage Pail Kids Movie"
+        },
+        {
+          "title": "Leonard Part 6"
+        },
+        {
+          "title": "Caddyshack II"
+        },
+        {
+          "title": "Hobgoblins"
+        },
+        {
+          "title": "Mac and Me"
+        },
+        {
+          "title": "Things"
+        },
+        {
+          "title": "Troll 2"
+        },
+        {
+          "title": "Highlander II: The Quickening"
+        },
+        {
+          "title": "Cattive ragazze"
+        },
+        {
+          "title": "North"
+        },
+        {
+          "title": "Dis – en historie om kjærlighet,"
+        },
+        {
+          "title": "Showgirls"
+        },
+        {
+          "title": "The Scarlet Letter"
+        },
+        {
+          "title": "Striptease"
+        },
+        {
+          "title": "Le Jour et la Nuit"
+        },
+        {
+          "title": "Batman & Robin"
+        },
+        {
+          "title": "The Avengers"
+        },
+        {
+          "title": "Cinderela Baiana"
+        },
+        {
+          "title": "Fatal Deviation"
+        },
+        {
+          "title": "Parting Shots"
+        },
+        {
+          "title": "The Underground Comedy Movie"
+        }
+      ]
+    },
+    {
+      "name": "Mini-List: How far has Spacey fallen List",
+      "message": "This is why we can't have nice things...",
+      "badge": "",
+      "createdBy": "chaos",
+      "movies": [
+        {
+          "title": "American Beauty"
+        },
+        {
+          "title": "The Usual Suspects"
+        },
+        {
+          "title": "Seven"
+        },
+        {
+          "title": "All The Money In The World"
+        }
+      ]
+    },
+    {
+      "name": "Mini-List: I'm not that but I play one on the big screen Trilogy",
+      "message": "A dude disguised as a dude playing another dude",
+      "badge": "",
+      "createdBy": "chaos",
+      "movies": [
+        {
+          "title": "The Three Amigos"
+        },
+        {
+          "title": "Galaxy Quest"
+        },
+        {
+          "title": "Tropic Thunder"
+        }
+      ]
+    },
+    {
+      "name": "Mini-List: 'Official' Apocalypse Trilogy",
+      "message": "",
+      "badge": "",
+      "createdBy": "chaos",
+      "movies": [
+        {
+          "title": "The Thing"
+        },
+        {
+          "title": "Prince of Darkness"
+        },
+        {
+          "title": "In the Mouth of Madness"
+        }
+      ]
+    },
+    {
+      "name": "Top 100 SciFi of All Time",
+      "message": "Nerd Alert!",
+      "badge": "image_tag Rails.root.join('public', 'images', 'Top-100-SciFi.png')",
+      "createdBy": "chaos",
+      "movies": [
+        {
+          "title": "Blade Runner"
+        },
+        {
+          "title": "2001: A Space Odyssey"
+        },
+        {
+          "title": "Star Wars"
+        },
+        {
+          "title": "Alien"
+        },
+        {
+          "title": "Metropolis"
+        },
+        {
+          "title": "The Day the Earth Stood Still"
+        },
+        {
+          "title": "The Terminator"
+        },
+        {
+          "title": "Planet of the Apes"
+        },
+        {
+          "title": "E.T., the Extra-Terrestrial"
+        },
+        {
+          "title": "Solaris"
+        },
+        {
+          "title": "Close Encounters of the Third Kind"
+        },
+        {
+          "title": "Forbidden Planet"
+        },
+        {
+          "title": "The Empire Strikes Back"
+        },
+        {
+          "title": "A Trip To the Moon"
+        },
+        {
+          "title": "Aliens"
+        },
+        {
+          "title": "Silent Running"
+        },
+        {
+          "title": "Brazil"
+        },
+        {
+          "title": "Akira"
+        },
+        {
+          "title": "Star Trek II: The Wrath of Khan"
+        },
+        {
+          "title": "Total Recall"
+        },
+        {
+          "title": "The Matrix"
+        },
+        {
+          "title": "Tron"
+        },
+        {
+          "title": "The Thing"
+        },
+        {
+          "title": "Robocop"
+        },
+        {
+          "title": "Jurassic Park"
+        },
+        {
+          "title": "Invasion of the Body Snatchers"
+        },
+        {
+          "title": "A Clockwork Orange"
+        },
+        {
+          "title": "The Fifth Element"
+        },
+        {
+          "title": "La Jetee"
+        },
+        {
+          "title": "Sleeper"
+        },
+        {
+          "title": "The Fly"
+        },
+        {
+          "title": "Terminator 2: Judgment Day"
+        },
+        {
+          "title": "Westworld"
+        },
+        {
+          "title": "The Road Warrior"
+        },
+        {
+          "title": "Return of the Jedi"
+        },
+        {
+          "title": "Back To the Future"
+        },
+        {
+          "title": "WALL*E"
+        },
+        {
+          "title": "Fantastic Planet"
+        },
+        {
+          "title": "The Man Who Fell To Earth"
+        },
+        {
+          "title": "Things To Come"
+        },
+        {
+          "title": "20 Million Miles To Earth"
+        },
+        {
+          "title": "The Abyss"
+        },
+        {
+          "title": "Quatermass 2"
+        },
+        {
+          "title": "This Island Earth"
+        },
+        {
+          "title": "Eternal Sunshine of the Spotless Mind"
+        },
+        {
+          "title": "Delicatessen"
+        },
+        {
+          "title": "Dark Star"
+        },
+        {
+          "title": "The Andromeda Strain"
+        },
+        {
+          "title": "The Omega Man"
+        },
+        {
+          "title": "Stalker"
+        },
+        {
+          "title": "Tetsuo: The Iron Man"
+        },
+        {
+          "title": "Escape From New York"
+        },
+        {
+          "title": "The Invisible Man"
+        },
+        {
+          "title": "It Came From Outer Space"
+        },
+        {
+          "title": "Godzilla"
+        },
+        {
+          "title": "Invasion of the Body Snatchers"
+        },
+        {
+          "title": "Minority Report"
+        },
+        {
+          "title": "Alphaville"
+        },
+        {
+          "title": "Gattaca"
+        },
+        {
+          "title": "The Fountain"
+        },
+        {
+          "title": "Them!"
+        },
+        {
+          "title": "Videodrome"
+        },
+        {
+          "title": "Logan's Run"
+        },
+        {
+          "title": "Ghost In the Shell"
+        },
+        {
+          "title": "Repo Man"
+        },
+        {
+          "title":  "Children of Men"
+        },
+        {
+          "title": "Star Trek VI: The Undiscovered Country"
+        },
+        {
+          "title": "Outland"
+        },
+        {
+          "title": "A Boy and His Dog"
+        },
+        {
+          "title": "Mad Max"
+        },
+        {
+          "title":  "Donnie Darko"
+        },
+        {
+          "title": "Soylent Green"
+        },
+        {
+          "title":  "Cube"
+        },
+        {
+          "title": "Moon"
+        },
+        {
+          "title":  "Dark City"
+        },
+        {
+          "title":  "Starship Troopers"
+        },
+        {
+          "title": "A Scanner Darkly"
+        },
+        {
+          "title": "The Quiet Earth"
+        },
+        {
+          "title": "Invaders From Mars"
+        },
+        {
+          "title": "Fantastic Voyage"
+        },
+        {
+          "title": "Barbarella"
+        },
+        {
+          "title": "Fahrenheit 451"
+        },
+        {
+          "title": "Twelve Monkeys"
+        },
+        {
+          "title": "Event Horizon"
+        },
+        {
+          "title": "Independence Day"
+        },
+        {
+          "title": "Altered States"
+        },
+        {
+          "title":  "The Stepford Wives"
+        },
+        {
+          "title":  "Serenity"
+        },
+        {
+          "title":  "Dune"
+        },
+        {
+          "title":  "Primer"
+        },
+        {
+          "title": "Explorers"
+        },
+        {
+          "title":  "THX 1138"
+        },
+        {
+          "title": "Star Trek"
+        },
+        {
+          "title": "Flash Gordon"
+        },
+        {
+          "title":  "Galaxy Quest"
+        },
+        {
+          "title": "Cocoon"
+        },
+        {
+          "title": "Stargate"
+        },
+        {
+          "title":  "Predator"
+        },
+        {
+          "title":  "Trancers"
+        },
+        {
+          "title": "Rollerball"
+        }
+      ]
+    },
+    {
+      "name": "100 Best Movies of All Time",
+      "message": "Classic!",
+      "badge": "img",
+      "createdBy": "chaos",
+      "movies": [
+        {
+          "title":  "Tootsie"
+        },
+        {
+          "title": "The Godfather"
+        },
+        {
+          "title": "A Woman Under the Influence"
+        },
+        {
+          "title":  "Cinema Paradiso"
+        },
+        {
+          "title": "To Kill a Mockingbird"
+        },
+        {
+          "title": "The Godfather: Part II"
+        },
+        {
+          "title": "Annie Hall"
+        },
+        {
+          "title": "Boogie Nights"
+        },
+        {
+          "title": "The Red Shoes"
+        },
+        {
+          "title":  "Taxi Driver"
+        },
+        {
+          "title": "Dog Day Afternoon"
+        },
+        {
+          "title": "Goodfellas"
+        },
+        {
+          "title": "Withnail & I"
+        },
+        {
+          "title":  "Kes"
+        },
+        {
+          "title": "The Wizard of Oz"
+        },
+        {
+          "title":  "On the Waterfront"
+        },
+        {
+          "title": "The Shining"
+        },
+        {
+          "title":  "Breaking the Waves"
+        },
+        {
+          "title": "Pulp Fiction"
+        },
+        {
+          "title": "Gladiator"
+        },
+        {
+          "title": "La Haine"
+        },
+        {
+          "title": "Jaws"
+        },
+        {
+          "title": "Raging Bull"
+        },
+        {
+          "title": "Who's Afraid of Virginia Woolf?"
+        },
+        {
+          "title": "Some Like It Hot"
+        },
+        {
+          "title": "Fargo"
+        },
+        {
+          "title": "Rosemary's Baby"
+        },
+        {
+          "title": "The Night of the Hunter"
+        },
+        {
+          "title": "Chinatown"
+        },
+        {
+          "title": "The Apartment"
+        },
+        {
+          "title":  "La Vie en Rose"
+        },
+        {
+          "title": "There Will Be Blood"
+        },
+        {
+          "title":  "All About Eve"
+        },
+        {
+          "title": "Life Is Beautiful"
+        },
+        {
+          "title": "Apocalypse Now"
+        },
+        {
+          "title": "The Philadelphia Story"
+        },
+        {
+          "title": "The Sting"
+        },
+        {
+          "title": "Waiting for Guffman"
+        },
+        {
+          "title": "Citizen Kane"
+        },
+        {
+          "title": "Singin' in the Rain"
+        },
+        {
+          "title": "The Celebration"
+        },
+        {
+          "title": "The Lives of Others"
+        },
+        {
+          "title":  "American Beauty"
+        },
+        {
+          "title": "Léon: The Professional"
+        },
+        {
+          "title":  "A Star Is Born"
+        },
+        {
+          "title":  "Casablanca"
+        },
+        {
+          "title": "A Matter of Life and Death"
+        },
+        {
+          "title":  "An American in Paris"
+        },
+        {
+          "title":  "Mean Streets"
+        },
+        {
+          "title": "The Empire Strikes Back"
+        },
+        {
+          "title": "The Turin Horse"
+        },
+        {
+          "title": "The Princess Bride"
+        },
+        {
+          "title": "This Is England"
+        },
+        {
+          "title":  "The Royal Tenenbaums"
+        },
+        {
+          "title":  "Gone with the Wind"
+        },
+        {
+          "title":  "Midnight Cowboy"
+        },
+        {
+          "title":  "Nil by Mouth"
+        },
+        {
+          "title": "Requiem for a Dream"
+        },
+        {
+          "title":  "All That Jazz"
+        },
+        {
+          "title":  "Truly Madly Deeply"
+        },
+        {
+          "title":  "Harold and Maude"
+        },
+        {
+          "title":  "Notorious"
+        },
+        {
+          "title": "Being There"
+        },
+        {
+          "title": "A Clockwork Orange"
+        },
+        {
+          "title":  "It's a Wonderful Life"
+        },
+        {
+          "title":  "The Sacrifice"
+        },
+        {
+          "title":  "One Flew Over the Cuckoo's Nest"
+        },
+        {
+          "title":  "Monster"
+        },
+        {
+          "title":  "A Streetcar Named Desire"
+        },
+        {
+          "title": "Blade Runner"
+        },
+        {
+          "title":  "The Thin Red Line"
+        },
+        {
+          "title":  "The General"
+        },
+        {
+          "title": "The Third Man"
+        },
+        {
+          "title": "[Amour]"
+        },
+        {
+          "title":  "Tender Mercies"
+        },
+        {
+          "title": "Tokyo Story"
+        },
+        {
+          "title":  "Star Wars"
+        },
+        {
+          "title": "A Room for Romeo Brass"
+        },
+        {
+          "title": "Scenes from a Marriage"
+        },
+        {
+          "title": "Naked"
+        },
+        {
+          "title": "The Goonies"
+        },
+        {
+          "title":  "Brazil"
+        },
+        {
+          "title": "Caché"
+        },
+        {
+          "title": "The Deer Hunter"
+        },
+        {
+          "title":  "The Piano"
+        },
+        {
+          "title": "The Grand Budapest Hotel"
+        },
+        {
+          "title": "Carmen Jones"
+        },
+        {
+          "title": "The African Queen"
+        },
+        {
+          "title": "The Cook, the Thief, His Wife & Her Lover"
+        },
+        {
+          "title": "Y Tu Mamá También"
+        },
+        {
+          "title": "The Hustler"
+        },
+        {
+          "title":  "Sophie's Choice"
+        },
+        {
+          "title": "Whiplash"
+        },
+        {
+          "title": "Love Actually"
+        },
+        {
+          "title": "Close Encounters of the Third Kind"
+        },
+        {
+          "title":  "Paris, Texas"
+        },
+        {
+          "title": "Persona"
+        },
+        {
+          "title":  "Crimes and Misdemeanors"
+        },
+        {
+          "title":  "The Great Beauty"
+        },
+        {
+          "title":  "Schindler’s List"
+        }
+      ]
+    }
+  ]
