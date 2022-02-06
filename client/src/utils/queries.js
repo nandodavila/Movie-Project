@@ -1,4 +1,29 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_TECH = gql`
+export const GET_ME = gql`
+query me {
+    me {
+      _id
+      username
+      email
+      password
+      quizHighScore
+      totalWatchedHours
+      watchedMovies {
+        _id
+        omdbId
+        title
+        year
+        isWatched
+      }
+      completedLists {
+        listId
+      }
+    }
+  }
+`;
+
+export const GET_LISTS = gql`
+query getLists {
+    me {
 `;
