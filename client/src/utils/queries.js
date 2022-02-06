@@ -25,5 +25,11 @@ query me {
 
 export const GET_LISTS = gql`
 query getLists {
-    me {
+    lists {
+        _id
+        name
+        message
+        badge
+        movies
+        createdBy
 `;

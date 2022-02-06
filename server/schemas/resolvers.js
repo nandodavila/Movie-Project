@@ -2,12 +2,11 @@
 
 const resolvers = {
   Query: {
-    tech: async () => {
-      return Tech.find({});
+    me: async (parent, args , context) => {
+      return User.findOne({ username: context.user.username }).populate('watchedMovies');
     },
-    matchups: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
-      return Matchup.find(params);
+    lists: async (parent, args) => {
+      return Lists.find({}).populate('movies');
     },
   },
   Mutation: {
