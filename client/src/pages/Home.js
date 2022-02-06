@@ -6,7 +6,6 @@ let apiKey = '8ffb7060';
 const Home = () => {
   const [title, setTitle] = useState('');
   const [year, setYear] = useState('');
-  const [results, setResults] = useState('');
 
   const handleInputChange = (e) => {
     // Getting the value and name of the input which triggered the change
@@ -14,7 +13,6 @@ const Home = () => {
     const inputType = target.name;
     const inputValue = target.value;
 
-    // Based on the input type, we set the state of either email, username, and password
     if (inputType === 'title') {
       setTitle(inputValue);
     } else {
@@ -22,25 +20,25 @@ const Home = () => {
     };
   }
 
-  function apiCall()
+  function apiCall(event)
   {
+    event.preventDefault();
     fetch(`http://www.omdbapi.com/?apikey=${apiKey}&type=movie&s=${title}&r=json&y=${year}`)
     .then(response => response.json())
     .then(data => {
-        console.log(data)
-        setResults('');
+        document.getElementById('searchResults').innerHTML = '';
+        let movieResults = '';
         data.Search.forEach(element => {
-           setResults(`<div> <img src="${element.Poster}" alt="Poster" width="500" height="600"> <div> ${element.Title} </div> <div> ${element.Type} </div> <div> ${element.Year} </div> </div>`) 
+           movieResults += `<div> <img src="${element.Poster}" alt="Poster" width="500" height="600"> <div> ${element.Title} </div> <div> ${element.Type} </div> <div> ${element.Year} </div> </div>` 
         });
+        document.getElementById('searchResults').innerHTML = movieResults;
     });
   }
 
   return (
-    <div>
-        <fieldset>
-            <legend>By Title</legend>
-        </fieldset>
-        <div>
+    <form className='container d-flex flex-column justify-content-center align-items-center ml-auto'>
+        <h1>Search By Title & Year</h1>
+        <div className='row form-group'>
             <label 
               className="control-label" >
                 Title:
@@ -52,7 +50,7 @@ const Home = () => {
               id="title" 
               name="title"
               placeholder="Title" 
-              className="input-small"/>
+              className="form-control justify-content-center align-items-center"/>
             <label 
               class="control-label" >
                 Year:
@@ -64,11 +62,11 @@ const Home = () => {
               id="year" 
               name="year"
               placeholder="Year" 
-              className="input-small"/>
+              className="form-control justify-content-center align-items-center"/>
             <button 
               id="search-by-title-button" 
-              type="button" 
-              className="btn-sm btn-primary"
+              type="submit" 
+              className="btn justify-content-center align-items-center"
               onClick={apiCall}>
                 
                 Search
@@ -76,9 +74,9 @@ const Home = () => {
         </div>
         <div 
           id="searchResults">
-            {results}
+            
         </div>
-    </div>
+    </form>
   );
   };
 export default Home;
