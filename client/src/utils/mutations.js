@@ -1,4 +1,4 @@
 import { gql } from '@apollo/client';
-// change muttation name
+// change mutation name
 export const CREATE_MATCHUP = gql`
 `;

@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Home from './pages/Home';
-// import Matchup from './pages/Matchup';
+import Dashboard from './pages/Dashboard';
 // import Vote from './pages/Vote';
 // import NotFound from './pages/NotFound';
 
@@ -21,10 +21,10 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            {/* <Route exact path="/matchup">
-              <Matchup />
+            <Route exact path="/dashboard">
+              <Dashboard />
             </Route>
-            <Route exact path="/matchup/:id">
+            {/* <Route exact path="/matchup/:id">
               <Vote />
             </Route>
             <Route>
