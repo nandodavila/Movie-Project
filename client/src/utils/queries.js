@@ -32,4 +32,6 @@ query getLists {
         badge
         movies
         createdBy
+    }
+}
 `;

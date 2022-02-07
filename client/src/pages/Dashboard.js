@@ -1,7 +1,5 @@
 import React from 'react';
 import '../styles/Dashboard.css';
-import { useQuery } from '@apollo/client';
-import { GET_ME, GET_LISTS } from '../utils/queries';
 import QuizPanel from '../components/QuizPanel';
 import ListPanel from '../components/ListPanel';
 import BadgesPanel from '../components/BadgesPanel';
