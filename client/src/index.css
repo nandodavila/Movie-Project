@@ -1,0 +1,20 @@
+body{
+  background-color: #314E52;
+  height: 100vh;
+}
+
+
+.imgContainer {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.centered {
+  background-color: #314E52;
+  color: #F2A154;
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, -50%);
+}
