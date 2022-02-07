@@ -13,6 +13,7 @@ const BadgesPanel = ({ badges }) => {
     const setBadgeImage = () => {
         let completedMovieList = [];
         let hideBadgeImage = `image_tag Rails.root.join('public', 'images', 'Hidden-Badge.png')`;
+        console.log(listData);
         listData.forEach((listItem) => {
             let badgeImg = hideBadgeImage;
             let badgeId = listItem._id;
