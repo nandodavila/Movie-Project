@@ -6,383 +6,587 @@
       "createdBy": "chaos",
       "movies": [
         {
-          "title": "Face/Off"
+          "title": "Face/Off",
+          "year":"1997",
+          "ombdId": "tt0119094"
 
         },
         {
-          "title": "The Rock"
+          "title": "The Rock",
+          "year":"1996",
+          "ombdId": "tt0117500"
         },
         {
-          "title": "Con Air"
+          "title": "Con Air",
+          "year":"1997",
+          "ombdId": "tt0118880"
         }
       ]
     },
     {
       "name": "Mini-List: The WWII List",
       "message": "This was your finest 6 hours!",
-      "badge": "img",
+      "badge": "image_tag Rails.root.join('public', 'images', 'WWII.png')",
       "createdBy": "chaos",
       "movies": [
         {
-          "title": "The Kings Speech"
+          "title": "The King's Speech",
+          "year":"2010",
+          "ombdId": "tt1504320"
         },
         {
-          "title": "Darkest Hour"
+          "title": "Darkest Hour",
+          "year":"2017",
+          "ombdId": "tt4555426"
         },
         {
-          "title": "Dunkirk"
+          "title": "Dunkirk",
+          "year":"2017",
+          "ombdId": "tt5013056"
         },
         {
-          "title": "Saving Private Ryan"
+          "title": "Saving Private Ryan",
+          "year":"1998",
+          "ombdId": "tt0120815"
         },
         {
-          "title": "Fury"
+          "title": "Fury",
+          "year":"2014",
+          "ombdId": "tt2713180"
         }
       ]
     },
     {
       "name": "Mini-List: Cop Trapped in a Building Full of Bad Guys Trilogy",
       "message": "Come watch on the couch, have a few laughs...",
-      "badge": "",
+      "badge":  "image_tag Rails.root.join('public', 'images', 'Cop-Trapped-in-a Building-Full-of-Bad-Guys-Trilogy.png')",
       "createdBy": "chaos",
       "movies": [
         {
-          "title": "Die Hard"
+          "title": "Die Hard",
+          "year":"1988",
+          "ombdId": "tt0095016"
         },
         {
-          "title": "The Raid"
+          "title": "The Raid",
+          "year":"2011",
+          "ombdId": "tt1899353"
         },
         {
-          "title": "Dredd"
+          "title": "Dredd",
+          "year":"2012",
+          "ombdId": "tt1343727"
         }
       ]
     },
     {
       "name": "Mini-List: Tom Cruise as a Bad Guy Trilogy",
       "message": "He really can play a bad guy!",
-      "badge": "",
+      "badge":  "image_tag Rails.root.join('public', 'images', 'Bad-Tom-Cruise.png')",
       "createdBy": "chaos",
       "movies": [
         {
-          "title": "Interview with the Vampire"
+          "title": "Interview with the Vampire",
+          "year":"1994",
+          "ombdId": "tt0110148"
         },
         {
-          "title": "Collateral"
+          "title": "Collateral",
+          "year":"2004",
+          "ombdId": "tt0369339"
         },
         {
-          "title": "Tropic Thunder"
+          "title": "Tropic Thunder",
+          "year":"2008",
+          "ombdId": "tt0942385"
         }
       ]
     },
     {
       "name": "Mini-List: Crime Drive List",
       "message": "You ever heard the story about the scorpion and the frog?",
-      "badge": "",
+      "badge":  "image_tag Rails.root.join('public', 'images', 'Crime-Drive.png')",
       "createdBy": "chaos",
       "movies": [
         {
-          "title": "Collateral"
+          "title": "Collateral",
+          "year":"2004",
+          "ombdId": "tt0369339"
         },
         {
-          "title": "Nightcrawler"
+          "title": "Nightcrawler",
+          "year":"2014",
+          "ombdId": "tt2872718"
         },
         {
-          "title": "Drive"
+          "title": "Drive",
+          "year":"2011",
+          "ombdId": "tt0780504"
         },
         {
-          "title": "Thief"
+          "title": "Thief",
+          "year":"1981",
+          "ombdId": "tt0083190"
         },
         {
-          "title": "Heat"
+          "title": "Heat",
+          "year":"1995",
+          "ombdId": "tt0113277"
         }
       ]
     },
     {
       "name": "Worst Movies of 2000s List",
       "message": "This has to be the longest list here...figuratively",
-      "badge": "",
+      "badge":  "image_tag Rails.root.join('public', 'images', 'Worst-2000.png')",
       "createdBy": "chaos",
       "movies": [
         {
-          "title": "Battlefield Earth"
+          "title": "Battlefield Earth",
+          "year":"2000",
+          "ombdId": "tt0185183"
         },
         {
-          "title": "Honest"
+          "title": "Honest",
+          "year":"2000",
+          "ombdId": "tt0192126"
         },
         {
-          "title": "Titanic: The Legend Goes On"
+          "title": "Titanic: The Legend Goes On",
+          "year":"2000",
+          "ombdId": "tt0330994"
         },
         {
-          "title": "Freddy Got Fingered"
+          "title": "Freddy Got Fingered",
+          "year":"2001",
+          "ombdId": "tt0240515"
         },
         {
-          "title": "Glitter"
+          "title": "Glitter",
+          "year":"2001",
+          "ombdId": "tt0118589"
         },
         {
-          "title": "Swept Away"
+          "title": "Swept Away",
+          "year":"2002",
+          "ombdId": "tt0291502"
         },
         {
-          "title": "The Master of Disguise"
+          "title": "The Master of Disguise",
+          "year":"2002",
+          "ombdId": "tt0295427"
         },
         {
-          "title": "Ballistic: Ecks vs. Sever"
+          "title": "Ballistic: Ecks vs. Sever",
+          "year":"2002",
+          "ombdId": "tt0308208"
         },
         {
-          "title": "Ben and Arthur"
+          "title": "Ben & Arthur",
+          "year":"2002",
+          "ombdId": "tt0364986"
         },
         {
-          "title": "From Justin to Kelly"
+          "title": "From Justin to Kelly",
+          "year":"2003",
+          "ombdId": "tt0339034"
         },
         {
-          "title": "The Room"
+          "title": "The Room",
+          "year":"2003",
+          "ombdId": "tt0368226"
         },
         {
-          "title": "Gigli"
+          "title": "Gigli",
+          "year":"2003",
+          "ombdId": "tt0299930"
         },
         {
-          "title": "Sex Lives of the Potato Men"
+          "title": "Sex Lives of the Potato Men",
+          "year":"2004",
+          "ombdId": "tt0368259"
         },
         {
-          "title": "Catwoman"
+          "title": "Catwoman",
+          "year":"2004",
+          "ombdId": "tt0327554"
         },
         {
-          "title": "Daniel – Der Zauberer(Daniel – The Wizard)"
+          "title": "Daniel Der Zauberer(Daniel The Wizard)",
+          "year":"2004",
+          "ombdId": "tt0421051"
         },
         {
-          "title": "Superbabies: Baby Geniuses 2"
+          "title": "Superbabies: Baby Geniuses 2",
+          "year":"2004",
+          "ombdId": "tt0270846"
         },
         {
-          "title": "Alone in the Dark"
+          "title": "Alone in the Dark",
+          "year":"2005",
+          "ombdId": "tt0369226"
         },
         {
-          "title":  "Aag"
+          "title":  "Aag",
+          "year":"2007",
+          "ombdId": "tt0473310"
         },
         {
-          "title": "Epic Movie"
+          "title": "Epic Movie",
+          "year":"2007",
+          "ombdId": "tt0799949"
         },
         {
-          "title": "I Know Who Killed Me"
+          "title": "I Know Who Killed Me",
+          "year":"2007",
+          "ombdId": "tt0897361"
         },
         {
-          "title": "Meet the Spartans"
+          "title": "Meet the Spartans",
+          "year":"2008",
+          "ombdId": "tt1073498"
         },
         {
-          "title":  "Disaster Movie"
+          "title":  "Disaster Movie",
+          "year":"2008",
+          "ombdId": "tt1213644"
         },
         {
-          "title": "The Hottie and the Nottie"
+          "title": "The Hottie & the Nottie",
+          "year":"2008",
+          "ombdId": "tt0804492"
         },
         {
-          "title": "Birdemic: Shock and Terror"
+          "title": "Birdemic: Shock and Terror",
+          "year":"2010",
+          "ombdId": "tt1316037"
         },
         {
-          "title": "The Last Airbender"
+          "title": "The Last Airbender",
+          "year":"2010",
+          "ombdId": "tt0938283"
         },
         {
-          "title": "Bucky Larson: Born to Be a Star"
+          "title": "Bucky Larson: Born to Be a Star",
+          "year":"2011",
+          "ombdId": "tt1411664"
         },
         {
-          "title": "Jack and Jill"
+          "title": "Jack and Jill",
+          "year":"2011",
+          "ombdId": "tt0810913"
         },
         {
-          "title": "That's My Boy"
+          "title": "That's My Boy",
+          "year":"2012",
+          "ombdId": "tt1232200"
         },
         {
-          "title": "Foodfight!"
+          "title": "Foodfight!",
+          "year":"2012",
+          "ombdId": "tt0249516"
         },
         {
-          "title": "Run for Your Wife"
+          "title": "Run for Your Wife",
+          "year":"2012",
+          "ombdId": "tt1965057"
         },
         {
-          "title": "Movie 43"
+          "title": "Movie 43",
+          "year":"2013",
+          "ombdId": "tt1333125"
         },
         {
-          "title": "Fateful Findings"
+          "title": "Fateful Findings",
+          "year":"2013",
+          "ombdId": "tt2332623"
         },
         {
-          "title": "Humshakals"
+          "title": "Humshakals",
+          "year":"2014",
+          "ombdId": "tt3036740"
         },
         {
-          "title": "Kidnapping, Caucasian Style!"
+          "title": "Kidnapping, Caucasian Style!",
+          "year":"2014",
+          "ombdId": "tt4537362"
         },
         {
-          "title": "Saving Christmas"
+          "title": "Saving Christmas",
+          "year":"2014",
+          "ombdId": "tt4009460"
         },
         {
-          "title": "United Passions"
+          "title": "United Passions",
+          "year":"2014",
+          "ombdId": "tt2814362"
         },
         {
-          "title": "Dirty Grandpa"
+          "title": "Dirty Grandpa",
+          "year":"2016",
+          "ombdId": "tt1860213"
         },
         {
-          "title": "Guardians"
+          "title": "Guardians",
+          "year":"2017",
+          "ombdId": "tt6213362"
         },
         {
-          "title": "Cats"
+          "title": "Cats",
+          "year":"2019",
+          "ombdId": "tt5697572"
         },
         {
-          "title": "365 Days"
+          "title": "365 Days",
+          "year":"2020",
+          "ombdId": "tt10886166"
         }
       ]
     },
     {
       "name": "Worst Movies of the 80s & 90s",
       "message": "This is why millenials are so angry",
-      "badge": "",
+      "badge":  "image_tag Rails.root.join('public', 'images', 'Worst-80-90.png')",
       "createdBy": "chaos",
       "movies": [
         {
-          "title": "Heaven's Gate"
+          "title": "Heaven's Gate",
+          "year":"1980",
+          "ombdId": "tt0080855"
         },
         {
-          "title": "The Apple"
+          "title": "The Apple",
+          "year": "1980",
+          "ombdId":  "tt0080380"
         },
         {
-          "title": "Inchon"
+          "title": "Inchon",
+          "year":  "1981",
+          "ombdId":  "tt0084132"
         },
         {
-          "title": "Tarzan, the Ape Man"
+          "title": "Tarzan, the Ape Man",
+          "year":  "1981",
+          "ombdId":  "tt0083170"
         },
         {
-          "title": "Mommie Dearest"
+          "title": "Mommie Dearest",
+          "year":  "1981",
+          "ombdId":  "tt0082766"
         },
         {
-          "title": "Dünyayı Kurtaran Adam"
+          "title": "Dünyayı Kurtaran Adam",
+          "year":  "",
+          "ombdId":  ""
         },
         {
-          "title": "The Lonely Lady"
+          "title": "The Lonely Lady",
+          "year": "1983",
+          "ombdId":  "tt0085863"
         },
         {
-          "title": "Bolero"
+          "title": "Bolero",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Howard the Duck"
+          "title": "Howard the Duck",
+          "year": "1986",
+          "ombdId":  "tt0091225"
         },
         {
-          "title": "Ishtar"
+          "title": "Ishtar",
+          "year": "1987",
+          "ombdId":  "tt0093278"
         },
         {
-          "title": "Nukie"
+          "title": "Nukie",
+          "year": "1987",
+          "ombdId":"tt0107715"
         },
         {
-          "title": "Superman IV: The Quest for Peace"
+          "title": "Superman IV: The Quest for Peace",
+          "year": "1987",
+          "ombdId":  "tt0094074"
         },
         {
-          "title": "The Garbage Pail Kids Movie"
+          "title": "The Garbage Pail Kids Movie",
+          "year": "1987",
+          "ombdId":  "tt0093072"
         },
         {
-          "title": "Leonard Part 6"
+          "title": "Leonard Part 6",
+          "year": "1987",
+          "ombdId":  "tt0093405"
         },
         {
-          "title": "Caddyshack II"
+          "title": "Caddyshack II",
+          "year": "1988",
+          "ombdId":  "tt0094824"
         },
         {
-          "title": "Hobgoblins"
+          "title": "Hobgoblins",
+          "year": "1988",
+          "ombdId":  "tt0089280"
         },
         {
-          "title": "Mac and Me"
+          "title": "Mac and Me",
+          "year": "1988",
+          "ombdId":  "tt0095560"
         },
         {
-          "title": "Things"
+          "title": "Things",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Troll 2"
+          "title": "Troll 2",
+          "year": "1990",
+          "ombdId":  "tt0105643"
         },
         {
-          "title": "Highlander II: The Quickening"
+          "title": "Highlander II: The Quickening",
+          "year": "1991",
+          "ombdId":  "tt0102034"
         },
         {
-          "title": "Cattive ragazze"
+          "title": "Cattive ragazze",
+          "year": "1992",
+          "ombdId":  "tt0161404"
         },
         {
-          "title": "North"
+          "title": "North",
+          "year": "1994",
+          "ombdId":  "tt0110687"
         },
         {
-          "title": "Dis – en historie om kjærlighet,"
+          "title": "Dis – en historie om kjærlighet,",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Showgirls"
+          "title": "Showgirls",
+          "year": "1995",
+          "ombdId":  "tt0114436"
         },
         {
-          "title": "The Scarlet Letter"
+          "title": "The Scarlet Letter",
+          "year": "1995",
+          "ombdId":  "tt0114345"
         },
         {
-          "title": "Striptease"
+          "title": "Striptease",
+          "year": "1996",
+          "ombdId":  "tt0117765"
         },
         {
-          "title": "Le Jour et la Nuit"
+          "title": "Le Jour et la Nuit",
+          "year": "1995",
+          "ombdId":  "tt0400560"
         },
         {
-          "title": "Batman & Robin"
+          "title": "Batman & Robin",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "The Avengers"
+          "title": "The Avengers",
+          "year": "1998",
+          "ombdId":  "tt0118661"
         },
         {
-          "title": "Cinderela Baiana"
+          "title": "Cinderela Baiana",
+          "year": "1998",
+          "ombdId":  "tt0285479"
         },
         {
-          "title": "Fatal Deviation"
+          "title": "Fatal Deviation",
+          "year": "1998",
+          "ombdId":  "tt0488046"
         },
         {
-          "title": "Parting Shots"
+          "title": "Parting Shots",
+          "year": "1998",
+          "ombdId":  "tt0123215"
         },
         {
-          "title": "The Underground Comedy Movie"
+          "title": "The Underground Comedy Movie",
+          "year": "1999",
+          "ombdId":  "tt0201290"
         }
       ]
     },
     {
       "name": "Mini-List: How far has Spacey fallen List",
       "message": "This is why we can't have nice things...",
-      "badge": "",
+      "badge":  "image_tag Rails.root.join('public', 'images', 'Spacey-Fallen.png')",
       "createdBy": "chaos",
       "movies": [
         {
-          "title": "American Beauty"
+          "title": "American Beauty",
+          "year": "1999",
+          "ombdId":  "tt0169547"
         },
         {
-          "title": "The Usual Suspects"
+          "title": "The Usual Suspects",
+          "year": "1995",
+          "ombdId": "tt0114814"
         },
         {
-          "title": "Seven"
+          "title": "Seven",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "All The Money In The World"
+          "title": "All The Money In The World",
+          "year": "2017",
+          "ombdId":  "tt5294550"
         }
       ]
     },
     {
       "name": "Mini-List: I'm not that but I play one on the big screen Trilogy",
       "message": "A dude disguised as a dude playing another dude",
-      "badge": "",
+      "badge":  "image_tag Rails.root.join('public', 'images', 'Play-One-On-The-Big-Screen.png')",
       "createdBy": "chaos",
       "movies": [
         {
-          "title": "The Three Amigos"
+          "title": "The Three Amigos",
+          "year": "2003",
+          "ombdId":  "tt0301934"
         },
         {
-          "title": "Galaxy Quest"
+          "title": "Galaxy Quest",
+          "year": "1999",
+          "ombdId":  "tt0177789"
         },
         {
-          "title": "Tropic Thunder"
+          "title": "Tropic Thunder",
+          "year": "2008",
+          "ombdId":  "tt0942385"
         }
       ]
     },
     {
       "name": "Mini-List: 'Official' Apocalypse Trilogy",
-      "message": "",
-      "badge": "",
+      "message":  "The end is nigh",
+      "badge":  "image_tag Rails.root.join('public', 'images', 'Apocalypse.png')",
       "createdBy": "chaos",
       "movies": [
         {
-          "title": "The Thing"
+          "title": "The Thing",
+          "year": "1982",
+          "ombdId":  "tt0084787"
         },
         {
-          "title": "Prince of Darkness"
+          "title": "Prince of Darkness",
+          "year": "1987",
+          "ombdId":  "tt0093777"
         },
         {
-          "title": "In the Mouth of Madness"
+          "title": "In the Mouth of Madness",
+          "year": "1994",
+          "ombdId":  "tt0113409"
         }
       ]
     },
@@ -393,304 +597,504 @@
       "createdBy": "chaos",
       "movies": [
         {
-          "title": "Blade Runner"
+          "title": "Blade Runner",
+          "year": "1982",
+          "ombdId":  "tt0083658"
         },
         {
-          "title": "2001: A Space Odyssey"
+          "title": "2001: A Space Odyssey",
+          "year": "1968",
+          "ombdId":  "tt0062622"
         },
         {
-          "title": "Star Wars"
+          "title": "Star Wars: Episode IV - A New Hope",
+          "year": "1977",
+          "ombdId":  "tt0076759"
         },
         {
-          "title": "Alien"
+          "title": "Alien",
+          "year": "1979",
+          "ombdId":  "tt0078748"
         },
         {
-          "title": "Metropolis"
+          "title": "Metropolis",
+          "year": "1927",
+          "ombdId":  "tt0017136"
         },
         {
-          "title": "The Day the Earth Stood Still"
+          "title": "The Day the Earth Stood Still",
+          "year": "2008",
+          "ombdId":  "tt0970416"
         },
         {
-          "title": "The Terminator"
+          "title": "The Terminator",
+          "year": "1984",
+          "ombdId":  "tt0088247"
         },
         {
-          "title": "Planet of the Apes"
+          "title": "Planet of the Apes",
+          "year": "1968",
+          "ombdId":  "tt0063442"
         },
         {
-          "title": "E.T., the Extra-Terrestrial"
+          "title": "E.T., the Extra-Terrestrial",
+          "year": "1982",
+          "ombdId":  "tt0083866"
         },
         {
-          "title": "Solaris"
+          "title": "Solaris",
+          "year": "1972",
+          "ombdId":  "tt0069293"
         },
         {
-          "title": "Close Encounters of the Third Kind"
+          "title": "Close Encounters of the Third Kind",
+          "year": "1977",
+          "ombdId":  "tt0075860"
         },
         {
-          "title": "Forbidden Planet"
+          "title": "Forbidden Planet",
+          "year": "1956",
+          "ombdId":  "tt0049223"
         },
         {
-          "title": "The Empire Strikes Back"
+          "title": "Star Wars: Episode V - The Empire Strikes Back",
+          "year": "1980",
+          "ombdId":  "tt0080684"
         },
         {
-          "title": "A Trip To the Moon"
+          "title": "A Trip To the Moon",
+          "year": "1902",
+          "ombdId":  "tt0000417"
         },
         {
-          "title": "Aliens"
+          "title": "Aliens",
+          "year": "1986",
+          "ombdId":  "tt0090605"
         },
         {
-          "title": "Silent Running"
+          "title": "Silent Running",
+          "year": "1972",
+          "ombdId":  "tt0067756"
         },
         {
-          "title": "Brazil"
+          "title": "Brazil",
+          "year": "1985",
+          "ombdId":  "tt0088846"
         },
         {
-          "title": "Akira"
+          "title": "Akira",
+          "year": "1988",
+          "ombdId":  "tt0094625"
         },
         {
-          "title": "Star Trek II: The Wrath of Khan"
+          "title": "Star Trek II: The Wrath of Khan",
+          "year": "1982",
+          "ombdId":  "tt0084726"
         },
         {
-          "title": "Total Recall"
+          "title": "Total Recall",
+          "year": "1990",
+          "ombdId":  "tt0100802"
         },
         {
-          "title": "The Matrix"
+          "title": "The Matrix",
+          "year": "1999",
+          "ombdId":  "tt0133093"
         },
         {
-          "title": "Tron"
+          "title": "Tron",
+          "year": "1982",
+          "ombdId":  "tt0084827"
         },
         {
-          "title": "The Thing"
+          "title": "The Thing",
+          "year": "1982",
+          "ombdId":  "tt0084787"
         },
         {
-          "title": "Robocop"
+          "title": "Robocop",
+          "year": "1987",
+          "ombdId":  "tt0093870"
         },
         {
-          "title": "Jurassic Park"
+          "title": "Jurassic Park",
+          "year": "1993",
+          "ombdId":  "tt0107290"
         },
         {
-          "title": "Invasion of the Body Snatchers"
+          "title": "Invasion of the Body Snatchers",
+          "year": "1978",
+          "ombdId":  "tt0077745"
         },
         {
-          "title": "A Clockwork Orange"
+          "title": "A Clockwork Orange",
+          "year": "1971",
+          "ombdId":  "tt0066921"
         },
         {
-          "title": "The Fifth Element"
+          "title": "The Fifth Element",
+          "year": "1997",
+          "ombdId":"tt2006691"
         },
         {
-          "title": "La Jetee"
+          "title": "La Jetee",
+          "year": "1962",
+          "ombdId":  "tt0056119"
         },
         {
-          "title": "Sleeper"
+          "title": "Sleeper",
+          "year": "1973",
+          "ombdId":  "tt0070707"
         },
         {
-          "title": "The Fly"
+          "title": "The Fly",
+          "year": "1986",
+          "ombdId":  "tt0091064"
         },
         {
-          "title": "Terminator 2: Judgment Day"
+          "title": "Terminator 2: Judgment Day",
+          "year": "1991",
+          "ombdId":  "tt0103064"
         },
         {
-          "title": "Westworld"
+          "title": "Westworld",
+          "year":"1973",
+          "ombdId":  "tt0070909"
         },
         {
-          "title": "The Road Warrior"
+          "title": "The Road Warrior",
+          "year":"1981",
+          "ombdId":  "tt0082694"
         },
         {
-          "title": "Return of the Jedi"
+          "title": "Star Wars: Episode VI - Return of the Jedi",
+          "year": "1983",
+          "ombdId":  "tt0086190"
         },
         {
-          "title": "Back To the Future"
+          "title": "Back To the Future",
+          "year": "1985",
+          "ombdId":  "tt0088763"
         },
         {
-          "title": "WALL*E"
+          "title": "WALL*E",
+          "year": "2008",
+          "ombdId":  "tt0910970"
         },
         {
-          "title": "Fantastic Planet"
+          "title": "Fantastic Planet",
+          "year": "1973",
+          "ombdId":  "tt0070544"
         },
         {
-          "title": "The Man Who Fell To Earth"
+          "title": "The Man Who Fell To Earth",
+          "year": "1976",
+          "ombdId":  "tt0074851"
         },
         {
-          "title": "Things To Come"
+          "title": "Things To Come",
+          "year":"1936",
+          "ombdId":  "tt0028358"
         },
         {
-          "title": "20 Million Miles To Earth"
+          "title": "20 Million Miles To Earth",
+          "year": "1957",
+          "ombdId":  "tt0050084"
         },
         {
-          "title": "The Abyss"
+          "title": "The Abyss",
+          "year": "1989",
+          "ombdId":  "tt0096754"
         },
         {
-          "title": "Quatermass 2"
+          "title": "Quatermass 2",
+          "year": "1957",
+          "ombdId":  "tt0050873"
         },
         {
-          "title": "This Island Earth"
+          "title": "This Island Earth",
+          "year": "1955",
+          "ombdId":  "tt0047577"
         },
         {
-          "title": "Eternal Sunshine of the Spotless Mind"
+          "title": "Eternal Sunshine of the Spotless Mind",
+          "year": "2004",
+          "ombdId":  "tt0338013"
         },
         {
-          "title": "Delicatessen"
+          "title": "Delicatessen",
+          "year":"1991",
+          "ombdId":  "tt0101700"
         },
         {
-          "title": "Dark Star"
+          "title": "Dark Star",
+          "year": "1974",
+          "ombdId":  "tt0069945"
         },
         {
-          "title": "The Andromeda Strain"
+          "title": "The Andromeda Strain",
+          "year": "1971",
+          "ombdId":  "tt0066769"
         },
         {
-          "title": "The Omega Man"
+          "title": "The Omega Man",
+          "year": "1971",
+          "ombdId":  "tt0067525"
         },
         {
-          "title": "Stalker"
+          "title": "Stalker",
+          "year": "1979",
+          "ombdId":  "tt0079944"
         },
         {
-          "title": "Tetsuo: The Iron Man"
+          "title": "Tetsuo: The Iron Man",
+          "year": "1989",
+          "ombdId":  "tt0096251"
         },
         {
-          "title": "Escape From New York"
+          "title": "Escape From New York",
+          "year": "1981",
+          "ombdId":  "tt0082340"
         },
         {
-          "title": "The Invisible Man"
+          "title": "The Invisible Man",
+          "year": "1933",
+          "ombdId":  "tt0024184"
         },
         {
-          "title": "It Came From Outer Space"
+          "title": "It Came From Outer Space",
+          "year": "1953",
+          "ombdId": "tt0045920"
         },
         {
-          "title": "Godzilla"
+          "title": "Godzilla",
+          "year": "1954",
+          "ombdId":  "tt0047034"
         },
         {
-          "title": "Invasion of the Body Snatchers"
+          "title": "Invasion of the Body Snatchers",
+          "year": "1933",
+          "ombdId":  "tt0024184"
         },
         {
-          "title": "Minority Report"
+          "title": "Minority Report",
+          "year": "2002",
+          "ombdId":  "tt0181689"
         },
         {
-          "title": "Alphaville"
+          "title": "Alphaville",
+          "year": "1965",
+          "ombdId":  "tt0058898"
         },
         {
-          "title": "Gattaca"
+          "title": "Gattaca",
+          "year": "1997",
+          "ombdId":  "tt0119177"
         },
         {
-          "title": "The Fountain"
+          "title": "The Fountain",
+          "year": "2006",
+          "ombdId":  "tt0414993"
         },
         {
-          "title": "Them!"
+          "title": "Them!",
+          "year": "1954",
+          "ombdId":  "tt0047573"
         },
         {
-          "title": "Videodrome"
+          "title": "Videodrome",
+          "year": "1983",
+          "ombdId":  "tt0086541"
         },
         {
-          "title": "Logan's Run"
+          "title": "Logan's Run",
+          "year": "1976",
+          "ombdId":  "tt0074812"
         },
         {
-          "title": "Ghost In the Shell"
+          "title": "Ghost In the Shell",
+          "year": "2017",
+          "ombdId":  "tt1219827"
         },
         {
-          "title": "Repo Man"
+          "title": "Repo Man",
+          "year": "1984",
+          "ombdId":  "tt0087995"
         },
         {
-          "title":  "Children of Men"
+          "title":  "Children of Men",
+          "year": "2006",
+          "ombdId":  "tt0206634"
         },
         {
-          "title": "Star Trek VI: The Undiscovered Country"
+          "title": "Star Trek VI: The Undiscovered Country",
+          "year": "1991",
+          "ombdId":  "tt0102975"
         },
         {
-          "title": "Outland"
+          "title": "Outland",
+          "year": "1981",
+          "ombdId":  "tt0082869"
         },
         {
-          "title": "A Boy and His Dog"
+          "title": "A Boy and His Dog",
+          "year": "1975",
+          "ombdId":  "tt0072730"
         },
         {
-          "title": "Mad Max"
+          "title": "Mad Max",
+          "year": "1979",
+          "ombdId":  "tt0079501"
         },
         {
-          "title":  "Donnie Darko"
+          "title":  "Donnie Darko",
+          "year": "2001",
+          "ombdId":  "tt0246578"
         },
         {
-          "title": "Soylent Green"
+          "title": "Soylent Green",
+          "year": "1973",
+          "ombdId":  "tt0070723"
         },
         {
-          "title":  "Cube"
+          "title":  "Cube",
+          "year": "1997",
+          "ombdId":  "tt0123755"
         },
         {
-          "title": "Moon"
+          "title": "Moon",
+          "year": "2009",
+          "ombdId":  "tt1182345"
         },
         {
-          "title":  "Dark City"
+          "title":  "Dark City",
+          "year": "1998",
+          "ombdId":  "tt0118929"
         },
         {
-          "title":  "Starship Troopers"
+          "title":  "Starship Troopers",
+          "year": "1997",
+          "ombdId":  "tt0120201"
         },
         {
-          "title": "A Scanner Darkly"
+          "title": "A Scanner Darkly",
+          "year": "2006",
+          "ombdId":  "tt0405296"
         },
         {
-          "title": "The Quiet Earth"
+          "title": "The Quiet Earth",
+          "year": "1985",
+          "ombdId":  "tt0089869"
         },
         {
-          "title": "Invaders From Mars"
+          "title": "Invaders From Mars",
+          "year":"1986",
+          "ombdId": "tt0091276"
         },
         {
-          "title": "Fantastic Voyage"
+          "title": "Fantastic Voyage",
+          "year": "1966",
+          "ombdId":  "tt0060397"
         },
         {
-          "title": "Barbarella"
+          "title": "Barbarella",
+          "year": "1968",
+          "ombdId":  "tt0062711"
         },
         {
-          "title": "Fahrenheit 451"
+          "title": "Fahrenheit 451",
+          "year":"1966",
+          "ombdId": "tt0060390"
         },
         {
-          "title": "Twelve Monkeys"
+          "title": "12 Monkeys",
+          "year": "1995",
+          "ombdId":  "tt0114746"
         },
         {
-          "title": "Event Horizon"
+          "title": "Event Horizon",
+          "year": "1997",
+          "ombdId": "tt0119081"
         },
         {
-          "title": "Independence Day"
+          "title": "Independence Day",
+          "year": "1996",
+          "ombdId":  "tt0116629"
         },
         {
-          "title": "Altered States"
+          "title": "Altered States",
+          "year": "1980",
+          "ombdId":"tt0080360"
         },
         {
-          "title":  "The Stepford Wives"
+          "title":  "The Stepford Wives",
+          "year": "2004",
+          "ombdId":  "tt0327162"
         },
         {
-          "title":  "Serenity"
+          "title":  "Serenity",
+          "year": "2019",
+          "ombdId":  "tt6476140"
         },
         {
-          "title":  "Dune"
+          "title":  "Dune",
+          "year": "1984",
+          "ombdId":  "tt0087182"
         },
         {
-          "title":  "Primer"
+          "title":  "Primer",
+          "year": "2004",
+          "ombdId":  "tt0390384"
         },
         {
-          "title": "Explorers"
+          "title": "Explorers",
+          "year": "1985",
+          "ombdId":  "tt0089114"
         },
         {
-          "title":  "THX 1138"
+          "title":  "THX 1138",
+          "year": "1971",
+          "ombdId":  "tt0066434"
         },
         {
-          "title": "Star Trek"
+          "title": "Star Trek",
+          "year": "2009",
+          "ombdId":  "tt0796366"
         },
         {
-          "title": "Flash Gordon"
+          "title": "Flash Gordon",
+          "year": "1980",
+          "ombdId":  "tt0080745"
         },
         {
-          "title":  "Galaxy Quest"
+          "title":  "Galaxy Quest",
+          "year": "1999",
+          "ombdId":  "tt0177789"
         },
         {
-          "title": "Cocoon"
+          "title": "Cocoon",
+          "year": "1985",
+          "ombdId":  "tt0088933"
         },
         {
-          "title": "Stargate"
+          "title": "Stargate",
+          "year": "1994",
+          "ombdId":  "tt0111282"
         },
         {
-          "title":  "Predator"
+          "title":  "Predator",
+          "year": "1987",
+          "ombdId": "tt0093773"
         },
         {
-          "title":  "Trancers"
+          "title":  "Trancers",
+          "year": "1984",
+          "ombdId": "tt0090192"
         },
         {
-          "title": "Rollerball"
+          "title": "Rollerball",
+          "year": "2002",
+          "ombdId":  "tt0246894"
         }
       ]
     },
@@ -701,304 +1105,506 @@
       "createdBy": "chaos",
       "movies": [
         {
-          "title":  "Tootsie"
+          "title":  "Tootsie",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "The Godfather"
+          "title": "The Godfather",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "A Woman Under the Influence"
+          "title": "A Woman Under the Influence",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "Cinema Paradiso"
+          "title":  "Cinema Paradiso",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "To Kill a Mockingbird"
+          "title": "To Kill a Mockingbird",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "The Godfather: Part II"
+          "title": "The Godfather: Part II",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Annie Hall"
+          "title": "Annie Hall",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Boogie Nights"
+          "title": "Boogie Nights",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "The Red Shoes"
+          "title": "The Red Shoes",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "Taxi Driver"
+          "title":  "Taxi Driver",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Dog Day Afternoon"
+          "title": "Dog Day Afternoon",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Goodfellas"
+          "title": "Goodfellas",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Withnail & I"
+          "title": "Withnail & I",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "Kes"
+          "title":  "Kes",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "The Wizard of Oz"
+          "title": "The Wizard of Oz",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "On the Waterfront"
+          "title":  "On the Waterfront",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "The Shining"
+          "title": "The Shining",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "Breaking the Waves"
+          "title":  "Breaking the Waves",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Pulp Fiction"
+          "title": "Pulp Fiction",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Gladiator"
+          "title": "Gladiator",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "La Haine"
+          "title": "La Haine",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Jaws"
+          "title": "Jaws",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Raging Bull"
+          "title": "Raging Bull",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Who's Afraid of Virginia Woolf?"
+          "title": "Who's Afraid of Virginia Woolf?",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Some Like It Hot"
+          "title": "Some Like It Hot",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Fargo"
+          "title": "Fargo",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Rosemary's Baby"
+          "title": "Rosemary's Baby",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "The Night of the Hunter"
+          "title": "The Night of the Hunter",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Chinatown"
+          "title": "Chinatown",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "The Apartment"
+          "title": "The Apartment",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "La Vie en Rose"
+          "title":  "La Vie en Rose",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "There Will Be Blood"
+          "title": "There Will Be Blood",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "All About Eve"
+          "title":  "All About Eve",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Life Is Beautiful"
+          "title": "Life Is Beautiful",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Apocalypse Now"
+          "title": "Apocalypse Now",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "The Philadelphia Story"
+          "title": "The Philadelphia Story",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "The Sting"
+          "title": "The Sting",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Waiting for Guffman"
+          "title": "Waiting for Guffman",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Citizen Kane"
+          "title": "Citizen Kane",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Singin' in the Rain"
+          "title": "Singin' in the Rain",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "The Celebration"
+          "title": "The Celebration",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "The Lives of Others"
+          "title": "The Lives of Others",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "American Beauty"
+          "title":  "American Beauty",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Léon: The Professional"
+          "title": "Léon: The Professional",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "A Star Is Born"
+          "title":  "A Star Is Born",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "Casablanca"
+          "title":  "Casablanca",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "A Matter of Life and Death"
+          "title": "A Matter of Life and Death",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "An American in Paris"
+          "title":  "An American in Paris",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "Mean Streets"
+          "title":  "Mean Streets",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "The Empire Strikes Back"
+          "title": "The Empire Strikes Back",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "The Turin Horse"
+          "title": "The Turin Horse",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "The Princess Bride"
+          "title": "The Princess Bride",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "This Is England"
+          "title": "This Is England",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "The Royal Tenenbaums"
+          "title":  "The Royal Tenenbaums",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "Gone with the Wind"
+          "title":  "Gone with the Wind",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "Midnight Cowboy"
+          "title":  "Midnight Cowboy",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "Nil by Mouth"
+          "title":  "Nil by Mouth",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Requiem for a Dream"
+          "title": "Requiem for a Dream",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "All That Jazz"
+          "title":  "All That Jazz",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "Truly Madly Deeply"
+          "title":  "Truly Madly Deeply",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "Harold and Maude"
+          "title":  "Harold and Maude",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "Notorious"
+          "title":  "Notorious",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Being There"
+          "title": "Being There",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "A Clockwork Orange"
+          "title": "A Clockwork Orange",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "It's a Wonderful Life"
+          "title":  "It's a Wonderful Life",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "The Sacrifice"
         },
         {
-          "title":  "One Flew Over the Cuckoo's Nest"
+          "title":  "The Sacrifice",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "Monster"
+          "title":  "One Flew Over the Cuckoo's Nest",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "A Streetcar Named Desire"
+          "title":  "Monster",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Blade Runner"
+          "title":  "A Streetcar Named Desire",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "The Thin Red Line"
+          "title": "Blade Runner",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "The General"
+          "title":  "The Thin Red Line",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "The Third Man"
+          "title":  "The General",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "[Amour]"
+          "title": "The Third Man",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "Tender Mercies"
+          "title": "[Amour]",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Tokyo Story"
+          "title":  "Tender Mercies",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "Star Wars"
+          "title": "Tokyo Story",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "A Room for Romeo Brass"
+          "title":  "Star Wars",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Scenes from a Marriage"
+          "title": "A Room for Romeo Brass",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Naked"
+          "title": "Scenes from a Marriage",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "The Goonies"
+          "title": "Naked",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "Brazil"
+          "title": "The Goonies",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "Caché"
+          "title":  "Brazil",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "The Deer Hunter"
+          "title": "Caché",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title":  "The Piano"
+          "title": "The Deer Hunter",
+          "year": "",
+          "ombdId":  ""
         },
         {
-          "title": "The Grand Budapest Hotel"
+          "title":  "The Piano",
+          "year":"1993",
+          "ombdId": "tt0107822"
         },
         {
-          "title": "Carmen Jones"
+          "title": "The Grand Budapest Hotel",
+          "year":"2014",
+          "ombdId": "tt2278388"
         },
         {
-          "title": "The African Queen"
+          "title": "Carmen Jones",
+          "year":"1954",
+          "ombdId": "tt0046828"
         },
         {
-          "title": "The Cook, the Thief, His Wife & Her Lover"
+          "title": "The African Queen",
+          "year":"1951",
+          "ombdId": "tt0043265"
         },
         {
-          "title": "Y Tu Mamá También"
+          "title": "The Cook, the Thief, His Wife & Her Lover",
+          "year":"1989",
+          "ombdId": "tt0097108"
         },
         {
-          "title": "The Hustler"
+          "title": "Y Tu Mamá También",
+          "year":"2001",
+          "ombdId": "tt0245574"
         },
         {
-          "title":  "Sophie's Choice"
+          "title": "The Hustler",
+          "year":"1961",
+          "ombdId": "tt0054997"
         },
         {
-          "title": "Whiplash"
+          "title":  "Sophie's Choice",
+          "year":"1982",
+          "ombdId": "tt0084707"
         },
         {
-          "title": "Love Actually"
+          "title": "Whiplash",
+          "year":"2014",
+          "ombdId": "tt2582802"
         },
         {
-          "title": "Close Encounters of the Third Kind"
+          "title": "Love Actually",
+          "year":"2003",
+          "ombdId": "tt0314331"
         },
         {
-          "title":  "Paris, Texas"
+          "title": "Close Encounters of the Third Kind",
+          "year":"1977",
+          "ombdId": "tt0075860"
         },
         {
-          "title": "Persona"
+          "title":  "Paris, Texas",
+          "year":"1984",
+          "ombdId": "tt0087884"
         },
         {
-          "title":  "Crimes and Misdemeanors"
+          "title": "Persona",
+          "year":"1966",
+          "ombdId": "tt0060827"
         },
         {
-          "title":  "The Great Beauty"
+          "title":  "Crimes and Misdemeanors",
+          "year":"1989",
+          "ombdId": "tt0097123"
         },
         {
-          "title":  "Schindler’s List"
+          "title":  "The Great Beauty",
+          "year":"2013",
+          "ombdId": "tt2358891"
+        },
+        {
+          "title":  "Schindler’s List",
+          "year":"1993",
+          "ombdId": "tt0108052"
         }
       ]
     }
