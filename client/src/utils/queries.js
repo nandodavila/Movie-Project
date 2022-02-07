@@ -33,5 +33,5 @@ query getLists {
         movies
         createdBy
     }
-  }
+}
 `;
