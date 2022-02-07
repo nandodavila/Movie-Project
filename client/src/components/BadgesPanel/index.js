@@ -30,8 +30,11 @@ const BadgesPanel = ({ badges }) => {
     };
 
     // populate all lists, if movie in users list, then show badge, if not show not badge
+    const styles = {
+        maxWidth: '540px'
+    }
     return (
-        <div class="card mb-3" style="max-width: 540px;">
+        <div class="card mb-3" style={styles.maxWidth}>
             <div className="flex-row justify-space-between my-4">
                 <div className="col-12 col-xl-6">
                     <div className="card mb-3">

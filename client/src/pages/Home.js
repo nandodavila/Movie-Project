@@ -32,6 +32,8 @@ const Home = () => {
            movieResults += `<div class='imgContainer'> <img src="${element.Poster}" alt="Poster" width="500" height="600"> <h3 class='centered'> ${element.Title} ${element.Year}</h3> </div>` 
         });
         document.getElementById('searchResults').innerHTML = movieResults;
+        setTitle('')
+        setYear('')
     });
   }
 

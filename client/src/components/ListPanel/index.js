@@ -5,8 +5,12 @@ const BadgePanel = ({ completedLists }) => {
         return <h3>You haven't completed any lists yet. Check movie lists </h3>;
     }
 
+    const styles = {
+        maxWidth: '540px'
+    }
+
     return (
-        <div class="card mb-3" style="max-width: 540px;">
+        <div class="card mb-3" style={styles.maxWidth}>
             <div className="flex-row justify-space-between my-4">
                 {completedLists &&
                     completedLists.map((completedList) => (
