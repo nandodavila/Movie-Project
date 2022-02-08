@@ -13,7 +13,7 @@ const QuizPanel = ({ quizHighScore }) => {
     }
 
     return (
-        <div class="card mb-3" style="max-width: 540px;">
+        <div className="card mb-3">
             <div className="flex-row justify-space-between my-4">
                 <div key="userQuizScore" className="col-12 col-xl-6">
                     <div className="card mb-3">

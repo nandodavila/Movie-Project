@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const { type } = require('os');
+const User = require('./User');
 
 const movieSchema = new Schema({
     title: { type: String, required: true },
@@ -16,15 +17,18 @@ const ListSchema = new Schema({
     type: String,
     required: true,
   },
-  badges: {
+  badge: {
     type: String,
     required: true,
   },
   movies: [movieSchema],
   createdBy: {
-      type: String
+    type: Schema.Types.ObjectId,
+    ref: 'user',
+    default: 'admin'
   }
-});
+})
+
 
 const List = model('list', ListSchema);
 

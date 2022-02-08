@@ -376,8 +376,13 @@
         },
         {
           "title": "Dünyayı Kurtaran Adam",
+<<<<<<< HEAD
           "year":  "",
           "omdbId":  ""
+=======
+          "year":  "1982",
+          "omdbId":  "tt0491987"
+>>>>>>> 3afd8900f558102fa67af71d238b027ebe1cec4a
         },
         {
           "title": "The Lonely Lady",
@@ -386,8 +391,13 @@
         },
         {
           "title": "Bolero",
+<<<<<<< HEAD
           "year": "",
           "omdbId":  ""
+=======
+          "year": "1984",
+          "omdbId":  "tt0086987"
+>>>>>>> 3afd8900f558102fa67af71d238b027ebe1cec4a
         },
         {
           "title": "Howard the Duck",
@@ -436,8 +446,13 @@
         },
         {
           "title": "Things",
+<<<<<<< HEAD
           "year": "",
           "omdbId":  ""
+=======
+          "year": "1989",
+          "omdbId":  "tt0183881"
+>>>>>>> 3afd8900f558102fa67af71d238b027ebe1cec4a
         },
         {
           "title": "Troll 2",
@@ -461,8 +476,13 @@
         },
         {
           "title": "Dis – en historie om kjærlighet,",
+<<<<<<< HEAD
           "year": "",
           "omdbId":  ""
+=======
+          "year": "1995",
+          "omdbId":  "tt0112873"
+>>>>>>> 3afd8900f558102fa67af71d238b027ebe1cec4a
         },
         {
           "title": "Showgirls",
@@ -486,8 +506,13 @@
         },
         {
           "title": "Batman & Robin",
+<<<<<<< HEAD
           "year": "",
           "omdbId":  ""
+=======
+          "year": "1997",
+          "omdbId":  "tt0118688"
+>>>>>>> 3afd8900f558102fa67af71d238b027ebe1cec4a
         },
         {
           "title": "The Avengers",
@@ -533,9 +558,15 @@
           "omdbId": "tt0114814"
         },
         {
+<<<<<<< HEAD
           "title": "Seven",
           "year": "",
           "omdbId":  ""
+=======
+          "title": "Se7en",
+          "year": "1995",
+          "omdbId":  "tt0114369"
+>>>>>>> 3afd8900f558102fa67af71d238b027ebe1cec4a
         },
         {
           "title": "All The Money In The World",
@@ -1095,6 +1126,7 @@
           "title": "Rollerball",
           "year": "2002",
           "omdbId":  "tt0246894"
+<<<<<<< HEAD
         }
       ]
     },
@@ -1605,6 +1637,8 @@
           "title":  "Schindler’s List",
           "year":"1993",
           "omdbId": "tt0108052"
+=======
+>>>>>>> 3afd8900f558102fa67af71d238b027ebe1cec4a
         }
       ]
     }
