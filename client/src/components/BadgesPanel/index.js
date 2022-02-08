@@ -1,22 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client';
 
-import { GET_ME, GET_LISTS } from '../../utils/queries';
+import { GET_ME } from '../../utils/queries';
 
-const BadgesPanel = ({ badges }) => {
+const BadgesPanel = ({allMovieLists}) => {
+    const styles = {
+        listBadge: {
+        width: "20px",
+        height: "auto"
+        },
+    }
     const [badge, setBadge] = useState([]);
-    const { meLoading, meData } = useQuery(GET_ME);
-    const { loading, listData } = useQuery(GET_LISTS);
+    const { loading, data } = useQuery(GET_ME);
+    useEffect(() => {setBadgeImage()}, []);
 
-    const userCompletedLists = meData?.completedLists || [];
-    const movieListIds = listData?.omdbId || [];
-
+    const userCompletedLists = data?.me.completedLists || [];
+    
     let completedMovieList = [];
-    let hideBadgeImage = `image_tag Rails.root.join('public', 'images', 'Hidden-Badge.png')`;
-    console.log(movieListIds);
-
+    let hideBadgeImage = `/images/badges/Hidden-Badge.png`;
     const setBadgeImage = () => {
-        listData.forEach((listItem) => {
+        allMovieLists.forEach((listItem) => {
             let badgeImg = hideBadgeImage;
             let badgeId = listItem._id;
             let badgeName = listItem.name;
@@ -24,11 +27,11 @@ const BadgesPanel = ({ badges }) => {
                 badgeImg = listItem.badge;
             }
             completedMovieList.push({
-                src: {badgeImg},
-                id: {badgeId},
-                alt: {badgeName}})
+                src: badgeImg,
+                id: badgeId,
+                alt: badgeName})
         });
-
+        completedMovieList.forEach(toPrint => console.log(toPrint));
         setBadge(completedMovieList)
     };
 
@@ -39,12 +42,11 @@ const BadgesPanel = ({ badges }) => {
     return (
         <div className="card mb-3">
             <div className="flex-row justify-space-between my-4">
-                <div className="col-12 col-xl-6">
-                    <div className="card mb-3">
                     {badge.map(award => 
-                    <img src={award.src} key={award.id} alt={award.alt} />)}
+                    <div className="col-12 col-xl-6"><div styles={styles.listBadge} className="card mb-3"> <img src={process.env.PUBLIC_URL + award.src} key={award.id} alt={award.alt} />
                     </div>
-                </div>
+                    </div>
+                    )}
             </div>
         </div>
     );
