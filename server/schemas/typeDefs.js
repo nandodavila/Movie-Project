@@ -19,6 +19,11 @@ type WatchedMovie {
     isWatched: Boolean
 }
 
+type Auth {
+  token: ID
+  user: User
+}
+
 type List {
     _id: ID!
     name: String!
@@ -36,12 +41,16 @@ type Movie {
 }
 
 type Query {
-  me: [User]
+  me: User
+  user: User
   lists: [List]
 }
 
 type Mutation {
     createList(name: String!, message: String!): List
+    updateUser(firstName: String, lastName: String, email: String, password: String): User
+    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
 }
 `;
 

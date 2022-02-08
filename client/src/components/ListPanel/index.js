@@ -1,23 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 
 import { GET_LISTS } from '../../utils/queries';
 
-
-
-const BadgePanel = () => {
-
+const ListPanel = () => {
+    const [list, setList] = useState([]);
     const { loading, data } = useQuery(GET_LISTS);
 
-    const styles = {
-        maxWidth: '540px'
-    }
-
     return (
-        <div class="card mb-3" style={styles.maxWidth}>
+        <div className="card mb-3">
             <div className="flex-row justify-space-between my-4">
-                {data &&
-                    data.map((listItems) => (
+                {list.map((listItems) => (
                         <div key={listItems} className="col-12 col-xl-6">
                             <div className="card mb-3">
                                 <h4 className="card-header bg-dark text-light p-2 m-0">
@@ -31,4 +24,4 @@ const BadgePanel = () => {
     );
 };
 
-export default BadgePanel;
+export default ListPanel;

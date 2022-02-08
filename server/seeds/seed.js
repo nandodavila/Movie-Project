@@ -9,6 +9,6 @@ db.once('open', async () => {
 
   const Lists = await List.insertMany(movieListData);
 
-  console.log('Award List seeded');
+  console.log('Movie Lists seeded');
   process.exit(0);
 });
