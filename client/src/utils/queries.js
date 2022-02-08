@@ -30,8 +30,6 @@ query getLists {
         name
         message
         badge
-        movies
-        createdBy
     }
 }
 `;
