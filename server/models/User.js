@@ -1,6 +1,13 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
+
+const validateEmail = function(email) {
+  var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  return re.test(email)
+};
+
+
 const movieWatchedSchema = new Schema({
     title: { type: String, required: true },
     year: {type: Number, required: true},
