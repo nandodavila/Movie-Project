@@ -376,8 +376,13 @@
         },
         {
           "title": "Dünyayı Kurtaran Adam",
+<<<<<<< HEAD
+          "year":  "",
+          "omdbId":  ""
+=======
           "year":  "1982",
           "omdbId":  "tt0491987"
+>>>>>>> 3afd8900f558102fa67af71d238b027ebe1cec4a
         },
         {
           "title": "The Lonely Lady",
@@ -386,8 +391,13 @@
         },
         {
           "title": "Bolero",
+<<<<<<< HEAD
+          "year": "",
+          "omdbId":  ""
+=======
           "year": "1984",
           "omdbId":  "tt0086987"
+>>>>>>> 3afd8900f558102fa67af71d238b027ebe1cec4a
         },
         {
           "title": "Howard the Duck",
@@ -436,8 +446,13 @@
         },
         {
           "title": "Things",
+<<<<<<< HEAD
+          "year": "",
+          "omdbId":  ""
+=======
           "year": "1989",
           "omdbId":  "tt0183881"
+>>>>>>> 3afd8900f558102fa67af71d238b027ebe1cec4a
         },
         {
           "title": "Troll 2",
@@ -461,8 +476,13 @@
         },
         {
           "title": "Dis – en historie om kjærlighet,",
+<<<<<<< HEAD
+          "year": "",
+          "omdbId":  ""
+=======
           "year": "1995",
           "omdbId":  "tt0112873"
+>>>>>>> 3afd8900f558102fa67af71d238b027ebe1cec4a
         },
         {
           "title": "Showgirls",
@@ -486,8 +506,13 @@
         },
         {
           "title": "Batman & Robin",
+<<<<<<< HEAD
+          "year": "",
+          "omdbId":  ""
+=======
           "year": "1997",
           "omdbId":  "tt0118688"
+>>>>>>> 3afd8900f558102fa67af71d238b027ebe1cec4a
         },
         {
           "title": "The Avengers",
@@ -533,9 +558,15 @@
           "omdbId": "tt0114814"
         },
         {
+<<<<<<< HEAD
+          "title": "Seven",
+          "year": "",
+          "omdbId":  ""
+=======
           "title": "Se7en",
           "year": "1995",
           "omdbId":  "tt0114369"
+>>>>>>> 3afd8900f558102fa67af71d238b027ebe1cec4a
         },
         {
           "title": "All The Money In The World",
@@ -1095,6 +1126,519 @@
           "title": "Rollerball",
           "year": "2002",
           "omdbId":  "tt0246894"
+<<<<<<< HEAD
+        }
+      ]
+    },
+    {
+      "name": "100 Best Movies of All Time",
+      "message": "Classic!",
+      "badge": "img",
+      "createdBy": "chaos",
+      "movies": [
+        {
+          "title":  "Tootsie",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "The Godfather",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "A Woman Under the Influence",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "Cinema Paradiso",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "To Kill a Mockingbird",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "The Godfather: Part II",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Annie Hall",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Boogie Nights",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "The Red Shoes",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "Taxi Driver",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Dog Day Afternoon",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Goodfellas",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Withnail & I",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "Kes",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "The Wizard of Oz",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "On the Waterfront",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "The Shining",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "Breaking the Waves",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Pulp Fiction",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Gladiator",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "La Haine",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Jaws",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Raging Bull",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Who's Afraid of Virginia Woolf?",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Some Like It Hot",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Fargo",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Rosemary's Baby",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "The Night of the Hunter",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Chinatown",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "The Apartment",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "La Vie en Rose",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "There Will Be Blood",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "All About Eve",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Life Is Beautiful",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Apocalypse Now",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "The Philadelphia Story",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "The Sting",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Waiting for Guffman",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Citizen Kane",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Singin' in the Rain",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "The Celebration",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "The Lives of Others",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "American Beauty",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Léon: The Professional",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "A Star Is Born",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "Casablanca",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "A Matter of Life and Death",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "An American in Paris",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "Mean Streets",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "The Empire Strikes Back",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "The Turin Horse",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "The Princess Bride",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "This Is England",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "The Royal Tenenbaums",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "Gone with the Wind",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "Midnight Cowboy",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "Nil by Mouth",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Requiem for a Dream",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "All That Jazz",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "Truly Madly Deeply",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "Harold and Maude",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "Notorious",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Being There",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "A Clockwork Orange",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "It's a Wonderful Life",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+        },
+        {
+          "title":  "The Sacrifice",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "One Flew Over the Cuckoo's Nest",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "Monster",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "A Streetcar Named Desire",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Blade Runner",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "The Thin Red Line",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "The General",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "The Third Man",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "[Amour]",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "Tender Mercies",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Tokyo Story",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "Star Wars",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "A Room for Romeo Brass",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Scenes from a Marriage",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Naked",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "The Goonies",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "Brazil",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "Caché",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title": "The Deer Hunter",
+          "year": "",
+          "omdbId":  ""
+        },
+        {
+          "title":  "The Piano",
+          "year":"1993",
+          "omdbId": "tt0107822"
+        },
+        {
+          "title": "The Grand Budapest Hotel",
+          "year":"2014",
+          "omdbId": "tt2278388"
+        },
+        {
+          "title": "Carmen Jones",
+          "year":"1954",
+          "omdbId": "tt0046828"
+        },
+        {
+          "title": "The African Queen",
+          "year":"1951",
+          "omdbId": "tt0043265"
+        },
+        {
+          "title": "The Cook, the Thief, His Wife & Her Lover",
+          "year":"1989",
+          "omdbId": "tt0097108"
+        },
+        {
+          "title": "Y Tu Mamá También",
+          "year":"2001",
+          "omdbId": "tt0245574"
+        },
+        {
+          "title": "The Hustler",
+          "year":"1961",
+          "omdbId": "tt0054997"
+        },
+        {
+          "title":  "Sophie's Choice",
+          "year":"1982",
+          "omdbId": "tt0084707"
+        },
+        {
+          "title": "Whiplash",
+          "year":"2014",
+          "omdbId": "tt2582802"
+        },
+        {
+          "title": "Love Actually",
+          "year":"2003",
+          "omdbId": "tt0314331"
+        },
+        {
+          "title": "Close Encounters of the Third Kind",
+          "year":"1977",
+          "omdbId": "tt0075860"
+        },
+        {
+          "title":  "Paris, Texas",
+          "year":"1984",
+          "omdbId": "tt0087884"
+        },
+        {
+          "title": "Persona",
+          "year":"1966",
+          "omdbId": "tt0060827"
+        },
+        {
+          "title":  "Crimes and Misdemeanors",
+          "year":"1989",
+          "omdbId": "tt0097123"
+        },
+        {
+          "title":  "The Great Beauty",
+          "year":"2013",
+          "omdbId": "tt2358891"
+        },
+        {
+          "title":  "Schindler’s List",
+          "year":"1993",
+          "omdbId": "tt0108052"
+=======
+>>>>>>> 3afd8900f558102fa67af71d238b027ebe1cec4a
         }
       ]
     }
