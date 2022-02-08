@@ -1,13 +1,14 @@
 const db = require('../config/connection');
-const { Award } = require('../models');
+const { List, User } = require('../models');
 
 const awardListData = require('./awardListData.json');
+const movieListData = require('./movieListData.json');
 
 db.once('open', async () => {
-  await Award.deleteMany({});
+  await List.deleteMany({});
 
-  const awards = await Award.insertMany(awardListData);
+  const Lists = await List.insertMany(movieListData);
 
-  console.log('Award List seeded');
+  console.log('Movie Lists seeded');
   process.exit(0);
 });
