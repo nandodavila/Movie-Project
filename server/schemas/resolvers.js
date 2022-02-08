@@ -10,7 +10,7 @@ const resolvers = {
       throw new ValidationError('Cannot find this user!');
     },
     lists: async (parent, args) => {
-      return Lists.find({}).populate('movies');
+      return List.find({}).populate('movies');
     },
   },
   // Mutation: {

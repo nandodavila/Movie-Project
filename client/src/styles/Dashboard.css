@@ -1,4 +1,11 @@
-
+:root {
+    --blueBkg: #314E52;
+    --blue: #092640;
+    --orange: #F2A154;
+    --orangeBkg: #F2A154;
+    --grey: #E7E6E1;
+    --light: #F7F6E7;
+  }
 
 .dashboardContent {
     display: flex;
