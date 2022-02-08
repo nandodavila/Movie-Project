@@ -9,6 +9,7 @@ const BadgesPanel = ({allMovieLists}) => {
         width: "20px",
         height: "auto"
         },
+        maxWidth: '540px'
     }
     const [badge, setBadge] = useState([]);
     const { loading, data } = useQuery(GET_ME);
@@ -36,9 +37,6 @@ const BadgesPanel = ({allMovieLists}) => {
     };
 
     // populate all lists, if movie in users list, then show badge, if not show not badge
-    const styles = {
-        maxWidth: '540px'
-    }
     return (
         <div className="card mb-3">
             <div className="flex-row justify-space-between my-4">
