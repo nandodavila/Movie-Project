@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useQuery } from '@apollo/client';
+
+import { GET_ME } from '../../utils/queries';
 
 const QuizPanel = ({ quizHighScore }) => {
-    if (!quizHighScore.length) {
+    const { loading, data } = useQuery(GET_ME);
+
+    const userQuizHighScore = data?.quizHighScore || [];
+
+    if (!userQuizHighScore.length) {
         return <h3>You haven't taken the quiz yet. </h3>;
     }
 

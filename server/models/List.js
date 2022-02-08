@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const { type } = require('os');
 
-const movieSchema = new mongoose.Schema({
+const movieSchema = new Schema({
     title: { type: String, required: true },
     year: {type: Number, required: true},
     omdbId: {type: String, required: true} 
@@ -16,7 +16,7 @@ const ListSchema = new Schema({
     type: String,
     required: true,
   },
-  badges: {
+  badge: {
     type: String,
     required: true,
   },

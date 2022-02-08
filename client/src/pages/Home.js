@@ -1,11 +1,15 @@
 // import { Link } from 'react-router-dom';
-// import { useQuery } from '@apollo/client';
+import { useQuery, useMutation} from '@apollo/client';
 // import { QUERY_MATCHUPS } from '../utils/queries';
+import { CREATE_LIST } from '../utils/mutations';
 import React, { useState } from 'react';
 let apiKey = '8ffb7060';
 const Home = () => {
   const [title, setTitle] = useState('');
   const [year, setYear] = useState('');
+  const [results, setResults] = useState([]);
+
+  const [createList, { error }] = useMutation(CREATE_LIST);
 
   const handleInputChange = (e) => {
     // Getting the value and name of the input which triggered the change
@@ -20,20 +24,27 @@ const Home = () => {
     };
   }
 
+  const addMovie = async (event) => {
+    console.log('i clicked' + event)
+    console.log(event)
+    try {
+      await createList({
+        variables: {  },
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   function apiCall(event)
   {
     event.preventDefault();
     fetch(`http://www.omdbapi.com/?apikey=${apiKey}&type=movie&s=${title}&r=json&y=${year}`)
     .then(response => response.json())
     .then(data => {
-        document.getElementById('searchResults').innerHTML = '';
-        let movieResults = '';
-        data.Search.forEach(element => {
-           movieResults += `<div class='imgContainer'> <img src="${element.Poster}" alt="Poster" width="500" height="600"> <h3 class='centered'> ${element.Title} ${element.Year}</h3> </div>` 
-        });
-        document.getElementById('searchResults').innerHTML = movieResults;
-        setTitle('')
-        setYear('')
+        setResults(data.Search);
+        setTitle('');
+        setYear('');
     });
   }
 
@@ -99,7 +110,19 @@ const Home = () => {
         </div>
         <div 
           id="searchResults">
-            
+            {results.map(movie => 
+            <div className='imgContainer card m-5'
+            id={movie.imdbID}
+            name={movie.Title} 
+            key={movie.imdbID} 
+            onClick={addMovie}> 
+            <img src={movie.Poster}
+            id={movie.imdbID}
+            name={movie.Title} 
+            alt="Poster" 
+            width="500" 
+            height="600"/> <h3 className='centered'> 
+            {movie.Title} {movie.Year}</h3> </div>) }
         </div>
     </form>
   );
