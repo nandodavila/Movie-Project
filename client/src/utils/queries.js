@@ -35,3 +35,25 @@ query getLists {
     }
 }
 `;
+
+export const QUERY_USER = gql`
+query user  {
+    user {
+      username
+      email
+      password
+      watchedMovies{
+        _id
+        omdbId
+        title
+        year
+        isWatched
+      }
+      completedList{
+        listId
+      }
+      quizHighScore
+      totalWatchedHours
+    }
+  }
+`;

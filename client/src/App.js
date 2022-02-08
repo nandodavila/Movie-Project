@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
+import Nav from './components/Nav';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 // import Vote from './pages/Vote';
 // import NotFound from './pages/NotFound';
 
@@ -17,9 +20,16 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="">
+          <Nav />
           <Switch>
             <Route exact path="/">
               <Home />
+            </Route>
+            <Route exact path="/login">
+              <Login />
+            </Route>
+            <Route exact path="/signup">
+              <Signup />
             </Route>
             <Route exact path="/dashboard">
               <Dashboard />
