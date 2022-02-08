@@ -25,6 +25,7 @@ const ListSchema = new Schema({
   createdBy: {
     type: Schema.Types.ObjectId,
     ref: 'user',
+    default: 'admin'
   }
 })
 

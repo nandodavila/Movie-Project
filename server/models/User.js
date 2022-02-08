@@ -32,7 +32,6 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: true,
-    bcrypt: true,
   },
   watchedMovies: [movieWatchedSchema],
   completedList: [{
@@ -45,6 +44,20 @@ const UserSchema = new Schema({
       type: Number
   }
 });
+
+UserSchema.pre('save', async function(next) {
+  if (this.isNew || this.isModified('password')) {
+    const saltRounds = 10;
+    this.password = await bcrypt.hash(this.password, saltRounds);
+  }
+
+  next();
+});
+
+// compare the incoming password with the hashed password
+UserSchema.methods.isCorrectPassword = async function(password) {
+  return await bcrypt.compare(password, this.password);
+};
 
 const User = model('user', UserSchema);
 
