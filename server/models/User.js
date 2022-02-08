@@ -1,6 +1,7 @@
 const { Schema, model } = require('mongoose');
+const bcrypt = require('bcrypt');
 
-const movieWatchedSchema = new mongoose.Schema({
+const movieWatchedSchema = new Schema({
     title: { type: String, required: true },
     year: {type: Number, required: true},
     omdbId: {type: String, required: true},
@@ -14,11 +15,17 @@ const UserSchema = new Schema({
   },
   email: {
     type: String,
-    required: true,
-  },
+    trim: true,
+    lowercase: true,
+    unique: true,
+    required: 'Email address is required',
+    validate: [validateEmail, 'Please fill a valid email address'],
+    match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
+},
   password: {
     type: String,
     required: true,
+    bcrypt: true,
   },
   watchedMovies: [movieWatchedSchema],
   completedList: [{
