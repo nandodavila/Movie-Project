@@ -23,9 +23,8 @@ const ListSchema = new Schema({
   },
   movies: [movieSchema],
   createdBy: {
-    type: Schema.Types.ObjectId,
+    type: Schema.Types.String,
     ref: 'user',
-    default: 'admin'
   }
 })
 

@@ -1,0 +1,22 @@
+[
+    {
+      "username": "corndog",
+      "email": "cordog@email.com",
+      "password": "corn1234"
+    },
+    {
+      "username": "jstnhouk",
+      "email": "jstnhouk@email.com",
+      "password": "jstnhouk1234"
+    },
+    {
+        "username": "travisCr",
+        "email": "travisCr@email.com",
+        "password": "travisCr1234"
+    },
+    {
+        "username": "nandoistrash",
+        "email": "nandoistrash@email.com",
+        "password": "nandoistrash1234"
+    }
+]
