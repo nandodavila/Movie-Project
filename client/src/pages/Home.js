@@ -4,10 +4,39 @@ import { useQuery, useMutation} from '@apollo/client';
 import { CREATE_LIST } from '../utils/mutations';
 import React, { useState } from 'react';
 let apiKey = '8ffb7060';
+let listOfMovie = [
+  {
+    Title: 'Movie',
+    imbdID: 1
+  },
+  {
+    Title: 'Movie',
+    imbdID: 2
+  },
+  {
+    Title: 'Movie',
+    imbdID: 3
+  },
+  {
+    Title: 'Movie',
+    imbdID: 4
+  },
+  {
+    Title: 'Movie',
+    imbdID: 5
+  },
+  {
+    Title: 'Movie',
+    imbdID: 6
+  },
+]
+let loggedIn = true;
 const Home = () => {
   const [title, setTitle] = useState('');
   const [year, setYear] = useState('');
   const [results, setResults] = useState([]);
+  const [listName, setListName] = useState([]);
+  const [listMsg, setListMsg] = useState([]);
   const [lists, setLists] = useState([]);
 
   const [createList, { error }] = useMutation(CREATE_LIST);
@@ -20,7 +49,11 @@ const Home = () => {
 
     if (inputType === 'title') {
       setTitle(inputValue);
-    } else {
+    } else if (inputType === 'listName'){
+      setListName(inputValue)
+    } else if (inputType === 'listMsg'){
+      setListMsg(inputValue)
+    }else {
       setYear(inputValue);
     };
   }
@@ -63,28 +96,65 @@ const Home = () => {
       backgroundColor: '#314E52'
     }
   }
+  const createMovieList = (event) =>
+  {
+    event.preventDefault();
+    setLists(listOfMovie);
+  }
 
   return (
     <form className='container d-flex flex-column justify-content-center align-items-center'>
       
-        <h1 style={styles.orangeColor}>Search By Title & Year</h1>
-        <div className='container col-8 d-flex flex-column justify-content-center'>
-        <div className="form-group d-flex flex-row mt-1 mb-1">
-            {/* <label
-              style={styles.orangeColor}
-              htmlFor="listName" 
-              className="control-label col-sm-1 col-form-label" >
-                List Name:
-            </label> */}
+        
+      <div className='container col-12 d-flex flex-column justify-content-center'>
+        {loggedIn ?
+        <div className="d-flex flex-row">
+          <div className="col-6 d-flex flex-column">
+          <h1 style={styles.orangeColor}>Create A List!</h1> 
+          <div className="form-group d-flex flex-column mt-1 mb-1 col-sm-6">
             <input 
-              value={title}
-              onChange={handleInputChange}
-              type="text"
-              id="listName" 
-              name="listName"
-              placeholder="List Name" 
-              className="form-control justify-content-center align-items-center col-sm-12"/>
+            value={listName}
+            onChange={handleInputChange}
+            type="text"
+            id="listName" 
+            name="listName"
+            placeholder="List Name" 
+            className="form-control justify-content-center align-items-center col-sm-12"/>
           </div>
+          <div className="form-group d-flex flex-column mt-1 mb-1 col-sm-6">
+            <input 
+            value={listMsg}
+            onChange={handleInputChange}
+            type="text"
+            id="listMsg" 
+            name="listMsg"
+            placeholder="List Message" 
+            className="form-control justify-content-center align-items-center col-sm-12"/>
+          </div>
+          </div>
+          <div className="d-flex flex-column list-group col-sm-6">
+            <button
+              style={styles.orangeColorBg} 
+              id="createList" 
+              type="submit" 
+              className="btn d-flex justify-content-center align-items-center col-lg-6 m-auto mt-1"
+              onClick={createMovieList}>
+                
+                Create Movie List
+            </button>
+            <div className="">
+              {lists.map( list => 
+                <li
+                className="list-group-item"
+                key={list.imbdID+1}> {list.Title} </li>
+              )}
+            </div>
+          </div>
+        </div>
+          :
+          <div></div>
+          }
+          <h1 style={styles.orangeColor}>Search By Title & Year</h1>
           <div className="form-group d-flex  mt-1 mb-1">
             {/* <label
               style={styles.orangeColor}
@@ -125,12 +195,6 @@ const Home = () => {
                 
                 Search
             </button>
-        </div>
-        <div className="list-group">
-            {lists.map( list => 
-              <li
-              key={list.imbdID}> {list.Title} </li>
-            )}
         </div>
         <div 
           id="searchResults">
