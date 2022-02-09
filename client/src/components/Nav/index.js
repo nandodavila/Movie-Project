@@ -74,7 +74,7 @@ function Nav() {
 
       <nav className="d-flex flex-row justify-content-end ms-auto align-items-center" style={styles.minWidth}>
         {showNavigation()}
-      </nav>
+    </nav>
     </header>
   );
 }
