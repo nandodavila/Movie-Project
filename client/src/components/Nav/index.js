@@ -7,12 +7,7 @@ function Nav() {
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            {/* <Link to="/orderHistory">
-              Order History
-            </Link> */}
-          </li>
+        <ul className="d-flex flex-row">
           <li className="mx-1">
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
             <a href="/" onClick={() => Auth.logout()}>
@@ -40,17 +35,14 @@ function Nav() {
   }
 
   return (
-    <header className="flex-row px-1">
-      <h1>
-        <Link to="/">
+    <header className='d-flex flex-row'> 
+    <Link to="/">
           <span role="img" aria-label="shopping bag"></span>
-          Creative App Name
-        </Link>
-      </h1>
-
-      <nav>
+          🎥 Flicks On The Record
+    </Link>
+    <nav className='d-flex flex-row navbar-nav justify-content-end ms-auto px-5'>
         {showNavigation()}
-      </nav>
+    </nav>
     </header>
   );
 }
