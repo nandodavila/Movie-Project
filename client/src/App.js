@@ -7,8 +7,7 @@ import Nav from './components/Nav';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import ListPage from './pages/ListPage';
-// import Vote from './pages/Vote';
-// import NotFound from './pages/NotFound';
+
 
 const client = new ApolloClient({
   uri: '/graphql',

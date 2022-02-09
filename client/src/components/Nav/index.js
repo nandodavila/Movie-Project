@@ -35,7 +35,7 @@ function Nav() {
             </Link>
           </li>
           <li className="mx-1">
-            <Link to="/awards-list">
+            <Link to="/awards-page">
               Award List
             </Link>
           </li>

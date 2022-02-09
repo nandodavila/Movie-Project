@@ -1,7 +1,6 @@
 // import { Link } from 'react-router-dom';
 import { useQuery, useMutation} from '@apollo/client';
-// import { QUERY_MATCHUPS } from '../utils/queries';
-import { CREATE_LIST } from '../utils/mutations';
+import { GET_LISTS } from '../utils/queries'
 import React, { useState } from 'react';
 let apiKey = '8ffb7060';
 const ListPage = () => {
@@ -10,7 +9,36 @@ const ListPage = () => {
   const [results, setResults] = useState([]);
   const [lists, setLists] = useState([]);
 
-  const [createList, { error }] = useMutation(CREATE_LIST);
+  const { loading, data } = useQuery(GET_LISTS);
+  const allMovieLists = data?.lists || [];
+
+  console.log(allMovieLists)
+  console.log(results)
+
+  const filterList = () => {
+      allMovieLists.forEach(list => {
+        // All movies but still seperate arrays depending on list
+        let allMovies = list.movies
+        console.log('FACE OFF = tt0119094')
+        allMovies.forEach(movie => {
+            let eachMovieId = movie.omdbId
+            console.log(results.imbdID)
+            if (eachMovieId = results.imbdID) {
+                console.log('Found!' + results)
+            }
+            else {
+                console.log('Not Found, you suck')
+            }
+        })
+
+          
+      });
+  }
+
+  filterList()
+
+
+
 
   const handleInputChange = (e) => {
     // Getting the value and name of the input which triggered the change
@@ -25,18 +53,6 @@ const ListPage = () => {
     };
   }
 
-  const addMovie = async (event) => {
-    console.log('i clicked' + event)
-    console.log(event)
-    try {
-      await createList({
-        variables: {  },
-      });
-    } catch (err) {
-      console.error(err);
-    }
-  }
-
   function apiCall(event)
   {
     event.preventDefault();
@@ -48,6 +64,8 @@ const ListPage = () => {
         setYear('');
     });
   }
+
+  
 
   const styles = {
     orangeColor: {
@@ -122,8 +140,7 @@ const ListPage = () => {
             <div className='imgContainer card m-5'
             id={movie.imdbID}
             name={movie.Title} 
-            key={movie.imdbID} 
-            onClick={addMovie}> 
+            key={movie.imdbID}> 
             <img src={movie.Poster}
             id={movie.imdbID}
             name={movie.Title} 
