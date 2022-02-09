@@ -2,7 +2,7 @@
 import { useQuery, useMutation} from '@apollo/client';
 // import { QUERY_MATCHUPS } from '../utils/queries';
 import { CREATE_LIST } from '../utils/mutations';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, setState } from 'react';
 let apiKey = '8ffb7060';
 let listOfMovie = [];
 let loggedIn = true;
@@ -12,7 +12,7 @@ const Home = () => {
   const [results, setResults] = useState([]);
   const [listName, setListName] = useState([]);
   const [listMsg, setListMsg] = useState([]);
-  const [lists, setLists] = useState([]);
+  const [movieLists, setMovieLists] = useState([]);
 
   const [createList, { error }] = useMutation(CREATE_LIST);
 
@@ -33,7 +33,7 @@ const Home = () => {
     };
   }
 
-  const addMovie = async (event) => {
+const addMovie = async (event) => {
     console.log('i clicked' + event)
     let id = event.target.id;
     fetch(`http://www.omdbapi.com/?apikey=${apiKey}&i=${id}`)
@@ -45,11 +45,9 @@ const Home = () => {
         year: data.Year,
         id: data.imdbID
       }
-      listOfMovie.push(movieObject);
-      setLists(listOfMovie)
+      setMovieLists([...movieLists, movieObject])
     });
 
-    
     // try {
     //   await createList({
     //     variables: {  },
@@ -90,6 +88,13 @@ const Home = () => {
       color: '#314E52' ,
       backgroundColor: '#F2A154'
 
+    },
+    listHeight: {
+      maxHeight: '200px',
+      height: '200px'
+    },
+    posterHeight: {
+      maxHeight: '650px'
     }
   }
   const createMovieList = (event) =>
@@ -130,7 +135,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="d-flex flex-column list-group col-sm-6 border rounded m-2">
+          <div className="d-flex flex-column list-group col-sm-6 border rounded m-2 overflow-auto">
             <button
               style={styles.orangeColorBg} 
               id="createList" 
@@ -140,10 +145,10 @@ const Home = () => {
                 
                 Create Movie List
             </button>
-            <div className="">
-              {lists.map( list => 
+            <div className="overflow-auto" style={styles.listHeight}>
+              {movieLists.map( list => 
                 <li
-                className="list-group-item d-flex justify-content-center align-items-center fs-4"
+                className="list-group-item d-flex justify-content-center align-items-center fs-5"
                 style={styles.movieList}
                 key={list.id}> {list.title} </li>
               )}
@@ -200,7 +205,9 @@ const Home = () => {
           </div>
         </div>
         <div 
-          id="searchResults">
+          id="searchResults"
+          className="overflow-auto"
+          style={styles.posterHeight}>
             {results.map(movie => 
             <div className='imgContainer card m-5'
             id={movie.imdbID}
