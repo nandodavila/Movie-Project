@@ -4,32 +4,7 @@ import { useQuery, useMutation} from '@apollo/client';
 import { CREATE_LIST } from '../utils/mutations';
 import React, { useState } from 'react';
 let apiKey = '8ffb7060';
-let listOfMovie = [
-  {
-    Title: 'Movie',
-    imbdID: 1
-  },
-  {
-    Title: 'Movie',
-    imbdID: 2
-  },
-  {
-    Title: 'Movie',
-    imbdID: 3
-  },
-  {
-    Title: 'Movie',
-    imbdID: 4
-  },
-  {
-    Title: 'Movie',
-    imbdID: 5
-  },
-  {
-    Title: 'Movie',
-    imbdID: 6
-  },
-]
+let listOfMovie = [];
 let loggedIn = true;
 const Home = () => {
   const [title, setTitle] = useState('');
@@ -61,13 +36,13 @@ const Home = () => {
   const addMovie = async (event) => {
     console.log('i clicked' + event)
     console.log(event)
-    try {
-      await createList({
-        variables: {  },
-      });
-    } catch (err) {
-      console.error(err);
-    }
+    // try {
+    //   await createList({
+    //     variables: {  },
+    //   });
+    // } catch (err) {
+    //   console.error(err);
+   // }
   }
 
   function apiCall(event)
@@ -154,47 +129,51 @@ const Home = () => {
           :
           <div></div>
           }
-          <h1 style={styles.orangeColor}>Search By Title & Year</h1>
-          <div className="form-group d-flex  mt-1 mb-1">
-            {/* <label
-              style={styles.orangeColor}
-              htmlFor="title" 
-              className="control-label col-sm-1 col-form-label" >
-                Title:
-            </label> */}
-            <input 
-              value={title}
-              onChange={handleInputChange}
-              type="text"
-              id="title" 
-              name="title"
-              placeholder="Title" 
-              className="form-control justify-content-center align-items-center col-sm-8"/>
+        <div className="d-flex flex-column list-group col-sm-12 justify-content-center align-items-center">
+          <div className="d-flex flex-column list-group col-sm-6">
+            <h1 style={styles.orangeColor}>Search By Title & Year</h1>
+            <div className="form-group d-flex  mt-1 mb-1">
+              {/* <label
+                style={styles.orangeColor}
+                htmlFor="title" 
+                className="control-label col-sm-1 col-form-label" >
+                  Title:
+              </label> */}
+              <input 
+                value={title}
+                onChange={handleInputChange}
+                type="text"
+                id="title" 
+                name="title"
+                placeholder="Title" 
+                className="form-control justify-content-center align-items-center col-sm-8"/>
+            </div>
+            <div className="form-group d-flex mt-1">
+              {/* <label 
+                style={styles.orangeColor}
+                className="control-label col-sm-1 col-form-label" >
+                  Year:
+              </label> */}
+              <input 
+                value={year}
+                onChange={handleInputChange}
+                type="text"
+                id="year" 
+                name="year"
+                placeholder="Year" 
+                className="form-control justify-content-center align-items-center col-sm-8"/>
+            </div>
+              <button
+                style={styles.orangeColorBg} 
+                id="search-by-title-button" 
+                type="submit" 
+                className="btn d-flex justify-content-center align-items-center col-lg-8 m-auto mt-1"
+                onClick={apiCall}>
+                  
+                  Search
+              </button>
+            </div>
           </div>
-          <div className="form-group d-flex mt-1">
-            {/* <label 
-              style={styles.orangeColor}
-              className="control-label col-sm-1 col-form-label" >
-                Year:
-            </label> */}
-            <input 
-              value={year}
-              onChange={handleInputChange}
-              type="text"
-              id="year" 
-              name="year"
-              placeholder="Year" 
-              className="form-control justify-content-center align-items-center col-sm-8"/>
-          </div>
-            <button
-              style={styles.orangeColorBg} 
-              id="search-by-title-button" 
-              type="submit" 
-              className="btn d-flex justify-content-center align-items-center col-lg-8 m-auto mt-1"
-              onClick={apiCall}>
-                
-                Search
-            </button>
         </div>
         <div 
           id="searchResults">
