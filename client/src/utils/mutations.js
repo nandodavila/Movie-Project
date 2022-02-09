@@ -6,8 +6,14 @@ export const CREATE_LIST = gql`
       name
       message
       badge
-      movies
-      createdBy
+      movies{
+        title
+        year
+        omdbId
+      }
+      createdBy{
+        username
+      }
     }
   }
 `;

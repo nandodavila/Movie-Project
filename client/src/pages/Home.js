@@ -4,10 +4,14 @@ import { useQuery, useMutation} from '@apollo/client';
 import { CREATE_LIST } from '../utils/mutations';
 import React, { useState } from 'react';
 let apiKey = '8ffb7060';
+let listOfMovie = [];
+let loggedIn = true;
 const Home = () => {
   const [title, setTitle] = useState('');
   const [year, setYear] = useState('');
   const [results, setResults] = useState([]);
+  const [listName, setListName] = useState([]);
+  const [listMsg, setListMsg] = useState([]);
   const [lists, setLists] = useState([]);
 
   const [createList, { error }] = useMutation(CREATE_LIST);
@@ -20,7 +24,11 @@ const Home = () => {
 
     if (inputType === 'title') {
       setTitle(inputValue);
-    } else {
+    } else if (inputType === 'listName'){
+      setListName(inputValue)
+    } else if (inputType === 'listMsg'){
+      setListMsg(inputValue)
+    }else {
       setYear(inputValue);
     };
   }
@@ -28,13 +36,13 @@ const Home = () => {
   const addMovie = async (event) => {
     console.log('i clicked' + event)
     console.log(event)
-    try {
-      await createList({
-        variables: {  },
-      });
-    } catch (err) {
-      console.error(err);
-    }
+    // try {
+    //   await createList({
+    //     variables: {  },
+    //   });
+    // } catch (err) {
+    //   console.error(err);
+   // }
   }
 
   function apiCall(event)
@@ -63,74 +71,109 @@ const Home = () => {
       backgroundColor: '#314E52'
     }
   }
+  const createMovieList = (event) =>
+  {
+    event.preventDefault();
+    setLists(listOfMovie);
+  }
 
   return (
     <form className='container d-flex flex-column justify-content-center align-items-center'>
       
-        <h1 style={styles.orangeColor}>Search By Title & Year</h1>
-        <div className='container col-8 d-flex flex-column justify-content-center'>
-        <div className="form-group d-flex flex-row mt-1 mb-1">
-            {/* <label
-              style={styles.orangeColor}
-              htmlFor="listName" 
-              className="control-label col-sm-1 col-form-label" >
-                List Name:
-            </label> */}
+        
+      <div className='container col-12 d-flex flex-column justify-content-center'>
+        {loggedIn ?
+        <div className="d-flex flex-row">
+          <div className="col-6 d-flex flex-column">
+          <h1 style={styles.orangeColor}>Create A List!</h1> 
+          <div className="form-group d-flex flex-column mt-1 mb-1 col-sm-6">
             <input 
-              value={title}
-              onChange={handleInputChange}
-              type="text"
-              id="listName" 
-              name="listName"
-              placeholder="List Name" 
-              className="form-control justify-content-center align-items-center col-sm-12"/>
+            value={listName}
+            onChange={handleInputChange}
+            type="text"
+            id="listName" 
+            name="listName"
+            placeholder="List Name" 
+            className="form-control justify-content-center align-items-center col-sm-12"/>
           </div>
-          <div className="form-group d-flex  mt-1 mb-1">
-            {/* <label
-              style={styles.orangeColor}
-              htmlFor="title" 
-              className="control-label col-sm-1 col-form-label" >
-                Title:
-            </label> */}
+          <div className="form-group d-flex flex-column mt-1 mb-1 col-sm-6">
             <input 
-              value={title}
-              onChange={handleInputChange}
-              type="text"
-              id="title" 
-              name="title"
-              placeholder="Title" 
-              className="form-control justify-content-center align-items-center col-sm-8"/>
+            value={listMsg}
+            onChange={handleInputChange}
+            type="text"
+            id="listMsg" 
+            name="listMsg"
+            placeholder="List Message" 
+            className="form-control justify-content-center align-items-center col-sm-12"/>
           </div>
-          <div className="form-group d-flex mt-1">
-            {/* <label 
-              style={styles.orangeColor}
-              className="control-label col-sm-1 col-form-label" >
-                Year:
-            </label> */}
-            <input 
-              value={year}
-              onChange={handleInputChange}
-              type="text"
-              id="year" 
-              name="year"
-              placeholder="Year" 
-              className="form-control justify-content-center align-items-center col-sm-8"/>
           </div>
+          <div className="d-flex flex-column list-group col-sm-6">
             <button
               style={styles.orangeColorBg} 
-              id="search-by-title-button" 
+              id="createList" 
               type="submit" 
-              className="btn d-flex justify-content-center align-items-center col-lg-8 m-auto mt-1"
-              onClick={apiCall}>
+              className="btn d-flex justify-content-center align-items-center col-lg-6 m-auto mt-1"
+              onClick={createMovieList}>
                 
-                Search
+                Create Movie List
             </button>
+            <div className="">
+              {lists.map( list => 
+                <li
+                className="list-group-item"
+                key={list.imbdID+1}> {list.Title} </li>
+              )}
+            </div>
+          </div>
         </div>
-        <div className="list-group">
-            {lists.map( list => 
-              <li
-              key={list.imbdID}> {list.Title} </li>
-            )}
+          :
+          <div></div>
+          }
+        <div className="d-flex flex-column list-group col-sm-12 justify-content-center align-items-center">
+          <div className="d-flex flex-column list-group col-sm-6">
+            <h1 style={styles.orangeColor}>Search By Title & Year</h1>
+            <div className="form-group d-flex  mt-1 mb-1">
+              {/* <label
+                style={styles.orangeColor}
+                htmlFor="title" 
+                className="control-label col-sm-1 col-form-label" >
+                  Title:
+              </label> */}
+              <input 
+                value={title}
+                onChange={handleInputChange}
+                type="text"
+                id="title" 
+                name="title"
+                placeholder="Title" 
+                className="form-control justify-content-center align-items-center col-sm-8"/>
+            </div>
+            <div className="form-group d-flex mt-1">
+              {/* <label 
+                style={styles.orangeColor}
+                className="control-label col-sm-1 col-form-label" >
+                  Year:
+              </label> */}
+              <input 
+                value={year}
+                onChange={handleInputChange}
+                type="text"
+                id="year" 
+                name="year"
+                placeholder="Year" 
+                className="form-control justify-content-center align-items-center col-sm-8"/>
+            </div>
+              <button
+                style={styles.orangeColorBg} 
+                id="search-by-title-button" 
+                type="submit" 
+                className="btn d-flex justify-content-center align-items-center col-lg-8 m-auto mt-1"
+                onClick={apiCall}>
+                  
+                  Search
+              </button>
+            </div>
+          </div>
         </div>
         <div 
           id="searchResults">
