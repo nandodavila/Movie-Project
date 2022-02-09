@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard';
 import Nav from './components/Nav';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import ListPage from './pages/ListPage';
 // import Vote from './pages/Vote';
 // import NotFound from './pages/NotFound';
 
@@ -34,6 +35,10 @@ function App() {
             <Route exact path="/dashboard">
               <Dashboard />
             </Route>
+            <Route exact path="/awards-page">
+              <ListPage />
+            </Route>
+
             {/* <Route exact path="/matchup/:id">
               <Vote />
             </Route>
