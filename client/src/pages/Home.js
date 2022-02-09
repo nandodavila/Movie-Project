@@ -99,33 +99,35 @@ const Home = () => {
   }
 
   return (
-    <form className='container d-flex flex-column justify-content-center align-items-center'>
+    <form className='container d-flex flex-column justify-content-center align-items-center mt-5'>
       
         
       <div className='container col-12 d-flex flex-column justify-content-center'>
         {loggedIn ?
-        <div className="d-flex flex-row position-relative">
-          <h1 style={styles.orangeColor} className="position-relative">Create A List!</h1>
-          <div className="col-6 d-flex flex-column border rounded justify-content-center align-items-center m-2" > 
-            <div className="form-group d-flex flex-column mt-1 mb-1 col-sm-6">
-              <input 
-              value={listName}
-              onChange={handleInputChange}
-              type="text"
-              id="listName" 
-              name="listName"
-              placeholder="List Name" 
-              className="form-control justify-content-center align-items-center col-sm-12"/>
-            </div>
-            <div className="form-group d-flex flex-column mt-1 mb-1 col-sm-6">
-              <input 
-              value={listMsg}
-              onChange={handleInputChange}
-              type="text"
-              id="listMsg" 
-              name="listMsg"
-              placeholder="List Message" 
-              className="form-control justify-content-center align-items-center col-sm-12"/>
+        <div className="d-flex flex-row position-relative justify-content-center">
+          <div className="d-flex flex-column position-relative justify-content-center align-items-center col-6">
+            <h1 style={styles.orangeColor} className="d-flex justify-content-center ">Create A List!</h1>
+            <div className="col-10 d-flex flex-column border rounded justify-content-center align-items-center m-2" > 
+              <div className="form-group d-flex flex-column mt-1 mb-1 col-sm-8">
+                <input 
+                value={listName}
+                onChange={handleInputChange}
+                type="text"
+                id="listName" 
+                name="listName"
+                placeholder="List Name" 
+                className="form-control justify-content-center align-items-center col-sm-12"/>
+              </div>
+              <div className="form-group d-flex flex-column mt-1 mb-1 col-sm-8">
+                <input 
+                value={listMsg}
+                onChange={handleInputChange}
+                type="text"
+                id="listMsg" 
+                name="listMsg"
+                placeholder="List Message" 
+                className="form-control justify-content-center align-items-center col-sm-12"/>
+              </div>
             </div>
           </div>
           <div className="d-flex flex-column list-group col-sm-6 border rounded m-2">
@@ -153,7 +155,7 @@ const Home = () => {
           }
         <div className="d-flex flex-column list-group col-sm-12 justify-content-center align-items-center">
           <div className="d-flex flex-column list-group col-sm-6">
-            <h1 style={styles.orangeColor}>Search By Title & Year</h1>
+            <h1 style={styles.orangeColor} className="d-flex justify-content-center">Search By Title & Year</h1>
             <div className="form-group d-flex  mt-1 mb-1">
               {/* <label
                 style={styles.orangeColor}
