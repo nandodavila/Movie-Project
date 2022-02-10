@@ -22,3 +22,21 @@ body{
 .imgContainer:hover{
   cursor: pointer ;
 }
+
+.border{
+  border-color: #F2A154!important;
+}
+
+a{
+  text-decoration: none;
+}
+
+nav a{
+  color: #314E52!important;
+}
+header h1 a{
+  color: #314E52!important;
+}
+li{
+  list-style-type: none;
+}

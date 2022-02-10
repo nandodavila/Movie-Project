@@ -34,7 +34,7 @@ query getLists {
           title
           year
           omdbId
-        }  
+        }
     }
 }
 `;
@@ -59,4 +59,6 @@ query user  {
       totalWatchedHours
     }
   }
-`;
+`
+
+;

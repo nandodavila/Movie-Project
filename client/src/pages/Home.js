@@ -2,13 +2,17 @@
 import { useQuery, useMutation} from '@apollo/client';
 // import { QUERY_MATCHUPS } from '../utils/queries';
 import { CREATE_LIST } from '../utils/mutations';
-import React, { useState } from 'react';
+import React, { useEffect, useState, setState } from 'react';
 let apiKey = '8ffb7060';
+let listOfMovie = [];
+let loggedIn = true;
 const Home = () => {
   const [title, setTitle] = useState('');
   const [year, setYear] = useState('');
   const [results, setResults] = useState([]);
-  const [lists, setLists] = useState([]);
+  const [listName, setListName] = useState([]);
+  const [listMsg, setListMsg] = useState([]);
+  const [movieLists, setMovieLists] = useState([]);
 
   const [createList, { error }] = useMutation(CREATE_LIST);
 
@@ -20,22 +24,39 @@ const Home = () => {
 
     if (inputType === 'title') {
       setTitle(inputValue);
-    } else {
+    } else if (inputType === 'listName'){
+      setListName(inputValue)
+    } else if (inputType === 'listMsg'){
+      setListMsg(inputValue)
+    }else {
       setYear(inputValue);
     };
   }
 
-  const addMovie = async (event) => {
+const addMovie = async (event) => {
     console.log('i clicked' + event)
-    console.log(event)
-    try {
-      await createList({
-        variables: {  },
-      });
-    } catch (err) {
-      console.error(err);
-    }
+    let id = event.target.id;
+    fetch(`http://www.omdbapi.com/?apikey=${apiKey}&i=${id}`)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      let movieObject = {
+        title: data.Title,
+        year: data.Year,
+        id: data.imdbID
+      }
+      setMovieLists([...movieLists, movieObject])
+    });
+
+    // try {
+    //   await createList({
+    //     variables: {  },
+    //   });
+    // } catch (err) {
+    //   console.error(err);
+   // }
   }
+  // useEffect(() => setLists(listOfMovie), [])
 
   function apiCall(event)
   {
@@ -54,86 +75,139 @@ const Home = () => {
       color: '#F2A154'
     },
     blueColor: {
-      color: '#314E52'
+      color: '#314E52',
+
     },
     orangeColorBg: {
       backgroundColor: '#F2A154'
     },
     blueColorBg: {
       backgroundColor: '#314E52'
+    },
+    movieList: {
+      color: '#314E52' ,
+      backgroundColor: '#F2A154'
+
+    },
+    listHeight: {
+      maxHeight: '200px',
+      height: '200px'
+    },
+    posterHeight: {
+      maxHeight: '650px'
     }
+  }
+  const createMovieList = (event) =>
+  {
+    event.preventDefault();
+    console.log('yep')
   }
 
   return (
-    <form className='container d-flex flex-column justify-content-center align-items-center'>
+    <form className='container d-flex flex-column justify-content-center align-items-center mt-5'>
       
-        <h1 style={styles.orangeColor}>Search By Title & Year</h1>
-        <div className='container col-8 d-flex flex-column justify-content-center'>
-        <div className="form-group d-flex flex-row mt-1 mb-1">
-            {/* <label
-              style={styles.orangeColor}
-              htmlFor="listName" 
-              className="control-label col-sm-1 col-form-label" >
-                List Name:
-            </label> */}
-            <input 
-              value={title}
-              onChange={handleInputChange}
-              type="text"
-              id="listName" 
-              name="listName"
-              placeholder="List Name" 
-              className="form-control justify-content-center align-items-center col-sm-12"/>
+        
+      <div className='container col-12 d-flex flex-column justify-content-center'>
+        {loggedIn ?
+        <div className="d-flex flex-row position-relative justify-content-center">
+          <div className="d-flex flex-column position-relative justify-content-center align-items-center col-6">
+            <h1 style={styles.orangeColor} className="d-flex justify-content-center ">Create A List!</h1>
+            <div className="col-10 d-flex flex-column border rounded justify-content-center align-items-center m-2" > 
+              <div className="form-group d-flex flex-column mt-1 mb-1 col-sm-8">
+                <input 
+                value={listName}
+                onChange={handleInputChange}
+                type="text"
+                id="listName" 
+                name="listName"
+                placeholder="List Name" 
+                className="form-control justify-content-center align-items-center col-sm-12"/>
+              </div>
+              <div className="form-group d-flex flex-column mt-1 mb-1 col-sm-8">
+                <input 
+                value={listMsg}
+                onChange={handleInputChange}
+                type="text"
+                id="listMsg" 
+                name="listMsg"
+                placeholder="List Message" 
+                className="form-control justify-content-center align-items-center col-sm-12"/>
+              </div>
+            </div>
           </div>
-          <div className="form-group d-flex  mt-1 mb-1">
-            {/* <label
-              style={styles.orangeColor}
-              htmlFor="title" 
-              className="control-label col-sm-1 col-form-label" >
-                Title:
-            </label> */}
-            <input 
-              value={title}
-              onChange={handleInputChange}
-              type="text"
-              id="title" 
-              name="title"
-              placeholder="Title" 
-              className="form-control justify-content-center align-items-center col-sm-8"/>
-          </div>
-          <div className="form-group d-flex mt-1">
-            {/* <label 
-              style={styles.orangeColor}
-              className="control-label col-sm-1 col-form-label" >
-                Year:
-            </label> */}
-            <input 
-              value={year}
-              onChange={handleInputChange}
-              type="text"
-              id="year" 
-              name="year"
-              placeholder="Year" 
-              className="form-control justify-content-center align-items-center col-sm-8"/>
-          </div>
+          <div className="d-flex flex-column list-group col-sm-6 border rounded m-2 overflow-auto">
             <button
               style={styles.orangeColorBg} 
-              id="search-by-title-button" 
-              type="submit" 
-              className="btn d-flex justify-content-center align-items-center col-lg-8 m-auto mt-1"
-              onClick={apiCall}>
+              id="createList" 
+              type="button" 
+              className="btn d-flex justify-content-center align-items-center col-lg-6 m-auto mt-1"
+              onClick={createMovieList}>
                 
-                Search
+                Create Movie List
             </button>
+            <div className="overflow-auto" style={styles.listHeight}>
+              {movieLists.map( list => 
+                <li
+                className="list-group-item d-flex justify-content-center align-items-center fs-5"
+                style={styles.movieList}
+                key={list.id}> {list.title} </li>
+              )}
+            </div>
+          </div>
         </div>
-        <div className="list-group">
-            {lists.map( list => 
-              <li
-              key={list.imbdID}> {list.Title} </li>
-            )}
+          :
+          <div></div>
+          }
+        <div className="d-flex flex-column list-group col-sm-12 justify-content-center align-items-center">
+          <div className="d-flex flex-column list-group col-sm-6">
+            <h1 style={styles.orangeColor} className="d-flex justify-content-center">Search By Title & Year</h1>
+            <div className="form-group d-flex  mt-1 mb-1">
+              {/* <label
+                style={styles.orangeColor}
+                htmlFor="title" 
+                className="control-label col-sm-1 col-form-label" >
+                  Title:
+              </label> */}
+              <input 
+                value={title}
+                onChange={handleInputChange}
+                type="text"
+                id="title" 
+                name="title"
+                placeholder="Title" 
+                className="form-control justify-content-center align-items-center col-sm-8"/>
+            </div>
+            <div className="form-group d-flex mt-1">
+              {/* <label 
+                style={styles.orangeColor}
+                className="control-label col-sm-1 col-form-label" >
+                  Year:
+              </label> */}
+              <input 
+                value={year}
+                onChange={handleInputChange}
+                type="text"
+                id="year" 
+                name="year"
+                placeholder="Year" 
+                className="form-control justify-content-center align-items-center col-sm-8"/>
+            </div>
+              <button
+                style={styles.orangeColorBg} 
+                id="search-by-title-button" 
+                type="submit" 
+                className="btn d-flex justify-content-center align-items-center col-lg-8 m-auto mt-1"
+                onClick={apiCall}>
+                  
+                  Search
+              </button>
+            </div>
+          </div>
         </div>
         <div 
-          id="searchResults">
+          id="searchResults"
+          className="overflow-auto"
+          style={styles.posterHeight}>
             {results.map(movie => 
             <div className='imgContainer card m-5'
             id={movie.imdbID}
