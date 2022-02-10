@@ -6,7 +6,7 @@ const resolvers = {
   Query: {
     me: async (parent, args , context) => {
       if (context.user.username){
-      return User.findOne({ username: context.user.username }).populate('watchedMovies');
+      return User.findOne({ username: context.user.username })
       }
       throw new ValidationError('Cannot find this user!');
     },
@@ -54,25 +54,10 @@ const resolvers = {
       if (!correctPw) {
         throw new AuthenticationError('Incorrect credentials');
       }
-
       const token = signToken(user);
-
       return { token, user };
     }
   }
-  //   createMatchup: async (parent, args) => {
-  //     const matchup = await Matchup.create(args);
-  //     return matchup;
-  //   },
-  //   createVote: async (parent, { _id, techNum }) => {
-  //     const vote = await Matchup.findOneAndUpdate(
-  //       { _id },
-  //       { $inc: { [`tech${techNum}_votes`]: 1 } },
-  //       { new: true }
-  //     );
-  //     return vote;
-  //   },
-  // },
 };
 
 module.exports = resolvers;

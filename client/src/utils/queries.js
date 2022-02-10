@@ -30,6 +30,7 @@ query getLists {
         message
         badge
         movies{
+          _id
           title
           year
           omdbId
@@ -51,7 +52,7 @@ query user  {
         year
         isWatched
       }
-      completedList{
+      completedLists {
         _id
       }
       quizHighScore

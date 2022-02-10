@@ -6,14 +6,11 @@ import Dashboard from './pages/Dashboard';
 import Nav from './components/Nav';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-// import Vote from './pages/Vote';
-// import NotFound from './pages/NotFound';
 
 const client = new ApolloClient({
   uri: '/graphql',
   cache: new InMemoryCache(),
 });
-
 
 function App() {
   return (
@@ -34,12 +31,6 @@ function App() {
             <Route exact path="/dashboard">
               <Dashboard />
             </Route>
-            {/* <Route exact path="/matchup/:id">
-              <Vote />
-            </Route>
-            <Route>
-              <NotFound />
-            </Route> */}
           </Switch>
         </div>
       </Router>

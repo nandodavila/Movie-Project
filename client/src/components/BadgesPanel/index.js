@@ -30,6 +30,7 @@ const BadgesPanel = ({ allMovieLists }) => {
             })
         });
          setBadge(completedMovieList);
+         console.log(completedMovieList);
     };
     // populate all lists, if movie in users list, then show badge, if not show not badge
     return (
