@@ -1,8 +1,20 @@
 [
     {
-      "username": "corndog",
-      "email": "cordog@email.com",
-      "password": "corn1234"
+      "username": "corher",
+      "email": "corher@att.net",
+      "password": "jebus1",
+      "quizHighScore": 1,
+      "totalWatchedHours": 1,
+      "watchedMovies": [{
+        "_id": "620467712468f33fe04f0c7b",
+        "title": "The Three Amigos",
+        "year": "2003",
+        "omdbId":  "tt0301934", 
+        "isWatched": true
+      }],
+      "completedLists": {
+        "_id": "620467712468f33fe04f0c82"
+      }
     },
     {
       "username": "jstnhouk",

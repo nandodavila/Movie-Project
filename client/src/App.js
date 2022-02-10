@@ -19,7 +19,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-
 function App() {
   return (
     <ApolloProvider client={client}>
@@ -42,13 +41,6 @@ function App() {
             <Route exact path="/awards-page">
               <ListPage />
             </Route>
-
-            {/* <Route exact path="/matchup/:id">
-              <Vote />
-            </Route>
-            <Route>
-              <NotFound />
-            </Route> */}
           </Switch>
           <Footer />
         </div>
