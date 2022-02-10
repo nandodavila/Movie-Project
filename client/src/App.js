@@ -6,7 +6,12 @@ import Dashboard from './pages/Dashboard';
 import Nav from './components/Nav';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+
 import ListPage from './pages/ListPage';
+
+
+import Footer from './components/Footer';
+
 
 
 const client = new ApolloClient({
@@ -45,6 +50,7 @@ function App() {
               <NotFound />
             </Route> */}
           </Switch>
+          <Footer />
         </div>
       </Router>
     </ApolloProvider>
