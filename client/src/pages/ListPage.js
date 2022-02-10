@@ -12,30 +12,32 @@ const ListPage = () => {
   const { loading, data } = useQuery(GET_LISTS);
   const allMovieLists = data?.lists || [];
 
-  console.log(allMovieLists)
-  console.log(results)
+  let foundListArr = []
 
-  const filterList = () => {
-      allMovieLists.forEach(list => {
-        // All movies but still seperate arrays depending on list
-        let allMovies = list.movies
-        console.log('FACE OFF = tt0119094')
-        allMovies.forEach(movie => {
-            let eachMovieId = movie.omdbId
-            console.log(results.imbdID)
-            if (eachMovieId = results.imbdID) {
-                console.log('Found!' + results)
-            }
-            else {
-                console.log('Not Found, you suck')
-            }
-        })
-
+  const filterList = (searched) => {
+    allMovieLists.forEach(list => {
+      // All movies but still seperate arrays depending on list
+      let allMovies = list.movies
+      console.log('FACE OFF = tt0119094')
+      allMovies.forEach(movie => {
+          let eachMovieId = movie.omdbId
           
-      });
-  }
+          if (eachMovieId == searched[0].imdbID) {
+            console.log('Found! ')
+            console.log(list)
+            foundListArr.push(list)
+            setLists(foundListArr)
+          } 
+          else {
+              console.log("No List found with this movie")
+          }
+      })
 
-  filterList()
+        
+    });
+}
+
+
 
 
 
@@ -59,12 +61,16 @@ const ListPage = () => {
     fetch(`http://www.omdbapi.com/?apikey=${apiKey}&type=movie&s=${title}&r=json&y=${year}`)
     .then(response => response.json())
     .then(data => {
+        console.log(data.Search)
         setResults(data.Search);
         setTitle('');
         setYear('');
+        filterList(data.Search)
     });
   }
 
+
+  
   
 
   const styles = {
@@ -131,23 +137,23 @@ const ListPage = () => {
         <div className="list-group">
             {lists.map( list => 
               <li
-              key={list.imbdID}> {list.Title} </li>
+              key={list._id}> {list.name} </li>
             )}
         </div>
         <div 
           id="searchResults">
-            {results.map(movie => 
+            {foundListArr.map(list => 
             <div className='imgContainer card m-5'
-            id={movie.imdbID}
-            name={movie.Title} 
-            key={movie.imdbID}> 
-            <img src={movie.Poster}
-            id={movie.imdbID}
-            name={movie.Title} 
+            id={list._id}
+            name={list.name} 
+            key={list._id}> 
+            <img src={list.badge}
+            id={list._id}
+            name={list.name} 
             alt="Poster" 
             width="500" 
             height="600"/> <h3 className='centered'> 
-            {movie.Title} {movie.Year}</h3> </div>) }
+            {list.name}</h3> </div>) }
         </div>
     </form>
   );
