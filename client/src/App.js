@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard';
 import Nav from './components/Nav';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Footer from './components/Footer';
 // import Vote from './pages/Vote';
 // import NotFound from './pages/NotFound';
 
@@ -41,6 +42,7 @@ function App() {
               <NotFound />
             </Route> */}
           </Switch>
+          <Footer />
         </div>
       </Router>
     </ApolloProvider>
