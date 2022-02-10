@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 // change mutation name
 export const CREATE_LIST = gql`
-  mutation createList($name: String!, $message: String!, $badge: String) {
+  mutation createList($name: String!, $message: String!, $badge: String, $movies: MovieInput, $createdBy: String!) {
     createList(name: $name, message: $message, badge: $badge, movies: $movies, createdBy: $createdBy) {
       name
       message
