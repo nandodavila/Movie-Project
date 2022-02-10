@@ -7,19 +7,21 @@ const BadgesPanel = ({ allMovieLists }) => {
 
     const [badge, setBadge] = useState([]);
     const { loading, data } = useQuery(GET_ME);
-    useEffect(() => { setBadgeImage() }, []);
+    //if data loads, run this again
+    useEffect(() => { setBadgeImage() }, [data]);
     
     const userCompletedLists = data?.me.completedLists || [];
     let hideBadgeImage = `/images/badges/Hidden-Badge.png`;
     let completedMovieList = [];
 
-    const setBadgeImage = () => {
-        allMovieLists.forEach((listItem) => {
+    const  setBadgeImage = () => {
+         allMovieLists.forEach((listItem) => {
             let badgeImg = hideBadgeImage;
             let badgeId = listItem._id;
             let badgeName = listItem.name;
-            if (userCompletedLists.some((listData) => listData.listId === !badgeId)) {
+            if (userCompletedLists.some((listData) => listData.listId === badgeId)) {
                 badgeImg = listItem.badge;
+                //save into db (on watch) pull in against user
             }
             completedMovieList.push({
                 src: badgeImg,
@@ -27,7 +29,7 @@ const BadgesPanel = ({ allMovieLists }) => {
                 alt: badgeName
             })
         });
-        setBadge(completedMovieList);
+         setBadge(completedMovieList);
     };
     // populate all lists, if movie in users list, then show badge, if not show not badge
     return (

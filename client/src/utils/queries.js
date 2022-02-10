@@ -6,7 +6,6 @@ query me {
       _id
       username
       email
-      password
       quizHighScore
       totalWatchedHours
       watchedMovies {
@@ -17,7 +16,7 @@ query me {
         isWatched
       }
       completedLists {
-        listId
+        _id
       }
     }
   }
@@ -48,7 +47,7 @@ query user  {
         isWatched
       }
       completedList{
-        listId
+        _id
       }
       quizHighScore
       totalWatchedHours
