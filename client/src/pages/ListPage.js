@@ -89,73 +89,61 @@ const ListPage = () => {
   }
 
   return (
-    <form className='container d-flex flex-column justify-content-center align-items-center'>
-      
-        <h1 style={styles.orangeColor}>Search By Title & Year</h1>
-        <div className='container col-8 d-flex flex-column justify-content-center'>
-          <div className="form-group d-flex  mt-1 mb-1">
-            {/* <label
-              style={styles.orangeColor}
-              htmlFor="title" 
-              className="control-label col-sm-1 col-form-label" >
-                Title:
-            </label> */}
-            <input 
-              value={title}
-              onChange={handleInputChange}
-              type="text"
-              id="title" 
-              name="title"
-              placeholder="Title" 
-              className="form-control justify-content-center align-items-center col-sm-8"/>
+    <div>
+      <form className='container d-flex flex-column justify-content-center align-items-center'>
+        
+          <h1 style={styles.orangeColor}>Search By Title & Year</h1>
+          <div className='container col-8 d-flex flex-column justify-content-center'>
+            <div className="form-group d-flex  mt-1 mb-1">
+              {/* <label
+                style={styles.orangeColor}
+                htmlFor="title" 
+                className="control-label col-sm-1 col-form-label" >
+                  Title:
+              </label> */}
+              <input 
+                value={title}
+                onChange={handleInputChange}
+                type="text"
+                id="title" 
+                name="title"
+                placeholder="Title" 
+                className="form-control justify-content-center align-items-center col-sm-8"/>
+            </div>
+            <div className="form-group d-flex mt-1">
+              {/* <label 
+                style={styles.orangeColor}
+                className="control-label col-sm-1 col-form-label" >
+                  Year:
+              </label> */}
+              <input 
+                value={year}
+                onChange={handleInputChange}
+                type="text"
+                id="year" 
+                name="year"
+                placeholder="Year" 
+                className="form-control justify-content-center align-items-center col-sm-8"/>
+            </div>
+              <button
+                style={styles.orangeColorBg} 
+                id="search-by-title-button" 
+                type="submit" 
+                className="btn d-flex justify-content-center align-items-center col-lg-8 m-auto mt-1"
+                onClick={apiCall}>
+                  
+                  Search
+              </button>
           </div>
-          <div className="form-group d-flex mt-1">
-            {/* <label 
-              style={styles.orangeColor}
-              className="control-label col-sm-1 col-form-label" >
-                Year:
-            </label> */}
-            <input 
-              value={year}
-              onChange={handleInputChange}
-              type="text"
-              id="year" 
-              name="year"
-              placeholder="Year" 
-              className="form-control justify-content-center align-items-center col-sm-8"/>
+          </form>
+          <div className="list-group container">
+              {lists.map( list => 
+                <li
+                key={list._id}> {list.name} </li>
+              )}
           </div>
-            <button
-              style={styles.orangeColorBg} 
-              id="search-by-title-button" 
-              type="submit" 
-              className="btn d-flex justify-content-center align-items-center col-lg-8 m-auto mt-1"
-              onClick={apiCall}>
-                
-                Search
-            </button>
         </div>
-        <div className="list-group">
-            {lists.map( list => 
-              <li
-              key={list._id}> {list.name} </li>
-            )}
-        </div>
-        <div 
-          id="searchResults">
-            {foundListArr.map(list => 
-            <div className='imgContainer card m-5'
-            id={list._id}
-            name={list.name} 
-            key={list._id}> 
-            <img src={list.badge}
-            id={list._id}
-            name={list.name} 
-            alt="Poster" 
-            width="500" 
-            height="600"/> <h3 className='centered'> 
-            {list.name}</h3> </div>) }
-        </div>
-    </form>
+    
   );
   };
 export default ListPage;
