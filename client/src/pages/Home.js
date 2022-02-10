@@ -4,7 +4,6 @@ import { useQuery, useMutation} from '@apollo/client';
 import { CREATE_LIST } from '../utils/mutations';
 import React, { useEffect, useState, setState } from 'react';
 let apiKey = '8ffb7060';
-let listOfMovie = [];
 let loggedIn = true;
 const Home = () => {
   const [title, setTitle] = useState('');
@@ -34,8 +33,10 @@ const Home = () => {
   }
 
 const addMovie = async (event) => {
-    console.log('i clicked' + event)
+
     let id = event.target.id;
+    if(id !== '')
+    {
     fetch(`http://www.omdbapi.com/?apikey=${apiKey}&i=${id}`)
     .then(response => response.json())
     .then(data => {
@@ -47,15 +48,18 @@ const addMovie = async (event) => {
       }
       setMovieLists([...movieLists, movieObject])
     });
+  }
 
 
   }
   // useEffect(() => setLists(listOfMovie), [])
   const saveMovieList = async () => {
       try {
+        console.log(movieLists , 'asdfasdfasdf');
         await createList({
           variables: {name: listName, message: listMsg, badge: 'badge', movies:movieLists, createdBy:'travis'},
         });
+        window.location.reload()
       } catch (err) {
         console.error(err);
     }
@@ -78,7 +82,6 @@ const addMovie = async (event) => {
     },
     blueColor: {
       color: '#314E52',
-
     },
     orangeColorBg: {
       backgroundColor: '#F2A154'
@@ -89,7 +92,6 @@ const addMovie = async (event) => {
     movieList: {
       color: '#314E52' ,
       backgroundColor: '#F2A154'
-
     },
     listHeight: {
       maxHeight: '200px',
@@ -97,6 +99,10 @@ const addMovie = async (event) => {
     },
     posterHeight: {
       maxHeight: '650px'
+    },
+    delBtn: {
+      backgroundColor: '#314E52',
+      color: '#F2A154'
     }
   }
 
@@ -147,7 +153,8 @@ const addMovie = async (event) => {
                 <li
                 className="list-group-item d-flex justify-content-center align-items-center fs-5"
                 style={styles.movieList}
-                key={list.omdbId}> {list.title} </li>
+                key={list.omdbId}> {list.title}
+                <button style={styles.delBtn} className="d-flex justify-content-end float-right align-items-end ms-auto">X</button> </li>
               )}
             </div>
           </div>
@@ -216,7 +223,8 @@ const addMovie = async (event) => {
             name={movie.Title} 
             alt="Poster" 
             width="500" 
-            height="600"/> <h3 className='centered'> 
+            height="600"/> 
+            <h3 className='centered'> 
             {movie.Title} {movie.Year}</h3> </div>) }
         </div>
     </form>

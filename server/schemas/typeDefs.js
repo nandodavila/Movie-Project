@@ -48,12 +48,12 @@ type Query {
 
 input MovieInput {
   title: String!
-  year: Int!
+  year: String!
   omdbId: String!
 }
 
 type Mutation {
-    createList(name: String!, message: String!, badge: String, movies: MovieInput, createdBy: String!): List
+    createList(name: String!, message: String!, badge: String, movies: [MovieInput], createdBy: String!): List
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
