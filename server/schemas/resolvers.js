@@ -11,7 +11,7 @@ const resolvers = {
       throw new ValidationError('Cannot find this user!');
     },
     lists: async (parent, args) => {
-      return List.find({}).populate('movies');
+      return List.find({})
     },
     user: async (parent, args, context) => {
       if (context.user) {

@@ -30,15 +30,17 @@ const BadgesPanel = ({ allMovieLists }) => {
             })
         });
          setBadge(completedMovieList);
-         console.log(completedMovieList);
     };
     // populate all lists, if movie in users list, then show badge, if not show not badge
     return (
         <div className="card mb-3">
             <div className="flex-row justify-space-between my-4">
                 {badge.map(award =>
-                    <div className="col-12 col-xl-6"><div className="listBadge mb-3"> {award.id} <img src={process.env.PUBLIC_URL + award.src} key={award.id} alt={award.alt} />
-                    </div>
+                    <div key={"card"+award.id} className="col-12 col-xl-6">
+                        <div key={"list"+award.id} className="listBadge mb-3">
+                        <img src={process.env.PUBLIC_URL + award.src} key={"badge"+award.id} alt={award.alt} />
+                        key={"badge"+award.id}
+                        </div>
                     </div>
                 )}
             </div>

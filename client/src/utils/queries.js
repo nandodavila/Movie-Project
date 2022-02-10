@@ -29,7 +29,7 @@ query getLists {
         name
         message
         badge
-        movies{
+        movies {
           _id
           title
           year
