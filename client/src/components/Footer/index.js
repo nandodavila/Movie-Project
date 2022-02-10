@@ -49,9 +49,6 @@ function Footer() {
       <h5 style={styles.h4}>
           Developed by:  Cornelia Herman, Fernando Davila, Travis Crocker, and Justin Houk 
       </h5>
-
-      <nav className="d-flex flex-row justify-content-end ms-auto align-items-center" style={styles.minWidth}>
-    </nav>
     </footer>
   );
 }
