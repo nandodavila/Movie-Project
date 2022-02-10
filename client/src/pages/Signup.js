@@ -14,8 +14,7 @@ function Signup(props) {
       variables: {
         email: formState.email,
         password: formState.password,
-        firstName: formState.firstName,
-        lastName: formState.lastName,
+        username: formState.username,
       },
     });
     const token = mutationResponse.data.addUser.token;
@@ -33,26 +32,15 @@ function Signup(props) {
   return (
     <div className="container my-1">
       <Link to="/login">← Go to Login</Link>
-
       <h2>Signup</h2>
       <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between my-2">
-          <label htmlFor="firstName">First Name:</label>
+          <label htmlFor="firstName">Username:</label>
           <input
-            placeholder="First"
-            name="firstName"
-            type="firstName"
-            id="firstName"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="lastName">Last Name:</label>
-          <input
-            placeholder="Last"
-            name="lastName"
-            type="lastName"
-            id="lastName"
+            placeholder="Username"
+            name="username"
+            type="username"
+            id="username"
             onChange={handleChange}
           />
         </div>
