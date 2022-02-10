@@ -22,19 +22,20 @@ const ListPage = () => {
       allMovies.forEach(movie => {
           let eachMovieId = movie.omdbId
           
-          if (eachMovieId == searched[0].imdbID) {
+          if (eachMovieId === searched[0].imdbID) {
             console.log('Found! ')
             console.log(list)
             foundListArr.push(list)
-            setLists(foundListArr)
-          } 
-          else {
-              console.log("No List found with this movie")
           }
-      })
-
-        
+      })    
     });
+
+    if (foundListArr.length == 0){
+      alert("No List Found With This Movie")
+    } else {
+      console.log("Found " + foundListArr.length + " List with this movie")
+      setLists(foundListArr) 
+    }
 }
 
 
@@ -136,10 +137,29 @@ const ListPage = () => {
               </button>
           </div>
           </form>
-          <div className="list-group container">
+          <div className="accordion list-accordion container">
               {lists.map( list => 
-                <li
-                key={list._id}> {list.name} </li>
+                <div className='card' key={list._id}>
+                  <div className='card-header' id={list.name}>
+                    <h2 className="mb-0">
+                      <button className="btn btn-link" type="button" data-toggle="collapse" data-target={`#${list._id}`} aria-expanded="true" aria-controls={list._id}>
+                        {list.name}
+                        <img src={list.badge}/>
+                      </button>
+                    </h2>
+                  </div>
+                  <div id={list._id} className="collapse show" aria-labelledby={list.name} data-parent="#list-accordion">
+                    <div className="card-body">
+                      <ul>
+                      {list.movies.map( movie =>
+                        <li key={movie.omdbId}>
+                          {movie.title}
+                        </li>
+                      )}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               )}
           </div>
         </div>
