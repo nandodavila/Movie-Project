@@ -6,8 +6,14 @@ export const CREATE_LIST = gql`
       name
       message
       badge
-      movies
-      createdBy
+      movies{
+        title
+        year
+        omdbId
+      }
+      createdBy{
+        username
+      }
     }
   }
 `;
@@ -25,14 +31,12 @@ export const CREATE_LIST = gql`
 
   export const ADD_USER = gql`
   mutation addUser(
-    $firstName: String!
-    $lastName: String!
+    $username: String!
     $email: String!
     $password: String!
   ) {
     addUser(
-      firstName: $firstName
-      lastName: $lastName
+      username: $username
       email: $email
       password: $password
     ) {

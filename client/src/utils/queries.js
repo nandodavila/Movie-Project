@@ -29,6 +29,11 @@ query getLists {
         name
         message
         badge
+        movies{
+          title
+          year
+          omdbId
+        }
     }
 }
 `;
@@ -53,4 +58,6 @@ query user  {
       totalWatchedHours
     }
   }
-`;
+`
+
+;
