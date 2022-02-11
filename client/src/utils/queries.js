@@ -6,7 +6,6 @@ query me {
       _id
       username
       email
-      password
       quizHighScore
       totalWatchedHours
       watchedMovies {
@@ -17,7 +16,7 @@ query me {
         isWatched
       }
       completedLists {
-        listId
+        _id
       }
     }
   }
@@ -30,7 +29,8 @@ query getLists {
         name
         message
         badge
-        movies{
+        movies {
+          _id
           title
           year
           omdbId
@@ -52,8 +52,8 @@ query user  {
         year
         isWatched
       }
-      completedList{
-        listId
+      completedLists {
+        _id
       }
       quizHighScore
       totalWatchedHours

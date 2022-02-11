@@ -6,6 +6,11 @@
     --light: #F7F6E7;
   }
 
+.listBadge {
+        width: 20px;
+        height: auto;
+}
+
 .btn {
     background-color: var(--orange) !important;
     margin: 2px;
