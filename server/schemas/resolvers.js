@@ -6,19 +6,16 @@ const resolvers = {
   Query: {
     me: async (parent, args , context) => {
       if (context.user.username){
-      return User.findOne({ username: context.user.username }).populate('watchedMovies');
+      return User.findOne({ username: context.user.username })
       }
       throw new ValidationError('Cannot find this user!');
     },
     lists: async (parent, args) => {
-      return List.find({}).populate('movies');
+      return List.find({})
     },
     user: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate({
-          // path: 'orders.products',
-          // populate: 'category'
-        });
+        const user = await User.findById(context.user._id).populate({});
 
         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
 
@@ -57,25 +54,10 @@ const resolvers = {
       if (!correctPw) {
         throw new AuthenticationError('Incorrect credentials');
       }
-
       const token = signToken(user);
-
       return { token, user };
     }
   }
-  //   createMatchup: async (parent, args) => {
-  //     const matchup = await Matchup.create(args);
-  //     return matchup;
-  //   },
-  //   createVote: async (parent, { _id, techNum }) => {
-  //     const vote = await Matchup.findOneAndUpdate(
-  //       { _id },
-  //       { $inc: { [`tech${techNum}_votes`]: 1 } },
-  //       { new: true }
-  //     );
-  //     return vote;
-  //   },
-  // },
 };
 
 module.exports = resolvers;

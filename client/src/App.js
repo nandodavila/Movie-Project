@@ -6,14 +6,18 @@ import Dashboard from './pages/Dashboard';
 import Nav from './components/Nav';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-// import Vote from './pages/Vote';
-// import NotFound from './pages/NotFound';
+
+import ListPage from './pages/ListPage';
+
+
+import Footer from './components/Footer';
+
+
 
 const client = new ApolloClient({
   uri: '/graphql',
   cache: new InMemoryCache(),
 });
-
 
 function App() {
   return (
@@ -34,13 +38,11 @@ function App() {
             <Route exact path="/dashboard">
               <Dashboard />
             </Route>
-            {/* <Route exact path="/matchup/:id">
-              <Vote />
+            <Route exact path="/awards-page">
+              <ListPage />
             </Route>
-            <Route>
-              <NotFound />
-            </Route> */}
           </Switch>
+          <Footer />
         </div>
       </Router>
     </ApolloProvider>

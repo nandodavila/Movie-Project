@@ -58,6 +58,11 @@ function Nav() {
               Login
             </Link>
           </li>
+          <li className="mx-1">
+            <Link to="/awards-page">
+              Award List
+            </Link>
+          </li>
         </ul>
       );
     }

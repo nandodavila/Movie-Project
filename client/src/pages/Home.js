@@ -3,6 +3,8 @@ import { useQuery, useMutation} from '@apollo/client';
 // import { QUERY_MATCHUPS } from '../utils/queries';
 import { CREATE_LIST } from '../utils/mutations';
 import React, { useEffect, useState, setState } from 'react';
+import $ from 'jquery';
+let ReactDOM = require('react-dom');
 let apiKey = '8ffb7060';
 let loggedIn = true;
 const Home = () => {
@@ -31,6 +33,24 @@ const Home = () => {
       setYear(inputValue);
     };
   }
+
+// $(document).on('click', 'li button', function(event){
+//   event.preventDefault();
+//   console.log(event.target.parentNode.id)
+
+// })
+
+const removeMovie = (e) => {
+  e.preventDefault();
+  let targetId = e.target.parentNode.id
+  movieLists.forEach((movie, index) => {
+    if( movie.omdbId == targetId)
+    {
+      movieLists.splice(index, 1)
+    }
+  });
+  setMovieLists([...movieLists])
+}
 
 const addMovie = async (event) => {
 
@@ -153,8 +173,10 @@ const addMovie = async (event) => {
                 <li
                 className="list-group-item d-flex justify-content-center align-items-center fs-5"
                 style={styles.movieList}
-                key={list.omdbId}> {list.title}
-                <button style={styles.delBtn} className="d-flex justify-content-end float-right align-items-end ms-auto">X</button> </li>
+                key={list.omdbId}
+                id={list.omdbId}> {list.title}
+                <button style={styles.delBtn}
+                onClick={removeMovie} className="d-flex justify-content-end float-right align-items-end ms-auto">X</button> </li>
               )}
             </div>
           </div>

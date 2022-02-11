@@ -12,10 +12,6 @@ const QuizPanel = ({ quizHighScore }) => {
         return <h3>You haven't taken the quiz yet. </h3>;
     }
 
-    const styles = {
-        maxWidth: '540px'
-    }
-
     return (
         <div className="card mb-3">
             <div className="flex-row justify-space-between my-4">
