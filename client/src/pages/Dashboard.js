@@ -16,13 +16,13 @@ export default function Dashboard() {
       <h1>User Dashboard</h1>
       <div className="dashboardContent">
         <div className="left">
-          <ListPanel key="listPanel" allMovieLists={allMovieLists}/>
+          {/* <ListPanel key="listPanel" allMovieLists={allMovieLists}/> */}
           <button className="btn justify-content-center align-items-center col-lg-12 ml-auto">Check Off Watched Movies</button>
           <button className="btn justify-content-center align-items-center col-lg-12 ml-auto">Create Movie List</button>
         </div>
         <div className="right">
           <BadgesPanel key="badgePanel" allMovieLists={allMovieLists}/>
-          <QuizPanel key="quizPanel"/>
+          {/* <QuizPanel key="quizPanel"/> */}
           <button className="btn justify-content-center align-items-center col-lg-12 ml-auto">Take Quiz</button>
         </div>
       </div>

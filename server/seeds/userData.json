@@ -12,9 +12,8 @@
         "omdbId":  "tt0301934", 
         "isWatched": true
       }],
-      "completedLists": {
-        "_id": "620467712468f33fe04f0c82"
-      }
+      "completedLists": 
+      {"_id": "620467712468f33fe04f0c82"}
     },
     {
       "username": "jstnhouk",
