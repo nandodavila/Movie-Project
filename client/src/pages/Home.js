@@ -3,8 +3,9 @@ import { useQuery, useMutation} from '@apollo/client';
 // import { QUERY_MATCHUPS } from '../utils/queries';
 import { CREATE_LIST } from '../utils/mutations';
 import React, { useEffect, useState, setState } from 'react';
+import $ from 'jquery';
+let ReactDOM = require('react-dom');
 let apiKey = '8ffb7060';
-let listOfMovie = [];
 let loggedIn = true;
 const Home = () => {
   const [title, setTitle] = useState('');
@@ -33,9 +34,29 @@ const Home = () => {
     };
   }
 
+// $(document).on('click', 'li button', function(event){
+//   event.preventDefault();
+//   console.log(event.target.parentNode.id)
+
+// })
+
+const removeMovie = (e) => {
+  e.preventDefault();
+  let targetId = e.target.parentNode.id
+  movieLists.forEach((movie, index) => {
+    if( movie.omdbId == targetId)
+    {
+      movieLists.splice(index, 1)
+    }
+  });
+  setMovieLists([...movieLists])
+}
+
 const addMovie = async (event) => {
-    console.log('i clicked' + event)
+
     let id = event.target.id;
+    if(id !== '')
+    {
     fetch(`http://www.omdbapi.com/?apikey=${apiKey}&i=${id}`)
     .then(response => response.json())
     .then(data => {
@@ -43,21 +64,26 @@ const addMovie = async (event) => {
       let movieObject = {
         title: data.Title,
         year: data.Year,
-        id: data.imdbID
+        omdbId: data.imdbID
       }
       setMovieLists([...movieLists, movieObject])
     });
+  }
 
-    // try {
-    //   await createList({
-    //     variables: {  },
-    //   });
-    // } catch (err) {
-    //   console.error(err);
-   // }
+
   }
   // useEffect(() => setLists(listOfMovie), [])
-
+  const saveMovieList = async () => {
+      try {
+        console.log(movieLists , 'asdfasdfasdf');
+        await createList({
+          variables: {name: listName, message: listMsg, badge: 'badge', movies:movieLists, createdBy:'travis'},
+        });
+        window.location.reload()
+      } catch (err) {
+        console.error(err);
+    }
+  }
   function apiCall(event)
   {
     event.preventDefault();
@@ -76,7 +102,6 @@ const addMovie = async (event) => {
     },
     blueColor: {
       color: '#314E52',
-
     },
     orangeColorBg: {
       backgroundColor: '#F2A154'
@@ -87,7 +112,6 @@ const addMovie = async (event) => {
     movieList: {
       color: '#314E52' ,
       backgroundColor: '#F2A154'
-
     },
     listHeight: {
       maxHeight: '200px',
@@ -95,12 +119,11 @@ const addMovie = async (event) => {
     },
     posterHeight: {
       maxHeight: '650px'
+    },
+    delBtn: {
+      backgroundColor: '#314E52',
+      color: '#F2A154'
     }
-  }
-  const createMovieList = (event) =>
-  {
-    event.preventDefault();
-    console.log('yep')
   }
 
   return (
@@ -141,7 +164,7 @@ const addMovie = async (event) => {
               id="createList" 
               type="button" 
               className="btn d-flex justify-content-center align-items-center col-lg-6 m-auto mt-1"
-              onClick={createMovieList}>
+              onClick={saveMovieList}>
                 
                 Create Movie List
             </button>
@@ -150,7 +173,10 @@ const addMovie = async (event) => {
                 <li
                 className="list-group-item d-flex justify-content-center align-items-center fs-5"
                 style={styles.movieList}
-                key={list.id}> {list.title} </li>
+                key={list.omdbId}
+                id={list.omdbId}> {list.title}
+                <button style={styles.delBtn}
+                onClick={removeMovie} className="d-flex justify-content-end float-right align-items-end ms-auto">X</button> </li>
               )}
             </div>
           </div>
@@ -158,10 +184,10 @@ const addMovie = async (event) => {
           :
           <div></div>
           }
-        <div className="d-flex flex-column list-group col-sm-12 justify-content-center align-items-center">
-          <div className="d-flex flex-column list-group col-sm-6">
-            <h1 style={styles.orangeColor} className="d-flex justify-content-center">Search By Title & Year</h1>
-            <div className="form-group d-flex  mt-1 mb-1">
+        <div className="d-flex flex-row list-group col-sm-12 justify-content-around align-items-center">
+          <div className="d-flex flex-row list-group col-sm-12 justify-content-around">
+            <h3 style={styles.orangeColor} className="d-flex justify-content-around">Search By Title & Year</h3>
+            <div className="form-group d-flex m-1 justify-content-around">
               {/* <label
                 style={styles.orangeColor}
                 htmlFor="title" 
@@ -175,9 +201,9 @@ const addMovie = async (event) => {
                 id="title" 
                 name="title"
                 placeholder="Title" 
-                className="form-control justify-content-center align-items-center col-sm-8"/>
+                className="form-control justify-content-center align-items-center col-sm-6"/>
             </div>
-            <div className="form-group d-flex mt-1">
+            <div className="form-group d-flex m-1">
               {/* <label 
                 style={styles.orangeColor}
                 className="control-label col-sm-1 col-form-label" >
@@ -190,13 +216,13 @@ const addMovie = async (event) => {
                 id="year" 
                 name="year"
                 placeholder="Year" 
-                className="form-control justify-content-center align-items-center col-sm-8"/>
+                className="form-control justify-content-center align-items-center col-sm-6"/>
             </div>
               <button
                 style={styles.orangeColorBg} 
                 id="search-by-title-button" 
                 type="submit" 
-                className="btn d-flex justify-content-center align-items-center col-lg-8 m-auto mt-1"
+                className="btn d-flex justify-content-center align-items-center col-sm-2"
                 onClick={apiCall}>
                   
                   Search
@@ -219,7 +245,8 @@ const addMovie = async (event) => {
             name={movie.Title} 
             alt="Poster" 
             width="500" 
-            height="600"/> <h3 className='centered'> 
+            height="600"/> 
+            <h3 className='centered'> 
             {movie.Title} {movie.Year}</h3> </div>) }
         </div>
     </form>
