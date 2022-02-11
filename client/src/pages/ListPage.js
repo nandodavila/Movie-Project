@@ -1,5 +1,6 @@
 // import { Link } from 'react-router-dom';
 import { useQuery, useMutation} from '@apollo/client';
+import Auth from "../utils/auth";
 import { GET_LISTS } from '../utils/queries'
 import React, { useState } from 'react';
 let apiKey = '8ffb7060';
@@ -22,19 +23,20 @@ const ListPage = () => {
       allMovies.forEach(movie => {
           let eachMovieId = movie.omdbId
           
-          if (eachMovieId == searched[0].imdbID) {
+          if (eachMovieId === searched[0].imdbID) {
             console.log('Found! ')
             console.log(list)
             foundListArr.push(list)
-            setLists(foundListArr)
-          } 
-          else {
-              console.log("No List found with this movie")
           }
-      })
-
-        
+      })    
     });
+
+    if (foundListArr.length === 0){
+      alert("No List Found With This Movie")
+    } else {
+      console.log("Found " + foundListArr.length + " List with this movie")
+      setLists(foundListArr) 
+    }
 }
 
 
@@ -70,6 +72,22 @@ const ListPage = () => {
   }
 
 
+  function movieWatchedCheck(event){
+    event.preventDefault();
+    console.log(event)
+  }
+
+  function checkMovieWatched(movie){
+    if (Auth.loggedIn()) {
+      console.log("logged in")
+    } else {
+      console.log("not logged in")
+    }
+    // if (user is logged in) {}
+  }
+
+
+
   
   
 
@@ -88,62 +106,171 @@ const ListPage = () => {
     }
   }
 
-  return (
-    <div>
-      <form className='container d-flex flex-column justify-content-center align-items-center'>
-        
-          <h1 style={styles.orangeColor}>Search By Title & Year</h1>
-          <div className='container col-8 d-flex flex-column justify-content-center'>
-            <div className="form-group d-flex  mt-1 mb-1">
-              {/* <label
-                style={styles.orangeColor}
-                htmlFor="title" 
-                className="control-label col-sm-1 col-form-label" >
-                  Title:
-              </label> */}
-              <input 
-                value={title}
-                onChange={handleInputChange}
-                type="text"
-                id="title" 
-                name="title"
-                placeholder="Title" 
-                className="form-control justify-content-center align-items-center col-sm-8"/>
+  //reverse if statement when done, make sure logged out person does not see check boxes
+
+  if (Auth.loggedIn()) {
+    return (
+      <div>
+        <form className='container d-flex flex-column justify-content-center align-items-center'>
+          
+            <h1 style={styles.orangeColor}>Search By Title & Year</h1>
+            <div className='container col-8 d-flex flex-column justify-content-center'>
+              <div className="form-group d-flex  mt-1 mb-1">
+                {/* <label
+                  style={styles.orangeColor}
+                  htmlFor="title" 
+                  className="control-label col-sm-1 col-form-label" >
+                    Title:
+                </label> */}
+                <input 
+                  value={title}
+                  onChange={handleInputChange}
+                  type="text"
+                  id="title" 
+                  name="title"
+                  placeholder="Title" 
+                  className="form-control justify-content-center align-items-center col-sm-8"/>
+              </div>
+              <div className="form-group d-flex mt-1">
+                {/* <label 
+                  style={styles.orangeColor}
+                  className="control-label col-sm-1 col-form-label" >
+                    Year:
+                </label> */}
+                <input 
+                  value={year}
+                  onChange={handleInputChange}
+                  type="text"
+                  id="year" 
+                  name="year"
+                  placeholder="Year" 
+                  className="form-control justify-content-center align-items-center col-sm-8"/>
+              </div>
+                <button
+                  style={styles.orangeColorBg} 
+                  id="search-by-title-button" 
+                  type="submit" 
+                  className="btn d-flex justify-content-center align-items-center col-lg-8 m-auto mt-1"
+                  onClick={apiCall}>
+                    
+                    Search
+                </button>
             </div>
-            <div className="form-group d-flex mt-1">
-              {/* <label 
-                style={styles.orangeColor}
-                className="control-label col-sm-1 col-form-label" >
-                  Year:
-              </label> */}
-              <input 
-                value={year}
-                onChange={handleInputChange}
-                type="text"
-                id="year" 
-                name="year"
-                placeholder="Year" 
-                className="form-control justify-content-center align-items-center col-sm-8"/>
+            </form>
+            <div className="accordion list-accordion container">
+                {lists.map( list => 
+                  <div className='card' key={list._id}>
+                    <div className='card-header' id={list.name}>
+                      <h2 className="mb-0">
+                        <button className="btn btn-link" type="button" data-toggle="collapse" data-target={`#${list._id}`} aria-expanded="true" aria-controls={list._id}>
+                          {list.name}
+                          <img src={list.badge}/>
+                        </button>
+                      </h2>
+                    </div>
+                    <div id={list._id} className="collapse show" aria-labelledby={list.name} data-parent="#list-accordion">
+                      <div className="card-body">
+                        <ul>
+                        {list.movies.map( movie =>
+                          <li key={movie.omdbId}>
+                          </li>
+                        )}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                )}
             </div>
-              <button
-                style={styles.orangeColorBg} 
-                id="search-by-title-button" 
-                type="submit" 
-                className="btn d-flex justify-content-center align-items-center col-lg-8 m-auto mt-1"
-                onClick={apiCall}>
-                  
-                  Search
-              </button>
           </div>
-          </form>
-          <div className="list-group container">
-              {lists.map( list => 
-                <li
-                key={list._id}> {list.name} </li>
-              )}
+      
+    );
+  } else {
+    return (
+      <div>
+        <form className='container d-flex flex-column justify-content-center align-items-center'>
+          
+            <h1 style={styles.orangeColor}>Search By Title & Year</h1>
+            <div className='container col-8 d-flex flex-column justify-content-center'>
+              <div className="form-group d-flex  mt-1 mb-1">
+                {/* <label
+                  style={styles.orangeColor}
+                  htmlFor="title" 
+                  className="control-label col-sm-1 col-form-label" >
+                    Title:
+                </label> */}
+                <input 
+                  value={title}
+                  onChange={handleInputChange}
+                  type="text"
+                  id="title" 
+                  name="title"
+                  placeholder="Title" 
+                  className="form-control justify-content-center align-items-center col-sm-8"/>
+              </div>
+              <div className="form-group d-flex mt-1">
+                {/* <label 
+                  style={styles.orangeColor}
+                  className="control-label col-sm-1 col-form-label" >
+                    Year:
+                </label> */}
+                <input 
+                  value={year}
+                  onChange={handleInputChange}
+                  type="text"
+                  id="year" 
+                  name="year"
+                  placeholder="Year" 
+                  className="form-control justify-content-center align-items-center col-sm-8"/>
+              </div>
+                <button
+                  style={styles.orangeColorBg} 
+                  id="search-by-title-button" 
+                  type="submit" 
+                  className="btn d-flex justify-content-center align-items-center col-lg-8 m-auto mt-1"
+                  onClick={apiCall}>
+                    
+                    Search
+                </button>
+            </div>
+            </form>
+            <div className="accordion list-accordion container">
+                {lists.map( list => 
+                  <div className='card' key={list._id}>
+                    <div className='card-header' id={list.name}>
+                      <h2 className="mb-0">
+                        <button className="btn btn-link" type="button" data-toggle="collapse" data-target={`#${list._id}`} aria-expanded="true" aria-controls={list._id}>
+                          {list.name}
+                          <img src={list.badge}/>
+                        </button>
+                      </h2>
+                    </div>
+                    <div id={list._id} className="collapse show" aria-labelledby={list.name} data-parent="#list-accordion">
+                      <div className="card-body">
+                        <ul>
+                        {list.movies.map( movie =>
+                          <li key={movie.omdbId}>
+                            <form>
+                              <div className="form-group form-check">
+                                <input type="checkbox" 
+                                className="form-check-input" 
+                                id={movie.omdbId}
+                                checked={checkMovieWatched(movie.omdbId)}
+                                onChange={movieWatchedCheck}/>
+                                <label className="form-check-label" htmlFor={movie.omdbID}>{movie.title}</label>
+                              </div>
+                            </form>
+                          </li>
+                        )}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                )}
+            </div>
           </div>
-        </div>
-    
-  );
-  };
+      
+    );
+
+  }
+};
 export default ListPage;
