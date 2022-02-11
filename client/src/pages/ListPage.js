@@ -78,7 +78,11 @@ const ListPage = () => {
   }
 
   function checkMovieWatched(movie){
-    console.log(movie)
+    if (Auth.loggedIn()) {
+      console.log("logged in")
+    } else {
+      console.log("not logged in")
+    }
     // if (user is logged in) {}
   }
 
@@ -101,6 +105,8 @@ const ListPage = () => {
       backgroundColor: '#314E52'
     }
   }
+
+  //reverse if statement when done, make sure logged out person does not see check boxes
 
   if (Auth.loggedIn()) {
     return (
@@ -167,16 +173,6 @@ const ListPage = () => {
                         <ul>
                         {list.movies.map( movie =>
                           <li key={movie.omdbId}>
-                            <form>
-                              <div className="form-group form-check">
-                                <input type="checkbox" 
-                                className="form-check-input" 
-                                id={movie.omdbId}
-                                checked={checkMovieWatched(movie.omdbId)}
-                                onChange={movieWatchedCheck}/>
-                                <label className="form-check-label" htmlFor={movie.omdbID}>{movie.title}</label>
-                              </div>
-                            </form>
                           </li>
                         )}
                         </ul>
