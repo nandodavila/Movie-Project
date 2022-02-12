@@ -204,7 +204,7 @@ const searchMovie = async (event) => {
           }
         <div className="d-flex flex-row list-group col-sm-12 justify-content-around align-items-center">
           <div className="d-flex flex-column list-group col-sm-12 justify-content-center">
-            <div className="errorMsg d-flex col-sm-12 justify-content-center">{errorMsg.map( error => <h1 className="errorMsg">{error.msg}</h1>)}</div>
+            <div className="errorMsg d-flex flex-column col-sm-12 justify-content-center">{errorMsg.map( error => <h1 className="errorMsg">{error.msg}</h1>)}</div>
             <div className="d-flex flex-row list-group col-sm-12 justify-content-around">
               <h3 style={styles.orangeColor} className="d-flex justify-content-around">Search By Title & Year</h3>
               <div className="form-group d-flex m-1 justify-content-around">
