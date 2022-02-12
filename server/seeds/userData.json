@@ -12,23 +12,59 @@
         "omdbId":  "tt0301934", 
         "isWatched": true
       }],
-      "completedLists": {
-        "_id": "620467712468f33fe04f0c82"
-      }
-    },
+      "completedLists": [
+      {"_id": "620467712468f33fe04f0c82"}
+    ]
+  },
     {
       "username": "jstnhouk",
       "email": "jstnhouk@email.com",
-      "password": "jstnhouk1234"
+      "password": "jstnhouk1234",
+      "quizHighScore": 1,
+      "totalWatchedHours": 1,
+      "watchedMovies": [{
+        "_id": "620467712468f33fe04f0c7b",
+        "title": "The Three Amigos",
+        "year": "2003",
+        "omdbId":  "tt0301934", 
+        "isWatched": true
+      }],
+      "completedLists": [
+      {"_id": "620467712468f33fe04f0c82"}
+    ]
     },
     {
         "username": "travisCr",
         "email": "travisCr@email.com",
-        "password": "travisCr1234"
+        "password": "travisCr1234",
+        "quizHighScore": 1,
+      "totalWatchedHours": 1,
+      "watchedMovies": [{
+        "_id": "620467712468f33fe04f0c7b",
+        "title": "The Three Amigos",
+        "year": "2003",
+        "omdbId":  "tt0301934", 
+        "isWatched": true
+      }],
+      "completedLists": [
+      {"_id": "620467712468f33fe04f0c82"}
+    ]
     },
     {
         "username": "nandoistrash",
         "email": "nandoistrash@email.com",
-        "password": "nandoistrash1234"
+        "password": "nandoistrash1234",
+        "quizHighScore": 1,
+      "totalWatchedHours": 1,
+      "watchedMovies": [{
+        "_id": "620467712468f33fe04f0c7b",
+        "title": "The Three Amigos",
+        "year": "2003",
+        "omdbId":  "tt0301934", 
+        "isWatched": true
+      }],
+      "completedLists": [
+      {"_id": "620467712468f33fe04f0c82"}
+    ]
     }
 ]

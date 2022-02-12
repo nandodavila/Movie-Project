@@ -9,10 +9,7 @@ import Signup from './pages/Signup';
 import { setContext } from '@apollo/client/link/context';
 import ListPage from './pages/ListPage';
 
-
 import Footer from './components/Footer';
-
-
 
 const httpLink = createHttpLink({
   uri: '/graphql',
