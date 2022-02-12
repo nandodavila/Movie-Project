@@ -86,12 +86,9 @@ const ListPage = () => {
         omdbId: id,
         isWatched: true  
       }
-       try {
-        
+      try {        
         const user = await updateUserMovie({
-          variables: {
-            UserMovieWatched: watchedMovieObj
-          },
+          variables: { UserMovieWatched: watchedMovieObj },
         });
         console.log(user)
       } catch (err) {
@@ -100,19 +97,38 @@ const ListPage = () => {
     }
   }
 
-
-  function checkMovieWatched(movie){
-    if (Auth.loggedIn()) {
-      console.log("logged in")
-    } else {
-      console.log("not logged in")
-    }
-    // if (user is logged in) {}
+  function checkMovieWatched() {
+    const arrayOfArrayslmao = []
+    lists.forEach(list => {
+      let moviesWatchedArr = []
+      let listName = list.name
+      list.movies.forEach(movie => {
+        userInfo.me.watchedMovies.forEach(watchedMovie => {
+          if (watchedMovie.omdbId === movie.omdbId) {
+            moviesWatchedArr.push(movie)
+          }
+        })
+      })
+      arrayOfArrayslmao.push({listName: listName, listId: list._id, theWatchedMovies: moviesWatchedArr})
+    })
+    return arrayOfArrayslmao
   }
 
+  // console.log(checkMovieWatched())
 
-
-  
+  // function CheckingFunc(list, movie) {
+  //   checkMovieWatched().forEach(obj => {
+  //     console.log(obj)
+  //     const {listName, listId, theWatchedMovies} = obj
+  //     console.log(theWatchedMovies)
+  //     theWatchedMovies.forEach(watchedMovie => {
+  //       console.log(movie.title)
+  //       if (watchedMovie.title === movie.title) {
+  //         console.log('true')
+  //       }
+  //     })
+  //   })
+  // }
   
 
   const styles = {
@@ -195,7 +211,7 @@ const ListPage = () => {
                     <div id={list._id} className="collapse show" aria-labelledby={list.name} data-parent="#list-accordion">
                       <div className="card-body">
                         <ul>
-                        {list.movies.map( movie =>
+                        {list.movies.map( movie => 
                           <li key={movie.omdbId}>
                             <form>
                               <div className="form-group form-check">
@@ -204,7 +220,7 @@ const ListPage = () => {
                                 id={movie.omdbId}
                                 title={movie.title}
                                 value={movie.year}
-                                checked={checkMovieWatched(movie.omdbId)}
+                                checked={CheckingFunc(list, movie)}
                                 onChange={movieWatchedChange}
                                 />
                                 <label className="form-check-label" htmlFor={movie.omdbID}>{movie.title}</label>
