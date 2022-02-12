@@ -3,10 +3,7 @@ import { useQuery, useMutation} from '@apollo/client';
 import Auth from "../utils/auth";
 import { CREATE_LIST } from '../utils/mutations';
 import React, { useEffect, useState, setState } from 'react';
-require('dotenv').config();
-let apiKey = process.env.API_KEY;
-console.log(process.env.API_KEY)
-console.log(process.env)
+let apiKey = process.env.REACT_APP_API_KEY;
 const Home = () => {
   const [title, setTitle] = useState('');
   const [year, setYear] = useState('');
@@ -35,48 +32,37 @@ const Home = () => {
     };
   }
 
-// $(document).on('click', 'li button', function(event){
-//   event.preventDefault();
-//   console.log(event.target.parentNode.id)
-
-// })
-
+//remove a movie from the list created
 const removeMovie = (e) => {
   e.preventDefault();
   let targetId = e.target.parentNode.id
   movieLists.forEach((movie, index) => {
-    if( movie.omdbId == targetId)
+    if( movie.omdbId === targetId)
     {
       movieLists.splice(index, 1)
     }
   });
   setMovieLists([...movieLists])
 }
-
-const searchMovie = async (event) => {
-
+//call the api to get the info for the movie you clicked on to add it to the list
+  const searchMovie = async (event) => {
     let id = event.target.id;
     if(id !== '')
     {
-    fetch(`http://www.omdbapi.com/?apikey=${apiKey}&i=${id}`)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data)
-      let movieObject = {
-        title: data.Title,
-        year: data.Year,
-        omdbId: data.imdbID
-      }
-      setMovieLists([...movieLists, movieObject])
-    });
+      fetch(`http://www.omdbapi.com/?apikey=${apiKey}&i=${id}`)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        let movieObject = {
+          title: data.Title,
+          year: data.Year,
+          omdbId: data.imdbID
+        }
+        setMovieLists([...movieLists, movieObject])
+      });
+    }
   }
-
- 
-
-
-  }
-  // useEffect(() => setLists(listOfMovie), [])
-
+  //add list of movies to the database
   const saveMovieList = async (event) => {
     if(listName.length !== 0 && listMsg.length !== 0 && movieLists.length !== 0)
     {
@@ -94,7 +80,7 @@ const searchMovie = async (event) => {
       setErrorMsg([...errorMsg,{msg: 'Please make sure you have entered List Name, List Message, and have created a Movie List.'}]);
     }
   }
-
+  //call the api to return the movie you searched for
   function apiCall(event)
   {
     if(title)
@@ -107,12 +93,13 @@ const searchMovie = async (event) => {
             setTitle('');
             setYear('');
         });
+        setErrorMsg([])
     } else {
       event.preventDefault();
       setErrorMsg([...errorMsg, {msg: 'Please enter a movie title.'}]);
     }
   }
-
+  //styles for jsx
   const styles = {
     orangeColor: {
       color: '#F2A154'
@@ -145,7 +132,7 @@ const searchMovie = async (event) => {
       display: 'none'
     }
   }
-
+  //html to return
   return (
     <form className='container d-flex flex-column justify-content-center align-items-center mt-5'>
       
@@ -210,12 +197,6 @@ const searchMovie = async (event) => {
             <div className="d-flex flex-row list-group col-sm-12 justify-content-around">
               <h3 style={styles.orangeColor} className="d-flex justify-content-around">Search By Title & Year</h3>
               <div className="form-group d-flex m-1 justify-content-around">
-                {/* <label
-                  style={styles.orangeColor}
-                  htmlFor="title" 
-                  className="control-label col-sm-1 col-form-label" >
-                    Title:
-                </label> */}
                 <input 
                   value={title}
                   onChange={handleInputChange}
@@ -226,11 +207,6 @@ const searchMovie = async (event) => {
                   className="form-control justify-content-center align-items-center col-sm-6"/>
               </div>
               <div className="form-group d-flex m-1">
-                {/* <label 
-                  style={styles.orangeColor}
-                  className="control-label col-sm-1 col-form-label" >
-                    Year:
-                </label> */}
                 <input 
                   value={year}
                   onChange={handleInputChange}

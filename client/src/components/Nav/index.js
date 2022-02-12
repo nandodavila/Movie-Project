@@ -21,6 +21,9 @@ const styles = {
   },
   header:{
     backgroundColor: '#F7F6E7'
+  },
+  imgHeight: {
+    maxHeight: '75px'
   }
 
 
@@ -77,7 +80,7 @@ function Nav() {
     <header className=" d-flex flex-row px-1 " style={styles.header}>
       <h1 style={styles.blueColor}>
         <Link to="/">
-          <span role="img" aria-label="shopping bag"><img src="..\images\badges\Flicks-on-the-Record.png"/> </span>
+          <span role="img" aria-label="shopping bag"><img style={styles.imgHeight} src="..\images\badges\Flicks-on-the-Record.png"/> </span>
           Flicks on the Record
         </Link>
       </h1>
