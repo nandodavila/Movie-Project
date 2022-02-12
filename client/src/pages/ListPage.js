@@ -9,6 +9,7 @@ const ListPage = () => {
   const [year, setYear] = useState('');
   const [results, setResults] = useState([]);
   const [lists, setLists] = useState([]);
+  const [checkbox, setCheckbox] = useState(false)
 
   const { loading, data } = useQuery(GET_LISTS);
   const allMovieLists = data?.lists || [];
@@ -77,13 +78,14 @@ const ListPage = () => {
   //   console.log(event)
   // }
 
-  // const { loading2, data2 } = useQuery(QUERY_USER);
-  // console.log(data2)
-  // const userInfo = data2?.username || [];
+  const { loading2, data2 } = useQuery(QUERY_USER);
+  console.log(data2)
+  const userInfo = data2?.username || [];
 
   // function checkMovieWatched(movie){
   //   if (Auth.loggedIn()) {
   //     console.log("logged in")
+  //      setCheckbox('')
   //   } else {
   //     console.log("not logged in")
   //   }
