@@ -19,7 +19,7 @@ if (Auth.loggedIn()) {
     <div>
       <h1>User Dashboard</h1>
       <div className="dashboardContent">
-        <div className="left">
+        <div className="column">
           <ListPanel key="listPanel" allMovieLists={allMovieLists} />
           <button className="btn justify-content-center align-items-center col-lg-12 ml-auto">
             <Link to="/awards-page">
@@ -32,7 +32,7 @@ if (Auth.loggedIn()) {
             </Link>
           </button>
         </div>
-        <div className="right">
+        <div className="column">
           <BadgesPanel key="badgePanel" allMovieLists={allMovieLists} />
           {/* <QuizPanel key="quizPanel"/> */}
           <button className="btn justify-content-center align-items-center col-lg-12 ml-auto">Take Quiz</button>
