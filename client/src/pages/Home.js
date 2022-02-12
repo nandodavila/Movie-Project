@@ -1,10 +1,12 @@
-// import { Link } from 'react-router-dom';
+
 import { useQuery, useMutation} from '@apollo/client';
-// import { QUERY_MATCHUPS } from '../utils/queries';
+import Auth from "../utils/auth";
 import { CREATE_LIST } from '../utils/mutations';
 import React, { useEffect, useState, setState } from 'react';
-let apiKey = '8ffb7060';
-let loggedIn = true;
+require('dotenv').config();
+let apiKey = process.env.API_KEY;
+console.log(process.env.API_KEY)
+console.log(process.env)
 const Home = () => {
   const [title, setTitle] = useState('');
   const [year, setYear] = useState('');
@@ -149,7 +151,7 @@ const searchMovie = async (event) => {
       
         
       <div className='container col-12 d-flex flex-column justify-content-center'>
-        {loggedIn ?
+        {Auth.loggedIn() ?
         <div className="d-flex flex-row position-relative justify-content-center">
           <div className="d-flex flex-column position-relative justify-content-center align-items-center col-6">
             <h1 style={styles.orangeColor} className="d-flex justify-content-center ">Create A List!</h1>
