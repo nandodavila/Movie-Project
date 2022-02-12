@@ -13,6 +13,6 @@ db.once('open', async () => {
 
   const Users = await User.insertMany(userData);
 
-  console.log('Movie Lists seeded');
+  console.log('Movie & User Lists seeded');
   process.exit(0);
 });
