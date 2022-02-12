@@ -8,7 +8,7 @@ const validateEmail = function(email) {
 
 const movieWatchedSchema = new Schema({
     title: { type: String, required: true },
-    year: {type: Number, required: true},
+    year: {type: String, required: true},
     omdbId: {type: String, required: true},
     isWatched: {type: Boolean, require: true, default: true} 
   });
@@ -34,7 +34,7 @@ const UserSchema = new Schema({
   },
   watchedMovies: [movieWatchedSchema],
   completedList: [{
-    type: Number,
+    type: String
   }],
   quizHighScore: {
       type: Number
