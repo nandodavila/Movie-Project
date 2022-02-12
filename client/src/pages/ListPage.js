@@ -1,7 +1,7 @@
 // import { Link } from 'react-router-dom';
 import { useQuery, useMutation} from '@apollo/client';
 import Auth from "../utils/auth";
-import { GET_LISTS } from '../utils/queries'
+import { GET_LISTS, QUERY_USER } from '../utils/queries'
 import React, { useState } from 'react';
 let apiKey = '8ffb7060';
 const ListPage = () => {
@@ -72,19 +72,23 @@ const ListPage = () => {
   }
 
 
-  function movieWatchedCheck(event){
-    event.preventDefault();
-    console.log(event)
-  }
+  // function movieWatchedCheck(event){
+  //   event.preventDefault();
+  //   console.log(event)
+  // }
 
-  function checkMovieWatched(movie){
-    if (Auth.loggedIn()) {
-      console.log("logged in")
-    } else {
-      console.log("not logged in")
-    }
-    // if (user is logged in) {}
-  }
+  // const { loading2, data2 } = useQuery(QUERY_USER);
+  // console.log(data2)
+  // const userInfo = data2?.username || [];
+
+  // function checkMovieWatched(movie){
+  //   if (Auth.loggedIn()) {
+  //     console.log("logged in")
+  //   } else {
+  //     console.log("not logged in")
+  //   }
+  //   // if (user is logged in) {}
+  // }
 
 
 
@@ -173,6 +177,17 @@ const ListPage = () => {
                         <ul>
                         {list.movies.map( movie =>
                           <li key={movie.omdbId}>
+                            <form>
+                              <div className="form-group form-check">
+                                <input type="checkbox" 
+                                className="form-check-input" 
+                                id={movie.omdbId}
+                                // checked={checkMovieWatched(movie.omdbId)}
+                                // onChange={movieWatchedCheck}
+                                />
+                                <label className="form-check-label" htmlFor={movie.omdbID}>{movie.title}</label>
+                              </div>
+                            </form>
                           </li>
                         )}
                         </ul>
@@ -184,6 +199,7 @@ const ListPage = () => {
           </div>
       
     );
+
   } else {
     return (
       <div>
@@ -249,16 +265,7 @@ const ListPage = () => {
                         <ul>
                         {list.movies.map( movie =>
                           <li key={movie.omdbId}>
-                            <form>
-                              <div className="form-group form-check">
-                                <input type="checkbox" 
-                                className="form-check-input" 
-                                id={movie.omdbId}
-                                checked={checkMovieWatched(movie.omdbId)}
-                                onChange={movieWatchedCheck}/>
-                                <label className="form-check-label" htmlFor={movie.omdbID}>{movie.title}</label>
-                              </div>
-                            </form>
+                            {movie.title}
                           </li>
                         )}
                         </ul>
