@@ -47,3 +47,14 @@ export const CREATE_LIST = gql`
     }
   }`
 ;
+
+export const UPDATE_USER_WATCHED = gql`
+mutation updateUserMovie($watchedMovies: UserMovieWatched) {
+  watchedMovies( title: $title, year: $year, omdbId: $omdbId, isWatched: $isWatched) {
+    title
+    year
+    omdbId
+    isWatched
+  }
+} 
+`

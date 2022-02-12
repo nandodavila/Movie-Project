@@ -55,11 +55,19 @@ input MovieInput {
   omdbId: String!
 }
 
+input UserMovieWatched {
+  title: String!
+  year: Int!
+  omdbId: String!
+  isWatched: Boolean
+}
+
 type Mutation {
     createList(name: String!, message: String!, badge: String, movies: [MovieInput], createdBy: String!): List
     updateUser(username: String, email: String, password: String): User
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    updateUserMovie(watchedMovies: UserMovieWatched): User
 }
 `;
 

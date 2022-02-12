@@ -34,7 +34,7 @@ const UserSchema = new Schema({
   },
   watchedMovies: [movieWatchedSchema],
   completedList: [{
-    type: Number,
+    type: String
   }],
   quizHighScore: {
       type: Number

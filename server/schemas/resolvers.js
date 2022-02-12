@@ -54,6 +54,13 @@ const resolvers = {
       }
       const token = signToken(user);
       return { token, user };
+    },
+    updateUserMovie: async (parent, args, context) => {
+      if (1) {
+        return await User.findByOneAndUpdate({email: 'nando3@email.com'}, args, { new: true });
+      }
+
+      throw new AuthenticationError('Not logged in');
     }
   }
 };

@@ -2,6 +2,7 @@
 import { useQuery, useMutation} from '@apollo/client';
 import Auth from "../utils/auth";
 import { GET_LISTS, GET_ME } from '../utils/queries'
+import { UPDATE_USER_WATCHED } from '../utils/mutations'
 import React, { useState } from 'react';
 let apiKey = process.env.REACT_APP_API_KEY;
 const ListPage = () => {
@@ -17,6 +18,8 @@ const ListPage = () => {
   const { loading: loadingV2, data: userInfo } = useQuery(GET_ME)
   console.log(userInfo)
 
+  // const { loading: loadingV3, data: updateMovie} = useMutation(UPDATE_USER_WATCHED)
+
 
   let foundListArr = []
 
@@ -24,7 +27,6 @@ const ListPage = () => {
     allMovieLists.forEach(list => {
       // All movies but still seperate arrays depending on list
       let allMovies = list.movies
-      console.log('FACE OFF = tt0119094')
       allMovies.forEach(movie => {
           let eachMovieId = movie.omdbId
           
@@ -66,7 +68,6 @@ const ListPage = () => {
     fetch(`http://www.omdbapi.com/?apikey=${apiKey}&type=movie&s=${title}&r=json&y=${year}`)
     .then(response => response.json())
     .then(data => {
-        console.log(data.Search)
         setResults(data.Search);
         setTitle('');
         setYear('');
@@ -75,7 +76,7 @@ const ListPage = () => {
   }
 
 
-  function movieWatchedChange(event){
+  const movieWatchedChange = async (event) => {
     event.preventDefault();
     console.log(event.target.checked)
     if (event.target.checked === true) {
@@ -84,6 +85,14 @@ const ListPage = () => {
       console.log(id)
       console.log(title)
       console.log(value)
+      // try {
+      //   await updateUserMovie({
+      //     variables: {name: listName, message: listMsg, badge: 'badge', movies:movieLists, createdBy:'travis'},
+      //   });
+      //   window.location.reload()
+      // } catch (err) {
+      //   console.error(err);
+      // }
     }
   }
 
