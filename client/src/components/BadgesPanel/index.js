@@ -31,15 +31,13 @@ const BadgesPanel = ({ allMovieLists }) => {
             "isWatched": true
         }],
         "completedLists": [
-            {"_id": "62048d3f859bc13208e87eea"}
+            { "_id": "62048d3f859bc13208e87eea" }
         ]
     };
     const userCompletedLists = justinFixYoStuff.completedLists || [];
     //--- end ---
 
     const setBadgeImage = () => {
-        console.log("I DID IT!!!!")
-        console.log(userCompletedLists)
         allMovieLists.forEach((listItem) => {
             let badgeImg = hideBadgeImage;
             let badgeId = listItem._id;
@@ -56,18 +54,15 @@ const BadgesPanel = ({ allMovieLists }) => {
             console.log(completedMovieList)
         });
         setBadge(completedMovieList);
-        console.log("2I DID IT!!!!")
     };
 
     // populate all lists, if movie in users list, then show badge, if not show not badge
     return (
-        <div className="card mb-3">
-            <div className="flex-row justify-space-between my-4">
+        <div className="badgesForUser">
+            <div className="badgeIcon">
                 {badge.map(award =>
-                    <div key={"card" + award.id} className="col-12 col-xl-6">
-                        <div key={"div" + award.id} className="listBadge mb-3">
-                            <img key={"ing" + award.id} src={process.env.PUBLIC_URL + award.src} alt={award.alt} />
-                        </div>
+                    <div key={"div" + award.id} className="listBadge mb-3">
+                        <img key={"ing" + award.id} src={process.env.PUBLIC_URL + award.src} alt={award.alt} />
                     </div>
                 )}
             </div>

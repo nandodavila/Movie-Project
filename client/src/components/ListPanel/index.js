@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Collapse } from 'bootstrap';
 
-
 const ListPanel = ({ allMovieLists }) => {
 
     return (
