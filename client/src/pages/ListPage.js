@@ -1,9 +1,9 @@
 // import { Link } from 'react-router-dom';
 import { useQuery, useMutation} from '@apollo/client';
 import Auth from "../utils/auth";
-import { GET_LISTS, QUERY_USER } from '../utils/queries'
+import { GET_LISTS, GET_ME } from '../utils/queries'
 import React, { useState } from 'react';
-let apiKey = '8ffb7060';
+let apiKey = process.env.REACT_APP_API_KEY;
 const ListPage = () => {
   const [title, setTitle] = useState('');
   const [year, setYear] = useState('');
@@ -13,6 +13,10 @@ const ListPage = () => {
 
   const { loading, data } = useQuery(GET_LISTS);
   const allMovieLists = data?.lists || [];
+
+  const { loading: loadingV2, data: userInfo } = useQuery(GET_ME)
+  console.log(userInfo)
+
 
   let foundListArr = []
 
@@ -25,8 +29,6 @@ const ListPage = () => {
           let eachMovieId = movie.omdbId
           
           if (eachMovieId === searched[0].imdbID) {
-            console.log('Found! ')
-            console.log(list)
             foundListArr.push(list)
           }
       })    
@@ -73,24 +75,27 @@ const ListPage = () => {
   }
 
 
-  // function movieWatchedCheck(event){
-  //   event.preventDefault();
-  //   console.log(event)
-  // }
+  function movieWatchedChange(event){
+    event.preventDefault();
+    console.log(event.target.checked)
+    if (event.target.checked === true) {
+      console.log(event.target)
+      let { id, title, value} = event.target
+      console.log(id)
+      console.log(title)
+      console.log(value)
+    }
+  }
 
-  const { loading2, data2 } = useQuery(QUERY_USER);
-  console.log(data2)
-  const userInfo = data2?.username || [];
 
-  // function checkMovieWatched(movie){
-  //   if (Auth.loggedIn()) {
-  //     console.log("logged in")
-  //      setCheckbox('')
-  //   } else {
-  //     console.log("not logged in")
-  //   }
-  //   // if (user is logged in) {}
-  // }
+  function checkMovieWatched(movie){
+    if (Auth.loggedIn()) {
+      console.log("logged in")
+    } else {
+      console.log("not logged in")
+    }
+    // if (user is logged in) {}
+  }
 
 
 
@@ -184,8 +189,10 @@ const ListPage = () => {
                                 <input type="checkbox" 
                                 className="form-check-input" 
                                 id={movie.omdbId}
-                                // checked={checkMovieWatched(movie.omdbId)}
-                                // onChange={movieWatchedCheck}
+                                title={movie.title}
+                                value={movie.year}
+                                checked={checkMovieWatched(movie.omdbId)}
+                                onChange={movieWatchedChange}
                                 />
                                 <label className="form-check-label" htmlFor={movie.omdbID}>{movie.title}</label>
                               </div>
