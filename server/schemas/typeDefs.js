@@ -16,7 +16,7 @@ type User {
 type WatchedMovie {
     _id: ID!
     title: String!
-    year: Int!
+    year: String!
     omdbId: String!
     isWatched: Boolean
 }
@@ -57,9 +57,9 @@ input MovieInput {
 
 input UserMovieWatched {
   title: String!
-  year: Int!
+  year: String!
   omdbId: String!
-  isWatched: Boolean
+  isWatched: Boolean!
 }
 
 type Mutation {

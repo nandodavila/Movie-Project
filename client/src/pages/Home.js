@@ -18,7 +18,7 @@ const ListPage = () => {
   const { loading: loadingV2, data: userInfo } = useQuery(GET_ME)
   console.log(userInfo)
 
-  // const { loading: loadingV3, data: updateMovie} = useMutation(UPDATE_USER_WATCHED)
+  const [ updateUserMovie, {error}] = useMutation(UPDATE_USER_WATCHED)
 
 
   let foundListArr = []
@@ -78,21 +78,25 @@ const ListPage = () => {
 
   const movieWatchedChange = async (event) => {
     event.preventDefault();
-    console.log(event.target.checked)
     if (event.target.checked === true) {
-      console.log(event.target)
       let { id, title, value} = event.target
-      console.log(id)
-      console.log(title)
-      console.log(value)
-      // try {
-      //   await updateUserMovie({
-      //     variables: {name: listName, message: listMsg, badge: 'badge', movies:movieLists, createdBy:'travis'},
-      //   });
-      //   window.location.reload()
-      // } catch (err) {
-      //   console.error(err);
-      // }
+      const watchedMovieObj = {
+        title: title,
+        year: value,
+        omdbId: id,
+        isWatched: true  
+      }
+       try {
+        
+        const user = await updateUserMovie({
+          variables: {
+            UserMovieWatched: watchedMovieObj
+          },
+        });
+        console.log(user)
+      } catch (err) {
+        console.error(err);
+      }
     }
   }
 

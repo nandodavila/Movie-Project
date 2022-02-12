@@ -57,7 +57,11 @@ const resolvers = {
     },
     updateUserMovie: async (parent, args, context) => {
       if (1) {
-        return await User.findByOneAndUpdate({email: 'nando3@email.com'}, args, { new: true });
+        console.log(args, "this is args")
+        return await User.findOneAndUpdate(
+          {email: 'nando3@email.com'},  
+          { $push: {watchedMovies: args.watchedMovies} }, 
+          { new: true });
       }
 
       throw new AuthenticationError('Not logged in');
