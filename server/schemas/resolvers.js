@@ -5,8 +5,8 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
     me: async (parent, args , context) => {
-      if (context.user){
-      return User.findOne({ username: context.user.username })
+      if (context.user.email){
+      return User.findOne({ email: context.user.email })
       }
       throw new ValidationError('Cannot find this user!');
     },
