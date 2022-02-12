@@ -23,7 +23,7 @@ const styles = {
   },
   footer:{
     backgroundColor: '#F2A154',
-    position: 'absolute',
+    position: 'fixed',
     bottom: 0,
     fontSize: '20px',
     width: "100%",
