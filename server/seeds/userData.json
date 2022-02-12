@@ -11,24 +11,76 @@
         "year": "2003",
         "omdbId":  "tt0301934", 
         "isWatched": true
+      },
+      {
+        "title": "Face/Off",
+        "year":"1997",
+        "omdbId": "tt0119094"
+
+      },
+      {
+        "title": "The Rock",
+        "year":"1996",
+        "omdbId": "tt0117500"
+      },
+      {
+        "title": "Con Air",
+        "year":"1997",
+        "omdbId": "tt0118880"
       }],
-      "completedLists": {
-        "_id": "620467712468f33fe04f0c82"
-      }
-    },
+      "completedLists": [
+      {"_id": "62070a30c6f79d2890c457a7"}
+    ]
+  },
     {
       "username": "jstnhouk",
       "email": "jstnhouk@email.com",
-      "password": "jstnhouk1234"
+      "password": "jstnhouk1234",
+      "quizHighScore": 1,
+      "totalWatchedHours": 1,
+      "watchedMovies": [{
+        "_id": "620467712468f33fe04f0c7b",
+        "title": "The Three Amigos",
+        "year": "2003",
+        "omdbId":  "tt0301934", 
+        "isWatched": true
+      }],
+      "completedLists": [
+      {"_id": "620467712468f33fe04f0c82"}
+    ]
     },
     {
         "username": "travisCr",
         "email": "travisCr@email.com",
-        "password": "travisCr1234"
+        "password": "travisCr1234",
+        "quizHighScore": 1,
+      "totalWatchedHours": 1,
+      "watchedMovies": [{
+        "_id": "620467712468f33fe04f0c7b",
+        "title": "The Three Amigos",
+        "year": "2003",
+        "omdbId":  "tt0301934", 
+        "isWatched": true
+      }],
+      "completedLists": [
+      {"_id": "620467712468f33fe04f0c82"}
+    ]
     },
     {
         "username": "nandoistrash",
         "email": "nandoistrash@email.com",
-        "password": "nandoistrash1234"
+        "password": "nandoistrash1234",
+        "quizHighScore": 1,
+      "totalWatchedHours": 1,
+      "watchedMovies": [{
+        "_id": "620467712468f33fe04f0c7b",
+        "title": "The Three Amigos",
+        "year": "2003",
+        "omdbId":  "tt0301934", 
+        "isWatched": true
+      }],
+      "completedLists": [
+      {"_id": "620467712468f33fe04f0c82"}
+    ]
     }
 ]

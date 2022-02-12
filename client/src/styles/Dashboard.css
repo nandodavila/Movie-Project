@@ -6,19 +6,43 @@
     --light: #F7F6E7;
   }
 
-.listBadge {
-        width: 20px;
-        height: auto;
-}
-
 .btn {
     background-color: var(--orange) !important;
     margin: 2px;
 }
-h1, h2, h3, h4 {
+h1 {
+    color: var(--orange) !important;
+    margin: 20px !important;
+}
+
+h2, h3, h4 {
     color: var(--orange) !important;
 }
 
 .dashboardContent {
+    width: auto;
     display: flex;
+    flex-direction: row;
+}
+
+.column {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 1 1 0px;
+    justify-content: center;
+}
+
+.bi {
+    margin: 10px;
+}
+
+.badgesForUser {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.listBadge {
+
 }

@@ -20,7 +20,10 @@ const styles = {
     minWidth: '200px'
   },
   header:{
-    backgroundColor: '#F2A154'
+    backgroundColor: '#F7F6E7'
+  },
+  imgHeight: {
+    maxHeight: '75px'
   }
 
 
@@ -34,7 +37,12 @@ function Nav() {
         <ul className=" d-flex flex-row justify-content-around fs-3 fw-bold" style={styles.width}>
           <li className="mx-1">
             <Link to="/awards-page">
-              Award List
+              Award List |
+            </Link>
+          </li>
+          <li className="mx-1">
+            <Link to="/dashboard">
+              Dashboard |
             </Link>
           </li>
           <li className="mx-1">
@@ -50,17 +58,17 @@ function Nav() {
         <ul className="d-flex flex-row justify-content-around fs-3 fw-bold" style={styles.width}>
           <li className="mx-1">
             <Link to="/signup">
-              Signup
+              Signup |
             </Link>
           </li>
           <li className="mx-1">
             <Link to="/login">
-              Login
+              Login |
             </Link>
           </li>
           <li className="mx-1">
             <Link to="/awards-page">
-              Award List
+              Award List |
             </Link>
           </li>
         </ul>
@@ -72,8 +80,8 @@ function Nav() {
     <header className=" d-flex flex-row px-1 " style={styles.header}>
       <h1 style={styles.blueColor}>
         <Link to="/">
-          <span role="img" aria-label="shopping bag"></span>
-          Creative App Name
+          <span role="img" aria-label="shopping bag"><img style={styles.imgHeight} src="..\images\badges\Flicks-on-the-Record.png"/> </span>
+          Flicks on the Record
         </Link>
       </h1>
 
