@@ -9,35 +9,16 @@ const BadgesPanel = ({ allMovieLists }) => {
     const { loading, data } = useQuery(GET_ME);
 
     //if data loads, run this again
-    // useEffect(() => { setBadgeImage() }, [data]);
-    useEffect(() => { setBadgeImage(); console.log("3I DID IT!!!!") }, [allMovieLists]);
+    useEffect(() => { setBadgeImage()}, [allMovieLists]);
 
-    // const userCompletedLists = data?.me.completedLists || [];
+    const userData = data?.me || [];
+    const userCompletedLists = userData.completedLists || [];
     let hideBadgeImage = `/images/badges/Hidden-Badge.png`;
     let completedMovieList = [];
 
-    //--- to remove ---
-    const justinFixYoStuff = {
-        "username": "corher",
-        "email": "corher@att.net",
-        "password": "jebus1",
-        "quizHighScore": 1,
-        "totalWatchedHours": 1,
-        "watchedMovies": [{
-            "_id": "620467712468f33fe04f0c7b",
-            "title": "The Three Amigos",
-            "year": "2003",
-            "omdbId": "tt0301934",
-            "isWatched": true
-        }],
-        "completedLists": [
-            { "_id": "62048d3f859bc13208e87eea" }
-        ]
-    };
-    const userCompletedLists = justinFixYoStuff.completedLists || [];
-    //--- end ---
 
     const setBadgeImage = () => {
+        console.log("me" + data)
         allMovieLists.forEach((listItem) => {
             let badgeImg = hideBadgeImage;
             let badgeId = listItem._id;
