@@ -220,7 +220,7 @@ const ListPage = () => {
                                 id={movie.omdbId}
                                 title={movie.title}
                                 value={movie.year}
-                                checked={CheckingFunc(list, movie)}
+                                //checked={CheckingFunc(list, movie)}
                                 onChange={movieWatchedChange}
                                 />
                                 <label className="form-check-label" htmlFor={movie.omdbID}>{movie.title}</label>
