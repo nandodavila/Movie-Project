@@ -15,10 +15,33 @@
     background-color: var(--orange) !important;
     margin: 2px;
 }
-h1, h2, h3, h4 {
+h1 {
+    color: var(--orange) !important;
+    margin: 20px !important;
+}
+
+h2, h3, h4 {
     color: var(--orange) !important;
 }
 
 .dashboardContent {
+    width: auto;
     display: flex;
+    flex-direction: row;
+}
+.left {
+    width: auto;
+}
+.right {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.bi {
+    margin: 10px;
+}
+
+.badgesForUser {
+
 }
