@@ -1,7 +1,7 @@
 // import { Link } from 'react-router-dom';
 import { useQuery, useMutation} from '@apollo/client';
 import Auth from "../utils/auth";
-import { GET_LISTS, QUERY_USER } from '../utils/queries'
+import { GET_LISTS, GET_ME } from '../utils/queries'
 import React, { useState } from 'react';
 let apiKey = '8ffb7060';
 const ListPage = () => {
@@ -78,19 +78,18 @@ const ListPage = () => {
   //   console.log(event)
   // }
 
-  const { loading2, data2 } = useQuery(QUERY_USER);
-  console.log(data2)
-  const userInfo = data2?.username || [];
+  const { loading: loadingV2, data: userInfo } = useQuery(GET_ME)
+  console.log(userInfo)
 
-  // function checkMovieWatched(movie){
-  //   if (Auth.loggedIn()) {
-  //     console.log("logged in")
-  //      setCheckbox('')
-  //   } else {
-  //     console.log("not logged in")
-  //   }
-  //   // if (user is logged in) {}
-  // }
+  function checkMovieWatched(movie){
+    if (Auth.loggedIn()) {
+      console.log("logged in")
+       setCheckbox('')
+    } else {
+      console.log("not logged in")
+    }
+    // if (user is logged in) {}
+  }
 
 
 
@@ -163,6 +162,7 @@ const ListPage = () => {
                 </button>
             </div>
             </form>
+            {userInfo? <li>say something</li> : <li>not loaded yet</li>}
             <div className="accordion list-accordion container">
                 {lists.map( list => 
                   <div className='card' key={list._id}>
