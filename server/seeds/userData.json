@@ -11,9 +11,25 @@
         "year": "2003",
         "omdbId":  "tt0301934", 
         "isWatched": true
+      },
+      {
+        "title": "Face/Off",
+        "year":"1997",
+        "omdbId": "tt0119094"
+
+      },
+      {
+        "title": "The Rock",
+        "year":"1996",
+        "omdbId": "tt0117500"
+      },
+      {
+        "title": "Con Air",
+        "year":"1997",
+        "omdbId": "tt0118880"
       }],
       "completedLists": [
-      {"_id": "620467712468f33fe04f0c82"}
+      {"_id": "62070a30c6f79d2890c457a7"}
     ]
   },
     {

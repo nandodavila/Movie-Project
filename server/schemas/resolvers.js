@@ -16,15 +16,12 @@ const resolvers = {
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({});
+
         return user;
       }
 
       throw new AuthenticationError('Not logged in');
     },
-    users: async (parent, args, context) => {
-      const users = await User.find();
-      return users;
-    }
   },
   Mutation: {
     createList: async (parent, args) => {

@@ -6,6 +6,7 @@ const ListPanel = ({ allMovieLists }) => {
     return (
         <div className="card mb-3">
             <div className="flex-row justify-space-between my-4">
+                <h2></h2>
                 <div className="accordion accordion-flush" id="accordionFlushExample">
                     {allMovieLists.map((movieList) => (
                         <div key={"accrd" + movieList._id} className="accordion-item">
