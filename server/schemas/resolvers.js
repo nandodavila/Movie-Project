@@ -6,7 +6,9 @@ const resolvers = {
   Query: {
     me: async (parent, args , context) => {
       if (context.user.email){
-      return User.findOne({ email: context.user.email })
+      const currentUser = await User.findOne({ email: context.user.email });
+      console.log(currentUser);
+      return currentUser;
       }
       throw new ValidationError('Cannot find this user!');
     },

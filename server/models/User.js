@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
+const List = require('./List');
 
 const validateEmail = function(email) {
   var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -33,9 +34,9 @@ const UserSchema = new Schema({
     required: true,
   },
   watchedMovies: [movieWatchedSchema],
-  completedList: [{
-    type: Number,
-  }],
+  completedLists: [{
+    type: Schema.Types.String,
+    ref: 'list'}],
   quizHighScore: {
       type: Number
   },

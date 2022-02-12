@@ -6,12 +6,12 @@ import { GET_ME } from '../../utils/queries';
 const BadgesPanel = ({ allMovieLists }) => {
 
     const [badge, setBadge] = useState([]);
-    const { loading, data } = useQuery(GET_ME);
-
+    const { loading: loadingV2, data: userInfo } = useQuery(GET_ME)
+    
     //if data loads, run this again
     useEffect(() => { setBadgeImage() }, [allMovieLists]);
 
-    const userCompletedLists = data?.me.completedLists || [];
+    const userCompletedLists = userInfo.me.completedLists;
     let hideBadgeImage = `/images/badges/Hidden-Badge.png`;
     let completedMovieList = [];
 

@@ -35,6 +35,10 @@ type List {
     createdBy(_id: String):[User]
 }
 
+type ListId {
+  _id: String!
+}
+
 type Movie {
   _id: ID!
   title: String!
