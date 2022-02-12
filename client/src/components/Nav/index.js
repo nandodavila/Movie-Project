@@ -36,8 +36,8 @@ function Nav() {
       return (
         <ul className=" d-flex flex-row justify-content-around fs-3 fw-bold" style={styles.width}>
           <li className="mx-1">
-            <Link to="/awards-page">
-              Award List |
+            <Link to="/user-list">
+              Crate List |
             </Link>
           </li>
           <li className="mx-1">
@@ -67,8 +67,8 @@ function Nav() {
             </Link>
           </li>
           <li className="mx-1">
-            <Link to="/awards-page">
-              Award List |
+            <Link to="/user-list">
+              Create List
             </Link>
           </li>
         </ul>

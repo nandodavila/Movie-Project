@@ -46,3 +46,23 @@ h2, h3, h4 {
 .listBadge {
 
 }
+
+.icon {
+    width: auto;
+    height: 50px;
+    margin: 10px;
+  }
+
+
+  a img.hover {
+    display: none;
+  }
+  a img.default {
+    display: inherit;
+  }
+  a:hover img.hover {
+    display: inherit;
+  }
+  a:hover img.default {
+    display: none;
+  }

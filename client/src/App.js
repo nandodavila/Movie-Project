@@ -7,7 +7,7 @@ import Nav from './components/Nav';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import { setContext } from '@apollo/client/link/context';
-import ListPage from './pages/ListPage';
+import UserList from './pages/UserList';
 
 import Footer from './components/Footer';
 
@@ -51,8 +51,8 @@ function App() {
             <Route exact path="/dashboard">
               <Dashboard />
             </Route>
-            <Route exact path="/awards-page">
-              <ListPage />
+            <Route exact path="/user-list">
+              <UserList />
             </Route>
           </Switch>
           <Footer />
