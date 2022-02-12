@@ -2,6 +2,7 @@
 import { useQuery, useMutation} from '@apollo/client';
 import Auth from "../utils/auth";
 import { CREATE_LIST } from '../utils/mutations';
+import { GET_ME } from '../utils/queries'
 import React, { useEffect, useState, setState } from 'react';
 let apiKey = process.env.REACT_APP_API_KEY;
 const Home = () => {
@@ -14,7 +15,10 @@ const Home = () => {
   const [errorMsg, setErrorMsg] = useState([]);
 
   const [createList, { error }] = useMutation(CREATE_LIST);
+  
 
+  const { loading, data: userInfo} = useQuery(GET_ME)
+  
   const handleInputChange = (e) => {
     // Getting the value and name of the input which triggered the change
     const { target } = e;
@@ -46,6 +50,7 @@ const removeMovie = (e) => {
 }
 //call the api to get the info for the movie you clicked on to add it to the list
   const searchMovie = async (event) => {
+
     let id = event.target.id;
     if(id !== '')
     {
@@ -69,7 +74,7 @@ const removeMovie = (e) => {
       console.log(listName, listMsg, movieLists)
       try {
         await createList({
-          variables: {name: listName, message: listMsg, badge: 'badge', movies:movieLists, createdBy:'travis'},
+          variables: {name: listName, message: listMsg, badge: "/images/badges/User-Added-List.png", movies:movieLists, createdBy: userInfo.me.username},
         });
         window.location.reload()
       } catch (err) {
@@ -115,7 +120,7 @@ const removeMovie = (e) => {
     },
     movieList: {
       color: '#314E52' ,
-      backgroundColor: '#F2A154'
+      backgroundColor: 'white'
     },
     listHeight: {
       maxHeight: '200px',
@@ -178,7 +183,7 @@ const removeMovie = (e) => {
             <div className="overflow-auto" style={styles.listHeight}>
               {movieLists.map( list => 
                 <li
-                className="list-group-item d-flex justify-content-center align-items-center fs-5"
+                className="list-group-item d-flex justify-content-center align-items-center fs-5 rounded m-2"
                 style={styles.movieList}
                 key={list.omdbId}
                 id={list.omdbId}> {list.title}
