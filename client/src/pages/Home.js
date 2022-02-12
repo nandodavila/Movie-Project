@@ -3,8 +3,6 @@ import { useQuery, useMutation} from '@apollo/client';
 // import { QUERY_MATCHUPS } from '../utils/queries';
 import { CREATE_LIST } from '../utils/mutations';
 import React, { useEffect, useState, setState } from 'react';
-import $ from 'jquery';
-let ReactDOM = require('react-dom');
 let apiKey = '8ffb7060';
 let loggedIn = true;
 const Home = () => {
@@ -14,6 +12,7 @@ const Home = () => {
   const [listName, setListName] = useState([]);
   const [listMsg, setListMsg] = useState([]);
   const [movieLists, setMovieLists] = useState([]);
+  const [errorMsg, setErrorMsg] = useState([]);
 
   const [createList, { error }] = useMutation(CREATE_LIST);
 
@@ -52,7 +51,7 @@ const removeMovie = (e) => {
   setMovieLists([...movieLists])
 }
 
-const addMovie = async (event) => {
+const searchMovie = async (event) => {
 
     let id = event.target.id;
     if(id !== '')
@@ -70,30 +69,46 @@ const addMovie = async (event) => {
     });
   }
 
+ 
+
 
   }
   // useEffect(() => setLists(listOfMovie), [])
-  const saveMovieList = async () => {
+
+  const saveMovieList = async (event) => {
+    if(listName.length !== 0 && listMsg.length !== 0 && movieLists.length !== 0)
+    {
+      console.log(listName, listMsg, movieLists)
       try {
-        console.log(movieLists , 'asdfasdfasdf');
         await createList({
           variables: {name: listName, message: listMsg, badge: 'badge', movies:movieLists, createdBy:'travis'},
         });
         window.location.reload()
       } catch (err) {
         console.error(err);
+      }
+    } else {
+      event.preventDefault();
+      setErrorMsg([...errorMsg,{msg: 'Please make sure you have entered List Name, List Message, and have created a Movie List.'}]);
     }
   }
+
   function apiCall(event)
   {
-    event.preventDefault();
-    fetch(`http://www.omdbapi.com/?apikey=${apiKey}&type=movie&s=${title}&r=json&y=${year}`)
-    .then(response => response.json())
-    .then(data => {
-        setResults(data.Search);
-        setTitle('');
-        setYear('');
-    });
+    if(title)
+      {
+        event.preventDefault();
+        fetch(`http://www.omdbapi.com/?apikey=${apiKey}&type=movie&s=${title}&r=json&y=${year}`)
+        .then(response => response.json())
+        .then(data => {
+            setResults(data.Search);
+            setTitle('');
+            setYear('');
+        });
+    } else {
+      event.preventDefault();
+      setErrorMsg([...errorMsg, {msg: 'Please enter a movie title.'}]);
+    }
   }
 
   const styles = {
@@ -123,6 +138,9 @@ const addMovie = async (event) => {
     delBtn: {
       backgroundColor: '#314E52',
       color: '#F2A154'
+    },
+    hidden: {
+      display: 'none'
     }
   }
 
@@ -185,48 +203,51 @@ const addMovie = async (event) => {
           <div></div>
           }
         <div className="d-flex flex-row list-group col-sm-12 justify-content-around align-items-center">
-          <div className="d-flex flex-row list-group col-sm-12 justify-content-around">
-            <h3 style={styles.orangeColor} className="d-flex justify-content-around">Search By Title & Year</h3>
-            <div className="form-group d-flex m-1 justify-content-around">
-              {/* <label
-                style={styles.orangeColor}
-                htmlFor="title" 
-                className="control-label col-sm-1 col-form-label" >
-                  Title:
-              </label> */}
-              <input 
-                value={title}
-                onChange={handleInputChange}
-                type="text"
-                id="title" 
-                name="title"
-                placeholder="Title" 
-                className="form-control justify-content-center align-items-center col-sm-6"/>
-            </div>
-            <div className="form-group d-flex m-1">
-              {/* <label 
-                style={styles.orangeColor}
-                className="control-label col-sm-1 col-form-label" >
-                  Year:
-              </label> */}
-              <input 
-                value={year}
-                onChange={handleInputChange}
-                type="text"
-                id="year" 
-                name="year"
-                placeholder="Year" 
-                className="form-control justify-content-center align-items-center col-sm-6"/>
-            </div>
-              <button
-                style={styles.orangeColorBg} 
-                id="search-by-title-button" 
-                type="submit" 
-                className="btn d-flex justify-content-center align-items-center col-sm-2"
-                onClick={apiCall}>
-                  
-                  Search
-              </button>
+          <div className="d-flex flex-column list-group col-sm-12 justify-content-center">
+            <div className="errorMsg d-flex col-sm-12 justify-content-center">{errorMsg.map( error => <h1 className="errorMsg">{error.msg}</h1>)}</div>
+            <div className="d-flex flex-row list-group col-sm-12 justify-content-around">
+              <h3 style={styles.orangeColor} className="d-flex justify-content-around">Search By Title & Year</h3>
+              <div className="form-group d-flex m-1 justify-content-around">
+                {/* <label
+                  style={styles.orangeColor}
+                  htmlFor="title" 
+                  className="control-label col-sm-1 col-form-label" >
+                    Title:
+                </label> */}
+                <input 
+                  value={title}
+                  onChange={handleInputChange}
+                  type="text"
+                  id="title" 
+                  name="title"
+                  placeholder="Title" 
+                  className="form-control justify-content-center align-items-center col-sm-6"/>
+              </div>
+              <div className="form-group d-flex m-1">
+                {/* <label 
+                  style={styles.orangeColor}
+                  className="control-label col-sm-1 col-form-label" >
+                    Year:
+                </label> */}
+                <input 
+                  value={year}
+                  onChange={handleInputChange}
+                  type="text"
+                  id="year" 
+                  name="year"
+                  placeholder="Year" 
+                  className="form-control justify-content-center align-items-center col-sm-6"/>
+              </div>
+                <button
+                  style={styles.orangeColorBg} 
+                  id="search-by-title-button" 
+                  type="submit" 
+                  className="btn d-flex justify-content-center align-items-center col-sm-2"
+                  onClick={apiCall}>
+                    
+                    Search
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -239,7 +260,7 @@ const addMovie = async (event) => {
             id={movie.imdbID}
             name={movie.Title} 
             key={movie.imdbID} 
-            onClick={addMovie}> 
+            onClick={searchMovie}> 
             <img src={movie.Poster}
             id={movie.imdbID}
             name={movie.Title} 
