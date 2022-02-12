@@ -61,4 +61,26 @@ query user  {
   }
 `
 
+export const QUERY_USERS = gql`
+query user  {
+    user {
+      username
+      email
+      password
+      watchedMovies{
+        _id
+        omdbId
+        title
+        year
+        isWatched
+      }
+      completedLists {
+        _id
+      }
+      quizHighScore
+      totalWatchedHours
+    }
+  }
+`
+
 ;

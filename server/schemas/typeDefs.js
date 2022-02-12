@@ -11,6 +11,8 @@ type User {
   totalWatchedHours: Int
 }
 
+
+
 type WatchedMovie {
     _id: ID!
     title: String!
@@ -42,6 +44,7 @@ type Movie {
 
 type Query {
   me: User
+  users: [User]
   user: User
   lists: [List]
 }
