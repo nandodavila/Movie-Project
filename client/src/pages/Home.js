@@ -78,6 +78,7 @@ const ListPage = () => {
 
   const movieWatchedChange = async (event) => {
     event.preventDefault();
+    console.log(event)
     if (event.target.checked === true) {
       let { id, title, value} = event.target
       const watchedMovieObj = {
@@ -97,39 +98,35 @@ const ListPage = () => {
     }
   }
 
-  function checkMovieWatched() {
-    const arrayOfArrayslmao = []
-    lists.forEach(list => {
-      let moviesWatchedArr = []
-      let listName = list.name
-      list.movies.forEach(movie => {
-        userInfo.me.watchedMovies.forEach(watchedMovie => {
-          if (watchedMovie.omdbId === movie.omdbId) {
-            moviesWatchedArr.push(movie)
-          }
-        })
-      })
-      arrayOfArrayslmao.push({listName: listName, listId: list._id, theWatchedMovies: moviesWatchedArr})
-    })
-    return arrayOfArrayslmao
-  }
-
-  // console.log(checkMovieWatched())
-
-  // function CheckingFunc(list, movie) {
-  //   checkMovieWatched().forEach(obj => {
-  //     console.log(obj)
-  //     const {listName, listId, theWatchedMovies} = obj
-  //     console.log(theWatchedMovies)
-  //     theWatchedMovies.forEach(watchedMovie => {
-  //       console.log(movie.title)
-  //       if (watchedMovie.title === movie.title) {
-  //         console.log('true')
-  //       }
+  // function checkMovieWatched() {
+  //   const arrayOfArrayslmao = []
+  //   lists.forEach(list => {
+  //     let moviesWatchedArr = []
+  //     let listName = list.name
+  //     list.movies.forEach(movie => {
+  //       userInfo.me.watchedMovies.forEach(watchedMovie => {
+  //         if (watchedMovie.omdbId === movie.omdbId) {
+  //           moviesWatchedArr.push(movie)
+  //         }
+  //       })
   //     })
+  //     arrayOfArrayslmao.push({listName: listName, listId: list._id, theWatchedMovies: moviesWatchedArr})
   //   })
+  //   return arrayOfArrayslmao
   // }
-  
+
+
+  function CheckingFunc(movie) {
+    let checkingBox = ""
+    userInfo.me.watchedMovies.forEach(watchedMovie => {
+      if (watchedMovie.title === movie) {
+        checkingBox = "true"
+        return "true"
+      } 
+    })
+    console.log(checkingBox)
+    return checkingBox
+  }
 
   const styles = {
     orangeColor: {
@@ -220,10 +217,10 @@ const ListPage = () => {
                                 id={movie.omdbId}
                                 title={movie.title}
                                 value={movie.year}
-                                //checked={CheckingFunc(list, movie)}
+                                defaultChecked={CheckingFunc(movie.title)}
                                 onChange={movieWatchedChange}
                                 />
-                                <label className="form-check-label" htmlFor={movie.omdbID}>{movie.title}</label>
+                                <label className="form-check-label" htmlFor={movie.omdbId}>{movie.title}</label>
                               </div>
                             </form>
                           </li>
