@@ -1,10 +1,10 @@
 [
     {
-      "username": "corher",
-      "email": "corher@att.net",
-      "password": "jebus1",
-      "quizHighScore": 1,
-      "totalWatchedHours": 1,
+      "username": "test",
+      "email": "test@test.net",
+      "password": "$2b$10$v6uldFdTwrsKVw6x0yLQLesHri1DYuklJybxU8.07cLrVngnkR1fu",
+      "quizHighScore": 10,
+      "totalWatchedHours": 10,
       "watchedMovies": [{
         "_id": "620467712468f33fe04f0c7b",
         "title": "The Three Amigos",
@@ -13,74 +13,71 @@
         "isWatched": true
       },
       {
+        "_id": "62072c5028a17c22b82ba566",
         "title": "Face/Off",
         "year":"1997",
         "omdbId": "tt0119094"
 
       },
       {
+        "_id": "62072c5028a17c22b82ba568",
         "title": "The Rock",
         "year":"1996",
         "omdbId": "tt0117500"
       },
       {
+        "_id": "620467712468f33fe04f0c7b",
         "title": "Con Air",
         "year":"1997",
         "omdbId": "tt0118880"
       }],
       "completedLists": [
-      {"_id": "62070a30c6f79d2890c457a7"}
-    ]
+      {"_id": "62072c5028a17c22b82ba565",
+      "name": "Mini-List: Cage Uncaged Trilogy",
+      "message": "Put the Cage back in the box!",
+      "badge": "/images/badges/Cage-Uncaged-Trilogy.png",
+      "createdBy": {
+        "username": "chaos"
+      }
+    }]
   },
-    {
-      "username": "jstnhouk",
-      "email": "jstnhouk@email.com",
-      "password": "jstnhouk1234",
-      "quizHighScore": 1,
-      "totalWatchedHours": 1,
-      "watchedMovies": [{
-        "_id": "620467712468f33fe04f0c7b",
-        "title": "The Three Amigos",
-        "year": "2003",
-        "omdbId":  "tt0301934", 
-        "isWatched": true
-      }],
-      "completedLists": [
-      {"_id": "620467712468f33fe04f0c82"}
-    ]
+    {"_id":{"$oid":"620733b2a4316d6544abc9ee"},
+    "username":"cormillionaire",
+    "email":"cormillionaire@email.com",
+    "password":"$2b$10$v6uldFdTwrsKVw6x0yLQLesHri1DYuklJybxU8.07cLrVngnkR1fu",
+    "watchedMovies":[
+      {"_id":"62072c5028a17c22b82ba56a",
+      "title":"The King's Speech",
+      "year":"2010",
+      "omdbId":"tt1504320"
     },
-    {
-        "username": "travisCr",
-        "email": "travisCr@email.com",
-        "password": "travisCr1234",
-        "quizHighScore": 1,
-      "totalWatchedHours": 1,
-      "watchedMovies": [{
-        "_id": "620467712468f33fe04f0c7b",
-        "title": "The Three Amigos",
-        "year": "2003",
-        "omdbId":  "tt0301934", 
-        "isWatched": true
-      }],
-      "completedLists": [
-      {"_id": "620467712468f33fe04f0c82"}
-    ]
+    {"_id":"62072c5028a17c22b82ba56b",
+      "title":"Darkest Hour",
+      "year":"2017",
+      "omdbId":"tt4555426"
     },
-    {
-        "username": "nandoistrash",
-        "email": "nandoistrash@email.com",
-        "password": "nandoistrash1234",
-        "quizHighScore": 1,
-      "totalWatchedHours": 1,
-      "watchedMovies": [{
-        "_id": "620467712468f33fe04f0c7b",
-        "title": "The Three Amigos",
-        "year": "2003",
-        "omdbId":  "tt0301934", 
-        "isWatched": true
-      }],
-      "completedLists": [
-      {"_id": "620467712468f33fe04f0c82"}
-    ]
+    {"_id":"62072c5028a17c22b82ba56c",
+      "title":"Dunkirk",
+      "year":"2017",
+      "omdbId":"tt5013056"
+    },
+    {"_id":"62072c5028a17c22b82ba56e",
+      "title":"Fury",
+      "year":"2014",
+      "omdbId":"tt2713180"
+    },
+    {"_id":"62072c5028a17c22b82ba56d",
+      "title":"Saving Private Ryan",
+      "year":"1998",
+      "omdbId":"tt0120815"
+    }
+  ],
+    "completedLists":[
+      {"_id":"62072c5028a17c22b82ba569",
+      "name":"Mini-List: The WWII List",
+      "message":"This was your finest 6 hours!",
+      "badge":"/images/badges/WWII.png",
+      "createdBy":{"username":"chaos"}
+      }]
     }
 ]

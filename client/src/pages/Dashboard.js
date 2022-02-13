@@ -19,18 +19,18 @@ if (Auth.loggedIn()) {
     <div>
       <h1>User Dashboard</h1>
       <div className="dashboardContent">
-        <div className="column">
+        <div className="columnLeft">
           <ListPanel key="listPanel" allMovieLists={allMovieLists} />
-          <button className="btn justify-content-center align-items-center col-lg-12 ml-auto">
-            <Link to="/awards-page">
+            <Link to="/">
+              <button className="btn d-flex justify-content-center align-items-center col-sm-6">
               Check off watched movies
+              </button>
             </Link>
-          </button>
-          <button className="btn justify-content-center align-items-center col-lg-12 ml-auto">
-            <Link to="/awards-page">
-              Create a Flicks on the Record checklist
+            <Link to="/user-list">
+              <button className="btn d-flex justify-content-center align-items-center col-sm-6" >
+                Create a Flicks on the Record checklist
+              </button>
             </Link>
-          </button>
         </div>
         <div className="column">
           <BadgesPanel key="badgePanel" allMovieLists={allMovieLists} />

@@ -32,6 +32,13 @@ h2, h3, h4 {
     flex: 1 1 0px;
     justify-content: center;
 }
+.columnLeft {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex: 1 1 0px;
+  justify-content: center;
+}
 
 .bi {
     margin: 10px;
