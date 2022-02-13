@@ -5,8 +5,8 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
     me: async (parent, args , context) => {
-      if (1){
-        const currentUser = await User.findOne({ email: "cormillionaire@email.com" })
+      if (context.user){
+        const currentUser = await User.findOne({ email: context.user.email})
       return currentUser
       }
       throw new ValidationError('Cannot find this user!');
@@ -57,11 +57,22 @@ const resolvers = {
       return { token, user };
     },
     updateUserMovie: async (parent, args, context) => {
-      if (context.user) {
+      if (context.user.username) {
         console.log(args, "this is args")
         return await User.findOneAndUpdate(
-          {email: context.user.email},  
+          {email: context.user.username},  
           { $push: {watchedMovies: args.watchedMovies} }, 
+          { new: true });
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
+    updateUserCompletedList: async (parent, {newCompletedList}, context) => {
+      if (context.user) {
+        console.log({newCompletedList});
+        return await User.findOneAndUpdate(
+          {_id: context.user._id},  
+          { $push: {completedLists: {newCompletedList}} }, 
           { new: true });
       }
 

@@ -1,6 +1,4 @@
 const { Schema, model } = require('mongoose');
-const mongoose = require('mongoose');
-const ObjectId = mongoose.Types.ObjectId;
 
 const bcrypt = require('bcrypt');
 const List = require('./List');
@@ -17,7 +15,7 @@ const movieWatchedSchema = new Schema({
     isWatched: {type: Boolean, require: true, default: true} 
   });
 
-const UserSchema = new Schema({
+const userSchema = new Schema({
   username: {
     type: String,
     required: true,
@@ -37,9 +35,7 @@ const UserSchema = new Schema({
     required: true,
   },
   watchedMovies: [movieWatchedSchema],
-  completedLists: [{
-    type: Schema.Types.ObjectId,
-    ref: 'list'}],
+  completedLists: [List.schema],
   quizHighScore: {
       type: Number
   },
@@ -48,7 +44,7 @@ const UserSchema = new Schema({
   }
 });
 
-UserSchema.pre('save', async function(next) {
+userSchema.pre('save', async function(next) {
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
@@ -58,10 +54,10 @@ UserSchema.pre('save', async function(next) {
 });
 
 // compare the incoming password with the hashed password
-UserSchema.methods.isCorrectPassword = async function(password) {
+userSchema.methods.isCorrectPassword = async function(password) {
   return await bcrypt.compare(password, this.password);
 };
 
-const User = model('user', UserSchema);
+const User = model('User', userSchema);
 
 module.exports = User;

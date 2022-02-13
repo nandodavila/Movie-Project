@@ -7,7 +7,7 @@ const movieSchema = new Schema({
     omdbId: {type: String, required: true} 
   });
 
-const ListSchema = new Schema({
+const listSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -22,12 +22,10 @@ const ListSchema = new Schema({
   },
   movies: [movieSchema],
   createdBy: {
-    type: Schema.Types.String,
-    ref: 'user',
+    type: Schema.Types.ObjectId,
+    ref: 'User',
   }
 })
 
-
-const List = model('list', ListSchema);
-
+const List = model('List', listSchema);
 module.exports = List;
