@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 // change mutation name
 export const CREATE_LIST = gql`
-  mutation createList($name: String!, $message: String!, $badge: String, $movies: [MovieInput], $createdBy: String!) {
+  mutation createList($name: String!, $message: String!, $badge: String, $movies: [MovieInput], $createdBy: CreatedBy!) {
     createList(name: $name, message: $message, badge: $badge, movies: $movies, createdBy: $createdBy) {
       name
       message
@@ -64,8 +64,8 @@ mutation updateUserMovie ($UserMovieWatched: UserMovieWatched) {
 `
 
 export const UPDATE_COMPLETED_LIST = gql`
-mutation updateUserCompletedList ($newCompletedList: UserCompletedList) {
-  updateUserCompletedLists (newCompletedList: $newCompletedList) {
+mutation updateUserCompletedList ($completedLists: [ID!]]) {
+  updateUserCompletedLists (completedLists: $completedLists) {
     _id
 		completedLists {
     name

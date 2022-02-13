@@ -17,15 +17,6 @@ query me {
       }
       completedLists {
         _id
-        name
-        message
-        badge
-        movies{
-          title
-          year
-          omdbId
-        }
-        createdBy
       }
     }
   }
