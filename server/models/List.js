@@ -21,9 +21,10 @@ const listSchema = new Schema({
     required: true,
   },
   movies: [movieSchema],
+  // This should reference user in the future for more functionality but simple string is fine for now
   createdBy: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
+    type: String,
+    required: true
   }
 })
 

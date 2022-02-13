@@ -40,7 +40,6 @@ const styles = {
     height: "5%"
   }
 
-
 }
 
 function Footer() {

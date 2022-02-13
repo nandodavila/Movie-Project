@@ -3,7 +3,8 @@
       "name": "Mini-List: Cage Uncaged Trilogy",
       "message": "Put the Cage back in the box!",
       "badge": "/images/badges/Cage-Uncaged-Trilogy.png",
-      "createdBy": "chaos",
+      "createdBy": {
+        "username":"chaos"},
       "movies": [
         {
           "title": "Face/Off",
@@ -27,7 +28,8 @@
       "name": "Mini-List: The WWII List",
       "message": "This was your finest 6 hours!",
       "badge": "/images/badges/WWII.png",
-      "createdBy": "chaos",
+      "createdBy": {
+        "username":"chaos"},
       "movies": [
         {
           "title": "The King's Speech",
@@ -60,7 +62,8 @@
       "name": "Mini-List: Cop Trapped in a Building Full of Bad Guys Trilogy",
       "message": "Come watch on the couch, have a few laughs...",
       "badge":  "/images/badges/Cop-Trapped-in-a Building-Full-of-Bad-Guys-Trilogy.png",
-      "createdBy": "chaos",
+      "createdBy": {
+        "username":"chaos"},
       "movies": [
         {
           "title": "Die Hard",
@@ -83,7 +86,8 @@
       "name": "Mini-List: Tom Cruise as a Bad Guy Trilogy",
       "message": "He really can play a bad guy!",
       "badge":  "/images/badges/Bad-Tom-Cruise.png",
-      "createdBy": "chaos",
+      "createdBy": {
+        "username":"chaos"},
       "movies": [
         {
           "title": "Interview with the Vampire",
@@ -139,7 +143,8 @@
       "name": "Worst Movies of 2000s List",
       "message": "This has to be the longest list here...figuratively",
       "badge":  "/images/badges/Worst-2000.png",
-      "createdBy": "chaos",
+      "createdBy": {
+        "username":"chaos"},
       "movies": [
         {
           "title": "Battlefield Earth",
@@ -347,7 +352,8 @@
       "name": "Worst Movies of the 80s & 90s",
       "message": "This is why millenials are so angry",
       "badge":  "/images/badges/Worst-80-90.png",
-      "createdBy": "chaos",
+      "createdBy": {
+        "username":"chaos"},
       "movies": [
         {
           "title": "Heaven's Gate",
@@ -520,7 +526,8 @@
       "name": "Mini-List: How far has Spacey fallen List",
       "message": "This is why we can't have nice things...",
       "badge":  "/images/badges/Spacey-Fallen.png",
-      "createdBy": "chaos",
+      "createdBy": {
+        "username":"chaos"},
       "movies": [
         {
           "title": "American Beauty",
@@ -548,7 +555,8 @@
       "name": "Mini-List: I'm not that but I play one on the big screen Trilogy",
       "message": "A dude disguised as a dude playing another dude",
       "badge":  "/images/badges/Play-One-On-The-Big-Screen.png",
-      "createdBy": "chaos",
+      "createdBy": {
+        "username":"chaos"},
       "movies": [
         {
           "title": "The Three Amigos",
@@ -571,7 +579,8 @@
       "name": "Mini-List: 'Official' Apocalypse Trilogy",
       "message":  "The end is nigh",
       "badge":  "/images/badges/Apocalypse.png",
-      "createdBy": "chaos",
+      "createdBy":{
+        "username":"chaos"},
       "movies": [
         {
           "title": "The Thing",

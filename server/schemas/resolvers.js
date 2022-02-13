@@ -67,15 +67,17 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-    updateUserCompletedList: async (parent, {newCompletedList}, context) => {
+    updateUserCompletedList: async (parent, {completedLists}, context) => {
+
+      const newListId = completedLists.map((list)=>list._id)
+      const newCompletedList = await List.findOne({_id: newListId});
       if (context.user) {
-        console.log({newCompletedList});
+        console.log(context.user);
         return await User.findOneAndUpdate(
           {_id: context.user._id},  
-          { $push: {completedLists: {newCompletedList}} }, 
+          { $push: {completedLists: newCompletedList} }, 
           { new: true });
       }
-
       throw new AuthenticationError('Not logged in');
     }
   }
