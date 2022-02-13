@@ -144,6 +144,10 @@ const ListPage = () => {
     badgeImage: {
       maxHeight: '50px',
       maxWidth: '50px'
+    },
+    overflow: {
+      overFlow: 'auto',
+      maxHeight: '50vh'
     }
 
   }
@@ -199,7 +203,7 @@ const ListPage = () => {
             </button>
           </div>
         </form>
-        <div className="accordion list-accordion container col-sm-6">
+        <div style={styles.overflow} className="accordion list-accordion container col-sm-6 overflow-auto">
             {lists.map( list => 
               <div className='card m-2' key={list._id}>
                 <div className='card-header d-flex justify-content-center' style={styles.orangeColorBg} id={list.name}>
