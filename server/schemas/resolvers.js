@@ -57,10 +57,10 @@ const resolvers = {
       return { token, user };
     },
     updateUserMovie: async (parent, args, context) => {
-      if (1) {
+      if (context.user) {
         console.log(args, "this is args")
         return await User.findOneAndUpdate(
-          {email: 'nando3@email.com'},  
+          {email: context.user.email},  
           { $push: {watchedMovies: args.watchedMovies} }, 
           { new: true });
       }
