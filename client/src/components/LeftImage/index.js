@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 console.log(process.env)
 const styles = {
     sideImage: {
-        minHeight: '100vh',
+        minHeight: '70vh',
         maxWidth: '200px'
       }
 }
