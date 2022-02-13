@@ -6,6 +6,20 @@
     --light: #F7F6E7;
   }
 
+body{
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  overflow: auto;
+  flex-grow: 1;
+  max-height: 90%;
+}
+
 .btn {
     background-color: var(--orange) !important;
     margin: 2px;

@@ -47,7 +47,7 @@ const styles = {
 
 function Footer() {
   return (
-    <footer className=" d-flex flex-row px-1 " style={styles.footer}>
+    <footer className="footer d-flex flex-row px-1 " style={styles.footer}>
       <h5 style={styles.h4}>
           <a href="https://github.com/cormillionaire">
             <img
