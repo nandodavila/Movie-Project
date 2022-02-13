@@ -29,14 +29,26 @@ function Signup(props) {
     });
   };
 
+
+  const styles = {
+    link: {
+      textDecoration: 'none',
+      color: '#F2A154',
+      fontSize: '20px'
+    }
+  }
+
   return (
-    <div className="container my-1">
-      <Link to="/login">← Go to Login</Link>
+    <div className="container ms-auto d-flex justify-content-center align-items-center flex-column col-sm-12 form-group">
+      <Link style={styles.link}to="/login">Already Signed Up? <br></br>← Go to Login</Link>
       <h2>Signup</h2>
-      <form onSubmit={handleFormSubmit}>
+      <form 
+      className="col-sm-6"
+      onSubmit={handleFormSubmit}
+      >
         <div className="flex-row space-between my-2">
-          <label htmlFor="firstName">Username:</label>
           <input
+            className="form-control justify-content-center align-items-center col-sm-12"
             placeholder="Username"
             name="username"
             type="username"
@@ -45,8 +57,8 @@ function Signup(props) {
           />
         </div>
         <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email:</label>
           <input
+            className="form-control justify-content-center align-items-center col-sm-12"
             placeholder="youremail@test.com"
             name="email"
             type="email"
@@ -55,8 +67,8 @@ function Signup(props) {
           />
         </div>
         <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
           <input
+            className="form-control justify-content-center align-items-center col-sm-12"
             placeholder="******"
             name="password"
             type="password"
@@ -64,8 +76,11 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
+        <div className="flex-row flex-end d-flex justify-content-center align-items-center col-sm-12">
+          <button 
+          className="btn d-flex justify-content-center align-items-center col-sm-6"
+          type="submit"
+          >Submit</button>
         </div>
       </form>
     </div>

@@ -28,11 +28,21 @@ function LoginPanel(props) {
     });
   };
 
+  const styles = {
+    link: {
+      textDecoration: 'none',
+      color: '#F2A154',
+      fontSize: '20px'
+    }
+  }
+
   return (
-      <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email address:</label>
+      <form 
+      className="container ms-atuo d-flex justify-content-center align-items-center flex-column col-sm-6 form-group"
+      onSubmit={handleFormSubmit}>
+        <div className="container ms-atuo d-flex justify-content-center align-items-center flex-column col-sm-12 form-group">
           <input
+            className="form-control justify-content-center align-items-center col-sm-12"
             placeholder="youremail@test.com"
             name="email"
             type="email"
@@ -40,9 +50,9 @@ function LoginPanel(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
+        <div className="container ms-atuo d-flex justify-content-center align-items-center flex-column col-sm-12 form-group my-2">
           <input
+            className="form-control justify-content-center align-items-center col-sm-12"
             placeholder="******"
             name="password"
             type="password"
@@ -55,8 +65,10 @@ function LoginPanel(props) {
             <p className="error-text">The provided credentials are incorrect</p>
           </div>
         ) : null}
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
+        <div className="flex-row flex-end d-flex justify-content-center align-items-center col-sm-12">
+          <button 
+          className="btn d-flex justify-content-center align-items-center col-sm-6"
+          type="submit">Submit</button>
         </div>
       </form>
   );
