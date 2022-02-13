@@ -25,9 +25,7 @@ query me {
           year
           omdbId
         }
-        createdBy {
-          username
-        }
+        createdBy
       }
     }
   }

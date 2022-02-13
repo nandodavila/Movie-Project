@@ -9,6 +9,7 @@
 .btn {
     background-color: var(--orange) !important;
     margin: 2px;
+
 }
 h1 {
     color: var(--orange) !important;
@@ -25,30 +26,54 @@ h2, h3, h4 {
     flex-direction: row;
 }
 
-.column {
+/* .column {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     flex: 1 1 0px;
     justify-content: center;
-}
-.columnLeft {
+} */
+.column {
+  margin: 10px;
+  padding: 0px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   flex: 1 1 0px;
-  justify-content: center;
+  align-content: center;
 }
 
 .bi {
     margin: 10px;
 }
-
-.badgesForUser {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.possibleLists{
+  margin: 0;
 }
+.badgesForUser {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex: 1 1 0px;
+  justify-content: center;
+}
+
+/* bootstrap color override */
+.accordion-button {
+  background-color: var(--light)!important;
+  color: var(--blueBkg)!important;
+  font-weight: bold;
+  font-size: 18px!important;
+}
+.accordion-button:focus {
+  color: var(--blue)!important;
+  border-color: var(--blue)!important;
+}
+.accordion-button:not(.collapsed){
+  color: var(--blue)!important;
+  border-color: var(--blue)!important;
+  box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
+}
+/* end bootstrap color override */
 
 .listBadge {
 

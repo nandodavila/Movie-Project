@@ -5,9 +5,9 @@ const movieListData = require('./movieListData.json');
 const userData = require('./userData.json');
 
 db.once('open', async () => {
-  await List.deleteMany({});
+  // await List.deleteMany({});
 
-  const Lists = await List.insertMany(movieListData);
+  // const Lists = await List.insertMany(movieListData);
 
   await User.deleteMany({});
 

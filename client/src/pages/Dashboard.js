@@ -19,20 +19,22 @@ if (Auth.loggedIn()) {
     <div>
       <h1>User Dashboard</h1>
       <div className="dashboardContent">
-        <div className="columnLeft">
+        <div className="column">
+        <h2>Possible Movie Lists</h2>
           <ListPanel key="listPanel" allMovieLists={allMovieLists} />
             <Link to="/">
-              <button className="btn d-flex justify-content-center align-items-center col-sm-6">
+              <button className="btn d-flex justify-content-center align-items-center col-md-8">
               Check off watched movies
               </button>
             </Link>
             <Link to="/user-list">
-              <button className="btn d-flex justify-content-center align-items-center col-sm-6" >
+              <button className="btn d-flex justify-content-center align-items-center col-md-8" >
                 Create a Flicks on the Record checklist
               </button>
             </Link>
         </div>
         <div className="column">
+          <h2>My Badges</h2>
           <BadgesPanel key="badgePanel" allMovieLists={allMovieLists} />
           {/* <QuizPanel key="quizPanel"/> */}
           {/* <button className="btn justify-content-center align-items-center col-lg-12 ml-auto">Take Quiz</button> */}
