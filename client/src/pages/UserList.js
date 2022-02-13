@@ -82,7 +82,11 @@ const removeMovie = (e) => {
       }
     } else {
       event.preventDefault();
-      setErrorMsg([...errorMsg,{msg: 'Please make sure you have entered List Name, List Message, and have created a Movie List.'}]);
+      if(!errorMsg.includes('Please make sure you have entered List Name, List Message, and have created a Movie List.'))
+      {
+        setErrorMsg([...errorMsg,{msg: 'Please make sure you have entered List Name, List Message, and have created a Movie List.'}]);
+      }
+      
     }
   }
   //call the api to return the movie you searched for
@@ -101,7 +105,11 @@ const removeMovie = (e) => {
         setErrorMsg([])
     } else {
       event.preventDefault();
-      setErrorMsg([...errorMsg, {msg: 'Please enter a movie title.'}]);
+      if(!errorMsg.includes('Please enter a movie title.'))
+      {
+        setErrorMsg([...errorMsg, {msg: 'Please enter a movie title.'}]);
+      }
+      
     }
   }
   //styles for jsx
@@ -198,7 +206,7 @@ const removeMovie = (e) => {
           }
         <div className="d-flex flex-row list-group col-sm-12 justify-content-around align-items-center">
           <div className="d-flex flex-column list-group col-sm-12 justify-content-center">
-            <div className="errorMsg d-flex flex-column col-sm-12 justify-content-center">{errorMsg.map( error => <h1 className="errorMsg">{error.msg}</h1>)}</div>
+            <div className="errorMsg d-flex flex-column col-sm-12 justify-content-center">{errorMsg.map( (error, index)  => <h1 key={index} className="errorMsg">{error.msg}</h1>)}</div>
             <div className="d-flex flex-row list-group col-sm-12 justify-content-around">
               <h3 style={styles.orangeColor} className="d-flex justify-content-around">Search By Title & Year</h3>
               <div className="form-group d-flex m-1 justify-content-around">
