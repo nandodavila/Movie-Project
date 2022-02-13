@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// const github = require(process.env.PUBLIC_URL+"/images/footer/github_icon.png");
-console.log(process.env)
 const styles = {
   orangeColor: {
     color: '#F2A154'

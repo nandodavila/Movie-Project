@@ -136,6 +136,9 @@ const ListPage = () => {
     },
     blueColorBg: {
       backgroundColor: '#314E52'
+    },
+    sideImage: {
+      minHeight: '100vh'
     }
   }
 
@@ -143,8 +146,8 @@ const ListPage = () => {
 
   if (Auth.loggedIn()) {
     return (
-      <div>
-        <form className='container d-flex flex-column justify-content-center align-items-center'>
+      <div className="col-sm-9">
+        <form className='container d-flex flex-column justify-content-center align-items-center col-sm-12'>
           
             <h1 style={styles.orangeColor}>Search By Title & Year</h1>
             <div className='container col-8 d-flex flex-column justify-content-center'>
@@ -227,14 +230,15 @@ const ListPage = () => {
                   </div>
                 )}
             </div>
+          
           </div>
       
     );
 
   } else {
     return (
-      <div>
-        <form className='container d-flex flex-column justify-content-center align-items-center'>
+      <div className='container d-flex flex-column align-items-center col-sm-9'>
+        <form className='container d-flex flex-column justify-content-center align-items-center col-sm-12'>
           
             <h1 style={styles.orangeColor}>Search By Title & Year</h1>
             <div className='container col-8 d-flex flex-column justify-content-center'>
