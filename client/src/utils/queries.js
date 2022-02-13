@@ -17,6 +17,17 @@ query me {
       }
       completedLists {
         _id
+        name
+        message
+        badge
+        movies{
+          title
+          year
+          omdbId
+        }
+        createdBy {
+          username
+        }
       }
     }
   }
@@ -41,21 +52,21 @@ query getLists {
 export const QUERY_USER = gql`
 query user  {
     user {
+      _id
       username
       email
-      password
-      watchedMovies{
+      quizHighScore
+      totalWatchedHours
+      watchedMovies {
         _id
         omdbId
         title
         year
         isWatched
       }
-      completedList{
-        listId
+      completedLists {
+        _id
       }
-      quizHighScore
-      totalWatchedHours
     }
   }
 `

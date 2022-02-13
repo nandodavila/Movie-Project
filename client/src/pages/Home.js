@@ -2,7 +2,7 @@
 import { useQuery, useMutation} from '@apollo/client';
 import Auth from "../utils/auth";
 import { GET_LISTS, GET_ME } from '../utils/queries'
-import { UPDATE_USER_WATCHED } from '../utils/mutations'
+import { UPDATE_USER_WATCHED, UPDATE_COMPLETED_LIST } from '../utils/mutations'
 import React, { useState } from 'react';
 let apiKey = process.env.REACT_APP_API_KEY;
 const ListPage = () => {
@@ -19,6 +19,7 @@ const ListPage = () => {
   console.log(userInfo)
 
   const [ updateUserMovie, {error}] = useMutation(UPDATE_USER_WATCHED)
+  const [ updateUserCompletedList, {error: errCompletedList}] = useMutation(UPDATE_COMPLETED_LIST)
 
 
   let foundListArr = []
@@ -43,11 +44,6 @@ const ListPage = () => {
       setLists(foundListArr) 
     }
 }
-
-
-
-
-
 
   const handleInputChange = (e) => {
     // Getting the value and name of the input which triggered the change

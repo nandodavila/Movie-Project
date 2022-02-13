@@ -11,8 +11,6 @@ type User {
   totalWatchedHours: Int
 }
 
-
-
 type WatchedMovie {
     _id: ID!
     title: String!
@@ -32,7 +30,7 @@ type List {
     message: String!
     badge: String
     movies:[Movie]
-    createdBy(_id: String):[User]
+    createdBy(_id: String): User
 }
 
 type Movie {
@@ -62,12 +60,20 @@ input UserMovieWatched {
   isWatched: Boolean!
 }
 
+input UserCompletedList {
+  _id: ID!
+  name: String!
+  message: String!
+  badge: String
+}
+
 type Mutation {
     createList(name: String!, message: String!, badge: String, movies: [MovieInput], createdBy: String!): List
     updateUser(username: String, email: String, password: String): User
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     updateUserMovie(watchedMovies: UserMovieWatched): User
+    updateUserCompletedList(newCompletedList: UserCompletedList): User
 }
 `;
 
