@@ -61,7 +61,7 @@ const ListPage = () => {
   function apiCall(event)
   {
     event.preventDefault();
-    fetch(`http://www.omdbapi.com/?apikey=${apiKey}&type=movie&s=${title}&r=json&y=${year}`)
+    fetch(`https://www.omdbapi.com/?apikey=${apiKey}&type=movie&s=${title}&r=json&y=${year}`)
     .then(response => response.json())
     .then(data => {
         setResults(data.Search);

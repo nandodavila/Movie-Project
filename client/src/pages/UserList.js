@@ -1,4 +1,3 @@
-
 import { useQuery, useMutation} from '@apollo/client';
 import Auth from "../utils/auth";
 import { CREATE_LIST } from '../utils/mutations';
@@ -54,7 +53,7 @@ const removeMovie = (e) => {
     let id = event.target.id;
     if(id !== '')
     {
-      fetch(`http://www.omdbapi.com/?apikey=${apiKey}&i=${id}`)
+      fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${id}`)
       .then(response => response.json())
       .then(data => {
         console.log(data)
@@ -95,7 +94,7 @@ const removeMovie = (e) => {
     if(title)
       {
         event.preventDefault();
-        fetch(`http://www.omdbapi.com/?apikey=${apiKey}&type=movie&s=${title}&r=json&y=${year}`)
+        fetch(`https://www.omdbapi.com/?apikey=${apiKey}&type=movie&s=${title}&r=json&y=${year}`)
         .then(response => response.json())
         .then(data => {
             setResults(data.Search);
@@ -135,7 +134,8 @@ const removeMovie = (e) => {
       height: '200px'
     },
     posterHeight: {
-      maxHeight: '650px'
+      maxHeight: '650px',
+      backgroundColor: '#314E52'
     },
     delBtn: {
       backgroundColor: '#314E52',
@@ -147,7 +147,7 @@ const removeMovie = (e) => {
   }
   //html to return
   return (
-    <form className='container d-flex flex-column mt-5 col-sm-12'>
+    <form className='container d-flex flex-column mt-5 justify-content-center align-items-center col-sm-12'>
       
         
       <div className='container col-12 d-flex flex-column justify-content-center'>
@@ -244,19 +244,21 @@ const removeMovie = (e) => {
         </div>
         <div 
           id="searchResults"
-          className="overflow-auto"
+          className="overflow-auto col-sm-6"
           style={styles.posterHeight}>
             {results.map(movie => 
             <div className='imgContainer card m-5'
+            style={styles.blueColorBg}
             id={movie.imdbID}
             name={movie.Title} 
             key={movie.imdbID} 
             onClick={searchMovie}> 
             <img src={movie.Poster}
+            style={styles.blueColorBg}
             id={movie.imdbID}
             name={movie.Title} 
             alt="Poster" 
-            width="500" 
+            width="550" 
             height="600"/> 
             <h3 className='centered'> 
             {movie.Title} {movie.Year}</h3> </div>) }
