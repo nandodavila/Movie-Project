@@ -36,11 +36,6 @@ function Nav() {
       return (
         <ul className=" d-flex flex-row justify-content-around fs-3 fw-bold" style={styles.width}>
           <li className="mx-1">
-            <Link to="/awards-page">
-              Award List |
-            </Link>
-          </li>
-          <li className="mx-1">
             <Link to="/dashboard">
               Dashboard |
             </Link>
@@ -48,8 +43,13 @@ function Nav() {
           <li className="mx-1">
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
             <a href="/" onClick={() => Auth.logout()}>
-              Logout
+              Logout |
             </a>
+          </li>
+          <li className="mx-1">
+            <Link to="/user-list">
+              Create List
+            </Link>
           </li>
         </ul>
       );
@@ -67,8 +67,8 @@ function Nav() {
             </Link>
           </li>
           <li className="mx-1">
-            <Link to="/awards-page">
-              Award List |
+            <Link to="/user-list">
+              Create List
             </Link>
           </li>
         </ul>

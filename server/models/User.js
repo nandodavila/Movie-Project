@@ -1,4 +1,7 @@
 const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
+
 const bcrypt = require('bcrypt');
 const List = require('./List');
 
@@ -9,7 +12,7 @@ const validateEmail = function(email) {
 
 const movieWatchedSchema = new Schema({
     title: { type: String, required: true },
-    year: {type: Number, required: true},
+    year: {type: String, required: true},
     omdbId: {type: String, required: true},
     isWatched: {type: Boolean, require: true, default: true} 
   });
@@ -35,7 +38,7 @@ const UserSchema = new Schema({
   },
   watchedMovies: [movieWatchedSchema],
   completedLists: [{
-    type: Schema.Types.String,
+    type: Schema.Types.ObjectId,
     ref: 'list'}],
   quizHighScore: {
       type: Number
