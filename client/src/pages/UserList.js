@@ -147,7 +147,7 @@ const removeMovie = (e) => {
   }
   //html to return
   return (
-    <form className='container d-flex flex-column justify-content-center align-items-center mt-5'>
+    <form className='container d-flex flex-column mt-5 col-sm-12'>
       
         
       <div className='container col-12 d-flex flex-column justify-content-center'>
