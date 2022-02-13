@@ -12,7 +12,7 @@ export default function Login() {
   }
 
   return (
-    <div className="container ms-auto d-flex justify-content-center align-items-center flex-column col-sm-12 form-group">
+    <div className="container ms-auto d-flex align-items-center flex-column col-sm-12 form-group">
     <Link style={styles.link} to="/signup">Not Signed Up? <br></br>← Go to Signup</Link>
     <h2>Login</h2>
     <LoginPanel key="loginPanel" />

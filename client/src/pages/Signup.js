@@ -39,7 +39,7 @@ function Signup(props) {
   }
 
   return (
-    <div className="container ms-auto d-flex justify-content-center align-items-center flex-column col-sm-12 form-group">
+    <div className="container ms-auto d-flex align-items-center flex-column col-sm-12 form-group">
       <Link style={styles.link}to="/login">Already Signed Up? <br></br>← Go to Login</Link>
       <h2>Signup</h2>
       <form 

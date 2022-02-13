@@ -16,7 +16,7 @@ export default function Dashboard() {
 
 if (Auth.loggedIn()) {
   return (
-    <div>
+    <div className="col-sm-9">
       <h1>User Dashboard</h1>
       <div className="dashboardContent">
         <div className="column">
