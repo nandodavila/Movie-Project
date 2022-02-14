@@ -58,26 +58,27 @@ const resolvers = {
       return { token, user };
     },
     updateUserMovie: async (parent, args, context) => {
-      if (context.user.username) {
-        console.log(args, "this is args")
+      if (context.user.email) {
+        console.log(args, "this is args UserMovie")
+
+        
         return await User.findOneAndUpdate(
-          {email: context.user.username},  
+          {email: context.user.email},  
           { $push: {watchedMovies: args.watchedMovies} }, 
           { new: true });
       }
 
       throw new AuthenticationError('Not logged in');
     },
-    updateUserCompletedList: async (parent, {completedLists}, context) => {
-
-      const newListId = completedLists.map((list)=>list._id)
-      const newCompletedList = await List.findOne({_id: newListId});
-      if (context.user) {
-        console.log(context.user);
+    updateUserCompletedList: async (parent, args, context) => {
+      console.log(args, "this is args")
+      const newListId = args._id
+      if (context.user.email) {
+        console.log(context.user.email);
         return await User.findOneAndUpdate(
-          {_id: context.user._id},  
-          { $push: {completedLists: newCompletedList} }, 
-          { new: true });
+          {email: context.user.email},  
+          { $push: {completedLists: newListId} }, 
+          { new: true }).populate("List");
       }
       throw new AuthenticationError('Not logged in');
     }

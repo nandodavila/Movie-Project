@@ -64,21 +64,14 @@ mutation updateUserMovie ($UserMovieWatched: UserMovieWatched) {
 `
 
 export const UPDATE_COMPLETED_LIST = gql`
-mutation updateUserCompletedList ($completedLists: [ID!]) {
-  updateUserCompletedLists (completedLists: $completedLists) {
-    _id
+mutation updateUserCompletedLists ($UserCompletedList: UserCompletedList) {
+  updateUserCompletedList (completedLists: $UserCompletedList) {
+    username
+    email
 		completedLists {
-    name
-    message
-    badge
-      movies {
-        title
-        year
-        omdbId
-      }
-      createdBy {
-      username
-      }
+      name
+      message
+      badge
     }
   }
 }
