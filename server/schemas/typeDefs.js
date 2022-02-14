@@ -30,7 +30,7 @@ type List {
     message: String!
     badge: String
     movies:[Movie]
-    createdBy: User
+    createdBy(_id: String): User
 }
 
 type Movie {
@@ -62,19 +62,18 @@ input UserMovieWatched {
 
 input UserCompletedList {
   _id: ID!
-}
-
-input CreatedBy {
-  username: String!
+  name: String!
+  message: String!
+  badge: String
 }
 
 type Mutation {
-    createList(name: String!, message: String!, badge: String, movies: [MovieInput], createdBy: CreatedBy!): List
+    createList(name: String!, message: String!, badge: String, movies: [MovieInput], createdBy: String!): List
     updateUser(username: String, email: String, password: String): User
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     updateUserMovie(watchedMovies: UserMovieWatched): User
-    updateUserCompletedList(completedLists: [UserCompletedList]): User
+    updateUserCompletedList(newCompletedList: UserCompletedList): User
 }
 `;
 
