@@ -61,7 +61,9 @@ input UserMovieWatched {
 }
 
 input UserCompletedList {
-  _id: ID!
+  name: String!
+  message: String!
+  badge: String
 }
 
 type Mutation {

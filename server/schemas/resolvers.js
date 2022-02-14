@@ -58,6 +58,8 @@ const resolvers = {
     },
     updateUserMovie: async (parent, args, context) => {
       if (context.user.email) {
+        console.log(args, "this is args UserMovie")
+
         
         return await User.findOneAndUpdate(
           {email: context.user.email},  
@@ -77,7 +79,7 @@ const resolvers = {
         console.log(context.user.email);
         return await User.findOneAndUpdate(
           {email: context.user.email},  
-          { $push: {completedLists: args} }, 
+          { $push: {completedLists: args.completedLists} }, 
           { new: true });
       }
       throw new AuthenticationError('Not logged in');

@@ -72,14 +72,6 @@ mutation updateUserCompletedList ($UserCompletedList: UserCompletedList) {
       name
       message
       badge
-        movies {
-          title
-          year
-          omdbId
-        }
-      createdBy {
-      username
-      }
     }
   }
 }

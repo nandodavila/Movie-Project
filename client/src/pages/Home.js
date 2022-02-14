@@ -124,7 +124,7 @@ const ListPage = () => {
   }
 
   const handleCompletedList = async (arrayOfArrayslmao) => {
-    let completedListStr = ""
+    let completedListObj = {}
     //arrayOfArraysLmao is an array of objects that has the list name and ID and the list of movies the user has completed in that list
     for (let i = 0; i < arrayOfArrayslmao.length; i++) {
       lists.forEach(list => {
@@ -132,17 +132,21 @@ const ListPage = () => {
           console.log("found match " + arrayOfArrayslmao[i].listName)
           if(arrayOfArrayslmao[i].theWatchedMovies.length === list.movies.length) {
             console.log(userInfo.me.username + " completed " + list.name)
-            completedListStr = list._id  
+            completedListObj = {
+              name: list.name,
+              message: list.message,
+              badge: list.badge
+            }  
           }
         }
       })
 
       
     }
-    console.log(completedListStr)
+    console.log(completedListObj)
     try {
       const userUpdateList = await updateUserCompletedList({
-        variables: { UserCompletedList: completedListStr },
+        variables: { UserCompletedList: completedListObj },
       });
       console.log(userUpdateList)
     } catch (err) {
