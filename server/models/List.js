@@ -23,8 +23,10 @@ const listSchema = new Schema({
   movies: [movieSchema],
   // This should reference user in the future for more functionality but simple string is fine for now
   createdBy: {
-    type: String,
-    required: true
+      username: {
+        type: String,
+        required: true
+      }
   }
 })
 

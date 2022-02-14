@@ -110,7 +110,8 @@
       "name": "Mini-List: Crime Drive List",
       "message": "You ever heard the story about the scorpion and the frog?",
       "badge":  "/images/badges/Crime-Drive.png",
-      "createdBy": "chaos",
+      "createdBy": {
+        "username":"chaos"},
       "movies": [
         {
           "title": "Collateral",
@@ -603,7 +604,9 @@
       "name": "Top 100 SciFi of All Time",
       "message": "Nerd Alert!",
       "badge": "/images/badges/Top-100-SciFi.png",
-      "createdBy": "chaos",
+      "createdBy": {
+        "username" :"chaos"
+      },
       "movies": [
         {
           "title": "Blade Runner",
