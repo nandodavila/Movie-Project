@@ -64,8 +64,8 @@ mutation updateUserMovie ($UserMovieWatched: UserMovieWatched) {
 `
 
 export const UPDATE_COMPLETED_LIST = gql`
-mutation updateUserCompletedList ($UserCompletedList: UserCompletedList) {
-  updateUserCompletedLists (completedLists: $UserCompletedList) {
+mutation updateUserCompletedLists ($UserCompletedList: UserCompletedList) {
+  updateUserCompletedList (completedLists: $UserCompletedList) {
     username
     email
 		completedLists {
