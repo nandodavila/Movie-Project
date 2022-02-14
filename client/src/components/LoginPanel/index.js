@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import Auth from '../utils/auth';
-import { ADD_USER } from '../utils/mutations';
+import { LOGIN } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
-function Signup(props) {
+function LoginPanel(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
-  const [addUser] = useMutation(ADD_USER);
+  const [login, { error }] = useMutation(LOGIN);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const mutationResponse = await addUser({
-      variables: {
-        email: formState.email,
-        password: formState.password,
-        username: formState.username,
-      },
-    });
-    const token = mutationResponse.data.addUser.token;
-    Auth.login(token);
+    try {
+      const mutationResponse = await login({
+        variables: { email: formState.email, password: formState.password },
+      });
+      const token = mutationResponse.data.login.token;
+      Auth.login(token);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   const handleChange = (event) => {
@@ -29,7 +28,6 @@ function Signup(props) {
     });
   };
 
-
   const styles = {
     link: {
       textDecoration: 'none',
@@ -39,24 +37,10 @@ function Signup(props) {
   }
 
   return (
-    <div className="container ms-auto d-flex align-items-center flex-column col-sm-12 form-group">
-      <Link style={styles.link}to="/login">Already Signed Up? <br></br>← Go to Login</Link>
-      <h2>Signup</h2>
       <form 
-      className="col-sm-6"
-      onSubmit={handleFormSubmit}
-      >
-        <div className="flex-row space-between my-2">
-          <input
-            className="form-control justify-content-center align-items-center col-sm-12"
-            placeholder="Username"
-            name="username"
-            type="username"
-            id="username"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
+      className="container ms-atuo d-flex justify-content-center align-items-center flex-column col-sm-6 form-group"
+      onSubmit={handleFormSubmit}>
+        <div className="container ms-atuo d-flex justify-content-center align-items-center flex-column col-sm-12 form-group">
           <input
             className="form-control justify-content-center align-items-center col-sm-12"
             placeholder="youremail@test.com"
@@ -66,7 +50,7 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
+        <div className="container ms-atuo d-flex justify-content-center align-items-center flex-column col-sm-12 form-group my-2">
           <input
             className="form-control justify-content-center align-items-center col-sm-12"
             placeholder="******"
@@ -76,15 +60,18 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
+        {error ? (
+          <div>
+            <p className="error-text">The provided credentials are incorrect</p>
+          </div>
+        ) : null}
         <div className="flex-row flex-end d-flex justify-content-center align-items-center col-sm-12">
           <button 
           className="btn d-flex justify-content-center align-items-center col-sm-6"
-          type="submit"
-          >Submit</button>
+          type="submit">Submit</button>
         </div>
       </form>
-    </div>
   );
 }
 
-export default Signup;
+export default LoginPanel;

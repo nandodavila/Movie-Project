@@ -40,3 +40,7 @@ header h1 a{
 li{
   list-style-type: none;
 }
+
+.errorMsg{
+  color:red!important;
+}

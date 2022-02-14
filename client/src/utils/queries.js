@@ -29,8 +29,7 @@ query getLists {
         name
         message
         badge
-        movies {
-          _id
+        movies{
           title
           year
           omdbId
@@ -42,10 +41,12 @@ query getLists {
 export const QUERY_USER = gql`
 query user  {
     user {
+      _id
       username
       email
-      password
-      watchedMovies{
+      quizHighScore
+      totalWatchedHours
+      watchedMovies {
         _id
         omdbId
         title
@@ -55,8 +56,6 @@ query user  {
       completedLists {
         _id
       }
-      quizHighScore
-      totalWatchedHours
     }
   }
 `

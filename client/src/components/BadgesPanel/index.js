@@ -4,46 +4,53 @@ import { useQuery } from '@apollo/client';
 import { GET_ME } from '../../utils/queries';
 
 const BadgesPanel = ({ allMovieLists }) => {
-
     const [badge, setBadge] = useState([]);
-    const { loading, data } = useQuery(GET_ME);
+    const [user, setUser] = useState(null);
+    const { loading, data } = useQuery(GET_ME, {
+        onCompleted: (data) => {
+            setUser(data.me)
+        },
+    });
+
     //if data loads, run this again
-    useEffect(() => { setBadgeImage() }, [data]);
-    
-    const userCompletedLists = data?.me.completedLists || [];
+    useEffect(() => {setBadgeImage();}, [allMovieLists, user]);
+
     let hideBadgeImage = `/images/badges/Hidden-Badge.png`;
     let completedMovieList = [];
-
-    const  setBadgeImage = () => {
-         allMovieLists.forEach((listItem) => {
-            let badgeImg = hideBadgeImage;
-            let badgeId = listItem._id;
-            let badgeName = listItem.name;
-            if (userCompletedLists.some((listData) => listData.listId === badgeId)) {
-                badgeImg = listItem.badge;
+    const setBadgeImage = () => {
+        let userCompletedLists = [];
+        if (user) {
+            userCompletedLists = user.completedLists;
+            console.log(userCompletedLists)
+        } else {
+            console.log("user list not found")
+        }
+        allMovieLists.forEach((listItem) => {
+            let badgePopulateImg = hideBadgeImage;
+            let badgePopulateId = listItem._id;
+            let badgePopulateName = listItem.name;
+            if (user && (userCompletedLists.some((listData) => listData._id === badgePopulateId))) {
+                badgePopulateImg = listItem.badge;
                 //save into db (on watch) pull in against user
             }
             completedMovieList.push({
-                src: badgeImg,
-                id: badgeId,
-                alt: badgeName
+                src: badgePopulateImg,
+                id: badgePopulateId,
+                alt: badgePopulateName
             })
-        });
-         setBadge(completedMovieList);
+        });   
+        setBadge(completedMovieList);
     };
+
     // populate all lists, if movie in users list, then show badge, if not show not badge
     return (
-        <div className="card mb-3">
-            <div className="flex-row justify-space-between my-4">
-                {badge.map(award =>
-                    <div key={"card"+award.id} className="col-12 col-xl-6">
-                        <div key={"list"+award.id} className="listBadge mb-3">
-                        <img src={process.env.PUBLIC_URL + award.src} key={"badge"+award.id} alt={award.alt} />
-                        key={"badge"+award.id}
-                        </div>
-                    </div>
-                )}
-            </div>
+
+        <div className="badgesForUser ms-auto">
+            {badge.map(award =>
+                <div key={"div" + award.id} className="listBadge m-3">
+                    <img key={"img" + award.id} src={process.env.PUBLIC_URL + award.src} alt={award.alt} />
+                </div>
+            )}
         </div>
     );
 };

@@ -1,21 +1,80 @@
 // import { Link } from 'react-router-dom';
-import { useQuery, useMutation} from '@apollo/client';
-// import { QUERY_MATCHUPS } from '../utils/queries';
-import { CREATE_LIST } from '../utils/mutations';
-import React, { useEffect, useState, setState } from 'react';
-import $ from 'jquery';
-let ReactDOM = require('react-dom');
-let apiKey = '8ffb7060';
-let loggedIn = true;
-const Home = () => {
+import { useQuery, useMutation } from '@apollo/client';
+import Auth from "../utils/auth";
+import { GET_LISTS, GET_ME } from '../utils/queries'
+import { UPDATE_USER_WATCHED, UPDATE_COMPLETED_LIST } from '../utils/mutations'
+import React, { useState, useEffect } from 'react';
+let apiKey = process.env.REACT_APP_API_KEY;
+
+const ListPage = () => {
   const [title, setTitle] = useState('');
   const [year, setYear] = useState('');
   const [results, setResults] = useState([]);
-  const [listName, setListName] = useState([]);
-  const [listMsg, setListMsg] = useState([]);
-  const [movieLists, setMovieLists] = useState([]);
+  const [lists, setLists] = useState([]);
+  const [checkbox, setCheckbox] = useState(false)
+  const [completedList, setCompletedList] = useState([]);
 
-  const [createList, { error }] = useMutation(CREATE_LIST);
+  const { loading, data } = useQuery(GET_LISTS);
+  const allMovieLists = data?.lists || [];
+
+  const [user, setUser] = useState(null);
+  const { loading: loadingV2, data: userInfo } = useQuery(GET_ME, {
+    onCompleted: (userInfo) => {
+      setUser(userInfo.me)
+    },
+  });
+
+  const [updateUserMovie, { error }] = useMutation(UPDATE_USER_WATCHED)
+  const [updateUserCompletedList, { error: errCompletedList }] = useMutation(UPDATE_COMPLETED_LIST)
+
+  useEffect(() => {setCompletedList();}, [checkbox ,completedList]);
+
+  let hideBadgeImage = `/images/badges/Hidden-Badge.png`;
+  let foundListArr = []
+
+  const filterList = (searched) => {
+    let userCompletedLists = [];
+    allMovieLists.forEach(list => {
+      // All movies but still seperate arrays depending on list
+      let allMovies = list.movies
+      allMovies.forEach(movie => {
+        let eachMovieId = movie.omdbId
+
+        if (eachMovieId === searched[0].imdbID) {
+          //trying to hide badge for users that dont have that list
+          // if (user) {
+          //   console.log(user.completedLists)
+          //   userCompletedLists = user.completedLists._id;
+          //   console.log(user.completedLists)
+          // } else {
+          //   console.log("user list not found")
+          // }
+          // foundListArr.forEach((listItem) => {
+          //   let badgePopulateImg = listItem.badge;
+          //   let badgePopulateId = listItem._id;
+          //   let badgePopulateName = listItem.name;
+          //   if (userCompletedLists.some((listData) => listData._id === !badgePopulateId)) {
+          //     badgePopulateImg = hideBadgeImage;
+          //     //save into db (on watch) pull in against user
+          //   }
+          //   foundListArr.push({
+          //     id: badgePopulateId,
+          //     badge: badgePopulateImg,
+          //     name: badgePopulateName
+          //   })
+          foundListArr.push(list)
+          };
+      });
+    });
+
+    if (foundListArr.length === 0){
+      alert("No List Found With This Movie")
+    } else {
+      console.log("Found " + foundListArr.length + " List with this movie")
+      setLists(foundListArr) 
+    }
+}
+
 
   const handleInputChange = (e) => {
     // Getting the value and name of the input which triggered the change
@@ -25,75 +84,100 @@ const Home = () => {
 
     if (inputType === 'title') {
       setTitle(inputValue);
-    } else if (inputType === 'listName'){
-      setListName(inputValue)
-    } else if (inputType === 'listMsg'){
-      setListMsg(inputValue)
-    }else {
+    } else {
       setYear(inputValue);
     };
   }
 
-// $(document).on('click', 'li button', function(event){
-//   event.preventDefault();
-//   console.log(event.target.parentNode.id)
-
-// })
-
-const removeMovie = (e) => {
-  e.preventDefault();
-  let targetId = e.target.parentNode.id
-  movieLists.forEach((movie, index) => {
-    if( movie.omdbId == targetId)
-    {
-      movieLists.splice(index, 1)
-    }
-  });
-  setMovieLists([...movieLists])
-}
-
-const addMovie = async (event) => {
-
-    let id = event.target.id;
-    if(id !== '')
-    {
-    fetch(`http://www.omdbapi.com/?apikey=${apiKey}&i=${id}`)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data)
-      let movieObject = {
-        title: data.Title,
-        year: data.Year,
-        omdbId: data.imdbID
-      }
-      setMovieLists([...movieLists, movieObject])
-    });
-  }
-
-
-  }
-  // useEffect(() => setLists(listOfMovie), [])
-  const saveMovieList = async () => {
-      try {
-        console.log(movieLists , 'asdfasdfasdf');
-        await createList({
-          variables: {name: listName, message: listMsg, badge: 'badge', movies:movieLists, createdBy:'travis'},
-        });
-        window.location.reload()
-      } catch (err) {
-        console.error(err);
-    }
-  }
-  function apiCall(event)
-  {
+  function apiCall(event) {
     event.preventDefault();
-    fetch(`http://www.omdbapi.com/?apikey=${apiKey}&type=movie&s=${title}&r=json&y=${year}`)
-    .then(response => response.json())
-    .then(data => {
+    fetch(`https://www.omdbapi.com/?apikey=${apiKey}&type=movie&s=${title}&r=json&y=${year}`)
+      .then(response => response.json())
+      .then(data => {
         setResults(data.Search);
         setTitle('');
         setYear('');
-    });
+        filterList(data.Search)
+      });
+  }
+
+
+  const movieWatchedChange = async (event) => {
+    event.preventDefault();
+    console.log(event)
+    if (event.target.checked === true) {
+      let { id, title, value } = event.target
+      console.log(id);
+      const watchedMovieObj = {
+        title: title,
+        year: value,
+        omdbId: id,
+        isWatched: true
+      }
+      try {
+        const userUpdate = await updateUserMovie({
+          variables: { UserMovieWatched: watchedMovieObj },
+        });
+        console.log(userUpdate)
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  }
+
+  const handleCompletedList =  () => {
+    //get is watched list
+    let userWatchedMovies = user.watchedMovies.map((watchedMovie) => watchedMovie.omdbId)
+    //get list with movies
+    let foundListMovieArray = foundListArr.movies.map((listedMovie) => listedMovie.omdbId)
+    console.log(userWatchedMovies);
+    console.log("above userwatched list");
+    console.log(foundListMovieArray);
+    foundListMovieArray.forEach((movie) => {
+      if (movie != userWatchedMovies) {
+          return
+      }
+      try {
+        const userUpdateList = updateUserCompletedList({
+          variables: { UserCompletedList: foundListArr._id },
+        });
+        console.log(userUpdateList)
+      } catch (err) {
+        console.error(err);
+      }
+  });
+};
+    
+    //if all movies === isWatched: true on user, call function
+      
+  // function checkMovieWatched() {
+  //   const arrayOfArrayslmao = []
+  //   lists.forEach(list => {
+  //     let moviesWatchedArr = []
+  //     let listName = list.name
+  //     list.movies.forEach(movie => {
+  //       userInfo.me.watchedMovies.forEach(watchedMovie => {
+  //         if (watchedMovie.omdbId === movie.omdbId) {
+  //           moviesWatchedArr.push(movie)
+  //         }
+  //       })
+  //     })
+  //     arrayOfArrayslmao.push({listName: listName, listId: list._id, theWatchedMovies: moviesWatchedArr})
+  //   })
+  //   return arrayOfArrayslmao
+  // }
+
+
+  function CheckingFunc(movie) {
+    let checkingBox = ""
+    userInfo.me.watchedMovies.forEach(watchedMovie => {
+      if (watchedMovie.title === movie) {
+        checkingBox = "true"
+        return "true"
+      }
+    })
+    console.log(checkingBox)
+    return checkingBox
   }
 
   const styles = {
@@ -102,6 +186,7 @@ const addMovie = async (event) => {
     },
     blueColor: {
       color: '#314E52',
+      textDecoration: 'none'
     },
     orangeColorBg: {
       backgroundColor: '#F2A154'
@@ -109,147 +194,190 @@ const addMovie = async (event) => {
     blueColorBg: {
       backgroundColor: '#314E52'
     },
-    movieList: {
-      color: '#314E52' ,
-      backgroundColor: '#F2A154'
+    sideImage: {
+      minHeight: '100vh'
     },
-    listHeight: {
-      maxHeight: '200px',
-      height: '200px'
+    badgeImage: {
+      maxHeight: '50px',
+      maxWidth: '50px'
     },
-    posterHeight: {
-      maxHeight: '650px'
-    },
-    delBtn: {
-      backgroundColor: '#314E52',
-      color: '#F2A154'
+    overflow: {
+      overFlow: 'auto',
+      maxHeight: '50vh'
     }
+
   }
 
-  return (
-    <form className='container d-flex flex-column justify-content-center align-items-center mt-5'>
-      
-        
-      <div className='container col-12 d-flex flex-column justify-content-center'>
-        {loggedIn ?
-        <div className="d-flex flex-row position-relative justify-content-center">
-          <div className="d-flex flex-column position-relative justify-content-center align-items-center col-6">
-            <h1 style={styles.orangeColor} className="d-flex justify-content-center ">Create A List!</h1>
-            <div className="col-10 d-flex flex-column border rounded justify-content-center align-items-center m-2" > 
-              <div className="form-group d-flex flex-column mt-1 mb-1 col-sm-8">
-                <input 
-                value={listName}
-                onChange={handleInputChange}
-                type="text"
-                id="listName" 
-                name="listName"
-                placeholder="List Name" 
-                className="form-control justify-content-center align-items-center col-sm-12"/>
-              </div>
-              <div className="form-group d-flex flex-column mt-1 mb-1 col-sm-8">
-                <input 
-                value={listMsg}
-                onChange={handleInputChange}
-                type="text"
-                id="listMsg" 
-                name="listMsg"
-                placeholder="List Message" 
-                className="form-control justify-content-center align-items-center col-sm-12"/>
-              </div>
-            </div>
-          </div>
-          <div className="d-flex flex-column list-group col-sm-6 border rounded m-2 overflow-auto">
-            <button
-              style={styles.orangeColorBg} 
-              id="createList" 
-              type="button" 
-              className="btn d-flex justify-content-center align-items-center col-lg-6 m-auto mt-1"
-              onClick={saveMovieList}>
-                
-                Create Movie List
-            </button>
-            <div className="overflow-auto" style={styles.listHeight}>
-              {movieLists.map( list => 
-                <li
-                className="list-group-item d-flex justify-content-center align-items-center fs-5"
-                style={styles.movieList}
-                key={list.omdbId}
-                id={list.omdbId}> {list.title}
-                <button style={styles.delBtn}
-                onClick={removeMovie} className="d-flex justify-content-end float-right align-items-end ms-auto">X</button> </li>
-              )}
-            </div>
-          </div>
-        </div>
-          :
-          <div></div>
-          }
-        <div className="d-flex flex-row list-group col-sm-12 justify-content-around align-items-center">
-          <div className="d-flex flex-row list-group col-sm-12 justify-content-around">
-            <h3 style={styles.orangeColor} className="d-flex justify-content-around">Search By Title & Year</h3>
-            <div className="form-group d-flex m-1 justify-content-around">
+  //reverse if statement when done, make sure logged out person does not see check boxes
+
+  if (Auth.loggedIn()) {
+    return (
+      <div className="col-sm-9">
+        <form className='container d-flex flex-column justify-content-center align-items-center col-sm-12'>
+          <h1 style={styles.orangeColor}>Search By Title & Year</h1>
+          <div className='container col-8 d-flex flex-column justify-content-center'>
+            <div className="form-group d-flex  mt-1 mb-1">
               {/* <label
                 style={styles.orangeColor}
                 htmlFor="title" 
                 className="control-label col-sm-1 col-form-label" >
                   Title:
               </label> */}
-              <input 
+              <input
                 value={title}
                 onChange={handleInputChange}
                 type="text"
-                id="title" 
+                id="title"
                 name="title"
-                placeholder="Title" 
-                className="form-control justify-content-center align-items-center col-sm-6"/>
+                placeholder="Title"
+                className="form-control justify-content-center align-items-center col-sm-8"
+              />
             </div>
-            <div className="form-group d-flex m-1">
+            <div className="form-group d-flex mt-1">
               {/* <label 
                 style={styles.orangeColor}
                 className="control-label col-sm-1 col-form-label" >
                   Year:
               </label> */}
-              <input 
+              <input
                 value={year}
                 onChange={handleInputChange}
                 type="text"
-                id="year" 
+                id="year"
                 name="year"
-                placeholder="Year" 
-                className="form-control justify-content-center align-items-center col-sm-6"/>
+                placeholder="Year"
+                className="form-control justify-content-center align-items-center col-sm-8" />
             </div>
-              <button
-                style={styles.orangeColorBg} 
-                id="search-by-title-button" 
-                type="submit" 
-                className="btn d-flex justify-content-center align-items-center col-sm-2"
-                onClick={apiCall}>
-                  
-                  Search
-              </button>
-            </div>
+            <button
+              style={styles.orangeColorBg}
+              id="search-by-title-button"
+              type="submit"
+              className="btn d-flex justify-content-center align-items-center col-lg-8 m-auto mt-1"
+              onClick={apiCall}>
+
+              Search
+            </button>
           </div>
+        </form>
+        <div style={styles.overflow} className="accordion list-accordion container col-sm-6 overflow-auto">
+          {lists.map(list =>
+            <div className='card m-2' key={list._id}>
+              <div className='card-header d-flex justify-content-center' style={styles.orangeColorBg} id={list.name}>
+                <h2 className="mb-0" style={styles.blueColor}>
+                  <button
+                    style={styles.blueColor}
+                    className="btn btn-link fs-3"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target={`#${list._id}`}
+                    aria-expanded="true"
+                    aria-controls={list._id}>
+                    {list.name}
+                    <img className="" style={styles.badgeImage} src={list.badge} />
+                  </button>
+                </h2>
+              </div>
+              <div id={list._id} className="collapse show d-flex justify-content-center" aria-labelledby={list.name} data-parent="#list-accordion">
+                <div className="card-body d-flex justify-content-center">
+                  <ul>
+                    {list.movies.map(movie =>
+                      <li key={movie.omdbId}>
+                        <form>
+                          <div
+                            style={styles.blueColor}
+                            className="form-group form-check ">
+                            <input
+                              style={styles.blueColor}
+                              type="checkbox"
+                              className="form-check-input"
+                              id={movie.omdbId}
+                              title={movie.title}
+                              value={movie.year}
+                              defaultChecked={CheckingFunc(movie.title)}
+                              onChange={movieWatchedChange}
+                            />
+                            <label className="form-check-label fs-4" htmlFor={movie.omdbId} style={styles.blueColor}>{movie.title}</label>
+                          </div>
+                        </form>
+                      </li>
+                    )}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
-        <div 
-          id="searchResults"
-          className="overflow-auto"
-          style={styles.posterHeight}>
-            {results.map(movie => 
-            <div className='imgContainer card m-5'
-            id={movie.imdbID}
-            name={movie.Title} 
-            key={movie.imdbID} 
-            onClick={addMovie}> 
-            <img src={movie.Poster}
-            id={movie.imdbID}
-            name={movie.Title} 
-            alt="Poster" 
-            width="500" 
-            height="600"/> 
-            <h3 className='centered'> 
-            {movie.Title} {movie.Year}</h3> </div>) }
+      </div>
+
+    );
+
+  } else {
+    return (
+      <div className='container d-flex flex-column align-items-center col-sm-9'>
+        <form className='container d-flex flex-column justify-content-center align-items-center col-sm-12'>
+          <h1 style={styles.orangeColor}>Search By Title & Year</h1>
+          <div className='container col-8 d-flex flex-column justify-content-center'>
+            <div className="form-group d-flex  mt-1 mb-1">
+              <input
+                value={title}
+                onChange={handleInputChange}
+                type="text"
+                id="title"
+                name="title"
+                placeholder="Title"
+                className="form-control justify-content-center align-items-center col-sm-8" />
+            </div>
+            <div className="form-group d-flex mt-1">
+              <input
+                value={year}
+                onChange={handleInputChange}
+                type="text"
+                id="year"
+                name="year"
+                placeholder="Year"
+                className="form-control justify-content-center align-items-center col-sm-8"
+              />
+            </div>
+            <button
+              style={styles.orangeColorBg}
+              id="search-by-title-button"
+              type="submit"
+              className="btn d-flex justify-content-center align-items-center col-lg-8 m-auto mt-1"
+              onClick={apiCall}>
+
+              Search
+            </button>
+          </div>
+        </form>
+        <div className="accordion list-accordion container">
+          {lists.map(list =>
+            <div className='card' key={list._id}>
+              <div className='card-header' id={list.name}>
+                <h2 className="mb-0">
+                  <button className="btn btn-link" type="button" data-toggle="collapse" data-target={`#${list._id}`} aria-expanded="true" aria-controls={list._id}>
+                    {list.name}
+                    <img src={list.badge} />
+                  </button>
+                </h2>
+              </div>
+              <div id={list._id} className="collapse show" aria-labelledby={list.name} data-parent="#list-accordion">
+                <div className="card-body">
+                  <ul>
+                    {list.movies.map(movie =>
+                      <li key={movie.omdbId}>
+                        {movie.title}
+                      </li>
+                    )}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
-    </form>
-  );
-  };
-export default Home;
+      </div>
+
+    );
+
+  }
+};
+export default ListPage;

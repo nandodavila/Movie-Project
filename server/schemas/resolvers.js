@@ -5,8 +5,9 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
     me: async (parent, args , context) => {
-      if (context.user.username){
-      return User.findOne({ username: context.user.username })
+      if (context.user){
+        const currentUser = await User.findOne({ email: context.user.email})
+      return currentUser
       }
       throw new ValidationError('Cannot find this user!');
     },
@@ -16,8 +17,6 @@ const resolvers = {
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({});
-
-        user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
 
         return user;
       }
@@ -56,6 +55,30 @@ const resolvers = {
       }
       const token = signToken(user);
       return { token, user };
+    },
+    updateUserMovie: async (parent, args, context) => {
+      if (context.user.username) {
+        console.log(args, "this is args")
+        return await User.findOneAndUpdate(
+          {email: context.user.username},  
+          { $push: {watchedMovies: args.watchedMovies} }, 
+          { new: true });
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
+    updateUserCompletedList: async (parent, {completedLists}, context) => {
+
+      const newListId = completedLists.map((list)=>list._id)
+      const newCompletedList = await List.findOne({_id: newListId});
+      if (context.user) {
+        console.log(context.user);
+        return await User.findOneAndUpdate(
+          {_id: context.user._id},  
+          { $push: {completedLists: newCompletedList} }, 
+          { new: true });
+      }
+      throw new AuthenticationError('Not logged in');
     }
   }
 };

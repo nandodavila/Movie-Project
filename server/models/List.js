@@ -1,5 +1,4 @@
 const { Schema, model } = require('mongoose');
-const { type } = require('os');
 const User = require('./User');
 
 const movieSchema = new Schema({
@@ -8,7 +7,7 @@ const movieSchema = new Schema({
     omdbId: {type: String, required: true} 
   });
 
-const ListSchema = new Schema({
+const listSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -22,13 +21,14 @@ const ListSchema = new Schema({
     required: true,
   },
   movies: [movieSchema],
+  // This should reference user in the future for more functionality but simple string is fine for now
   createdBy: {
-    type: Schema.Types.String,
-    ref: 'user',
+      username: {
+        type: String,
+        required: true
+      }
   }
 })
 
-
-const List = model('list', ListSchema);
-
+const List = model('List', listSchema);
 module.exports = List;

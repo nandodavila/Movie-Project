@@ -14,7 +14,7 @@ type User {
 type WatchedMovie {
     _id: ID!
     title: String!
-    year: Int!
+    year: String!
     omdbId: String!
     isWatched: Boolean
 }
@@ -30,7 +30,7 @@ type List {
     message: String!
     badge: String
     movies:[Movie]
-    createdBy(_id: String):[User]
+    createdBy(_id: String): User
 }
 
 type Movie {
@@ -42,6 +42,7 @@ type Movie {
 
 type Query {
   me: User
+  users: [User]
   user: User
   lists: [List]
 }
@@ -52,11 +53,27 @@ input MovieInput {
   omdbId: String!
 }
 
+input UserMovieWatched {
+  title: String!
+  year: String!
+  omdbId: String!
+  isWatched: Boolean!
+}
+
+input UserCompletedList {
+  _id: ID!
+  name: String!
+  message: String!
+  badge: String
+}
+
 type Mutation {
     createList(name: String!, message: String!, badge: String, movies: [MovieInput], createdBy: String!): List
-    updateUser(firstName: String, lastName: String, email: String, password: String): User
-    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+    updateUser(username: String, email: String, password: String): User
+    addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    updateUserMovie(watchedMovies: UserMovieWatched): User
+    updateUserCompletedList(newCompletedList: UserCompletedList): User
 }
 `;
 
