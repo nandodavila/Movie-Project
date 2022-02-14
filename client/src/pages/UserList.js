@@ -17,7 +17,7 @@ const Home = () => {
   
 
   const { loading, data: userInfo} = useQuery(GET_ME)
-  
+
   const handleInputChange = (e) => {
     // Getting the value and name of the input which triggered the change
     const { target } = e;
@@ -70,10 +70,10 @@ const removeMovie = (e) => {
   const saveMovieList = async (event) => {
     if(listName.length !== 0 && listMsg.length !== 0 && movieLists.length !== 0)
     {
-      console.log(listName, listMsg, movieLists)
+
       try {
         await createList({
-          variables: {name: listName, message: listMsg, badge: "/images/badges/User-Added-List.png", movies:movieLists, createdBy: userInfo.me.username},
+          variables: {name: listName, message: listMsg, badge: "/images/badges/User-Added-List.png", movies:movieLists, createdBy: JSON.parse(`{"username":"${userInfo.me.username}"}`)},
         });
         window.location.reload()
       } catch (err) {
