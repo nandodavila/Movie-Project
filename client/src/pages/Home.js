@@ -132,7 +132,9 @@ const ListPage = () => {
           console.log("found match " + arrayOfArrayslmao[i].listName)
           if(arrayOfArrayslmao[i].theWatchedMovies.length === list.movies.length) {
             console.log(userInfo.me.username + " completed " + list.name)
-            completedListObj = {
+            completedListObj = 
+            {
+              _id: list._id,
               name: list.name,
               message: list.message,
               badge: list.badge

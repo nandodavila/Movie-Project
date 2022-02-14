@@ -71,16 +71,13 @@ const resolvers = {
     },
     updateUserCompletedList: async (parent, args, context) => {
       console.log(args, "this is args")
-
-      // const newListId = args.map((list)=>list._id)
-      // const newCompletedList = await List.findOne({_id: args});
-      // console.log(newCompletedList)
+      const newListId = args._id
       if (context.user.email) {
         console.log(context.user.email);
         return await User.findOneAndUpdate(
           {email: context.user.email},  
-          { $push: {completedLists: args.completedLists} }, 
-          { new: true });
+          { $push: {completedLists: newListId} }, 
+          { new: true }).populate("List");
       }
       throw new AuthenticationError('Not logged in');
     }
