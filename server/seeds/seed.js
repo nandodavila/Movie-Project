@@ -9,9 +9,9 @@ db.once('open', async () => {
 
   const Lists = await List.insertMany(movieListData);
 
-  await User.deleteMany({});
+  // await User.deleteMany({});
 
-  const Users = await User.insertMany(userData);
+  // const Users = await User.insertMany(userData);
 
   console.log('Movie & User Lists seeded');
   process.exit(0);
