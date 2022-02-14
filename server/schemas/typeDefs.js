@@ -62,9 +62,6 @@ input UserMovieWatched {
 
 input UserCompletedList {
   _id: ID!
-  name: String!
-  message: String!
-  badge: String
 }
 
 type Mutation {
@@ -73,7 +70,7 @@ type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     updateUserMovie(watchedMovies: UserMovieWatched): User
-    updateUserCompletedList(newCompletedList: UserCompletedList): User
+    updateUserCompletedList(completedLists: UserCompletedList): User
 }
 `;
 

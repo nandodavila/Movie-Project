@@ -58,7 +58,7 @@ const resolvers = {
     },
     updateUserMovie: async (parent, args, context) => {
       if (context.user.email) {
-        console.log(args, "this is args")
+        
         return await User.findOneAndUpdate(
           {email: context.user.email},  
           { $push: {watchedMovies: args.watchedMovies} }, 
@@ -67,15 +67,17 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-    updateUserCompletedList: async (parent, {completedLists}, context) => {
+    updateUserCompletedList: async (parent, args, context) => {
+      console.log(args, "this is args")
 
-      const newListId = completedLists.map((list)=>list._id)
-      const newCompletedList = await List.findOne({_id: newListId});
-      if (context.user) {
-        console.log(context.user);
+      // const newListId = args.map((list)=>list._id)
+      // const newCompletedList = await List.findOne({_id: args});
+      // console.log(newCompletedList)
+      if (context.user.email) {
+        console.log(context.user.email);
         return await User.findOneAndUpdate(
-          {_id: context.user._id},  
-          { $push: {completedLists: newCompletedList} }, 
+          {email: context.user.email},  
+          { $push: {completedLists: args} }, 
           { new: true });
       }
       throw new AuthenticationError('Not logged in');
