@@ -118,7 +118,7 @@ const ListPage = () => {
         const userUpdate = await updateUserMovie({
           variables: { UserMovieWatched: watchedMovieObj },
         });
-        console.log(userUpdate)
+        console.log("userUpdate", userUpdate)
       } catch (err) {
         console.error(err);
       }
@@ -176,7 +176,6 @@ const ListPage = () => {
         return "true"
       }
     })
-    console.log(checkingBox)
     return checkingBox
   }
 
