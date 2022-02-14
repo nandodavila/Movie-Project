@@ -69,9 +69,7 @@ mutation updateUserCompletedList ($UserCompletedList: UserCompletedList) {
     username
     email
 		completedLists {
-      name
-      message
-      badge
+      _id
     }
   }
 }
