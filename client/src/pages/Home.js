@@ -13,6 +13,8 @@ const ListPage = () => {
   const [lists, setLists] = useState([]);
   const [checkbox, setCheckbox] = useState(false)
   const [completedList, setCompletedList] = useState([]);
+  const [watchedMovies, setWatchedMovies] = useState([])
+  
 
   const { loading, data } = useQuery(GET_LISTS);
   const allMovieLists = data?.lists || [];
@@ -20,14 +22,20 @@ const ListPage = () => {
   const [user, setUser] = useState(null);
   const { loading: loadingV2, data: userInfo } = useQuery(GET_ME, {
     onCompleted: (userInfo) => {
+      if (!user) {
       setUser(userInfo.me)
+      setWatchedMovies(userInfo.me.watchedMovies)
+      }
     },
   });
+
+  // setUser(useQuery(GET_ME))
+  // console.log(user)
 
   const [updateUserMovie, { error }] = useMutation(UPDATE_USER_WATCHED)
   const [updateUserCompletedList, { error: errCompletedList }] = useMutation(UPDATE_COMPLETED_LIST)
 
-  useEffect(() => {setCompletedList();}, [checkbox ,completedList]);
+  // useEffect(() => {setCompletedList();}, [completedList]);
 
   let hideBadgeImage = `/images/badges/Hidden-Badge.png`;
   let foundListArr = []
@@ -43,7 +51,7 @@ const ListPage = () => {
         if (eachMovieId === searched[0].imdbID) {
           //trying to hide badge for users that dont have that list
           // if (user) {
-          //   console.log(user.completedLists)
+            console.log(user.completedLists)
           //   userCompletedLists = user.completedLists._id;
           //   console.log(user.completedLists)
           // } else {
@@ -70,7 +78,7 @@ const ListPage = () => {
     if (foundListArr.length === 0){
       alert("No List Found With This Movie")
     } else {
-      console.log("Found " + foundListArr.length + " List with this movie")
+      // console.log("Found " + foundListArr.length + " List with this movie")
       setLists(foundListArr) 
     }
 }
@@ -90,7 +98,7 @@ const ListPage = () => {
   }
 
   function apiCall(event) {
-    event.preventDefault();
+    event.preventDefault()
     fetch(`https://www.omdbapi.com/?apikey=${apiKey}&type=movie&s=${title}&r=json&y=${year}`)
       .then(response => response.json())
       .then(data => {
@@ -103,7 +111,8 @@ const ListPage = () => {
 
 
   const movieWatchedChange = async (event) => {
-    event.preventDefault();
+
+
     if (event.target.checked === true) {
       let { id, title, value } = event.target
       const watchedMovieObj = {
@@ -112,15 +121,21 @@ const ListPage = () => {
         omdbId: id,
         isWatched: true
       }
+      setWatchedMovies([...watchedMovies, watchedMovieObj])
+      console.log(watchedMovies)
       try {
         const userUpdate = await updateUserMovie({
           variables: { UserMovieWatched: watchedMovieObj },
         });
         console.log("userUpdate", userUpdate)
+        checkMovieWatched(userUpdate)
+
+        console.log(user)
       } catch (err) {
         console.error(err);
       }
     }
+
   }
 
   const handleCompletedList = async (arrayOfArrayslmao) => {
@@ -131,30 +146,27 @@ const ListPage = () => {
         if (arrayOfArrayslmao[i].listId === list._id) {
           console.log("found match " + arrayOfArrayslmao[i].listName)
           if(arrayOfArrayslmao[i].theWatchedMovies.length === list.movies.length) {
+            
             console.log(userInfo.me.username + " completed " + list.name)
-            completedListObj = 
-            {
-              _id: list._id,
-              name: list.name,
-              message: list.message,
-              badge: list.badge
+            completedListObj = {
+              _id: list._id
             }  
+            try {
+              const userUpdateList = updateUserCompletedList({
+                variables: { UserCompletedList: completedListObj },
+              });
+              // console.log(userUpdateList)
+              // window.location.reload()
+            } catch (err) {
+              // console.log("you got an error dumb")
+              console.error(err);
+            }
           }
         }
-      })
-
-      
+      })  
     }
-    console.log(completedListObj)
-    try {
-      const userUpdateList = await updateUserCompletedList({
-        variables: { UserCompletedList: completedListObj },
-      });
-      console.log(userUpdateList)
-    } catch (err) {
-      console.log("you got an error dumb")
-      console.error(err);
-    }
+    // console.log(completedListObj)
+    
     // setCompletedList(completedListArr)
     // console.log(completedListArr)
     // console.log(completedList)
@@ -192,13 +204,15 @@ const ListPage = () => {
     
     //if all movies === isWatched: true on user, call function
       
-  function checkMovieWatched() {
+  function checkMovieWatched(userMovies) {
     const arrayOfArrayslmao = []
     lists.forEach(list => {
       let moviesWatchedArr = []
       let listName = list.name
       list.movies.forEach(movie => {
-        user.watchedMovies.forEach(watchedMovie => {
+
+        userMovies.data.updateUserMovie.watchedMovies.forEach(watchedMovie => {
+          console.log(watchedMovie)
           if (watchedMovie.omdbId === movie.omdbId) {
             moviesWatchedArr.push(movie)
           }
@@ -206,13 +220,15 @@ const ListPage = () => {
       })
       arrayOfArrayslmao.push({listName: listName, listId: list._id, theWatchedMovies: moviesWatchedArr})
     })
-    console.log(arrayOfArrayslmao)
+    // console.log(arrayOfArrayslmao)
     handleCompletedList(arrayOfArrayslmao)
+    setCheckbox(!checkbox)
   }
 
   function twoCalls(event) {
     movieWatchedChange(event)
-    checkMovieWatched()
+
+
 
     
   }
@@ -328,21 +344,23 @@ const ListPage = () => {
               <div id={list._id} className="collapse show d-flex justify-content-center" aria-labelledby={list.name} data-parent="#list-accordion">
                 <div className="card-body d-flex justify-content-center">
                   <ul>
-                    {list.movies.map(movie =>
+                    {list.movies.map((movie, index) =>
                       <li key={movie.omdbId}>
                         <form>
                           <div
                             style={styles.blueColor}
-                            className="form-group form-check ">
+                            className="">
                             <input
                               style={styles.blueColor}
                               type="checkbox"
                               className="form-check-input"
                               id={movie.omdbId}
+                              key={movie.omdbId+index}
                               title={movie.title}
                               value={movie.year}
                               defaultChecked={CheckingFunc(movie.title)}
-                              onChange={twoCalls}
+                              onClick={twoCalls}
+                              onChange={(event) => setCheckbox(event.currentTarget.checked)}
                             />
                             <label className="form-check-label fs-4" htmlFor={movie.omdbId} style={styles.blueColor}>{movie.title}</label>
                           </div>

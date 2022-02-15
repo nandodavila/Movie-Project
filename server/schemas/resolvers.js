@@ -72,7 +72,7 @@ const resolvers = {
     },
     updateUserCompletedList: async (parent, args, context) => {
       console.log(args, "this is args")
-      const newListId = args._id
+      const newListId = args.completedLists._id
       if (context.user.email) {
         console.log(context.user.email);
         return await User.findOneAndUpdate(
