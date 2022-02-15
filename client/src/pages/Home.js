@@ -24,6 +24,9 @@ const ListPage = () => {
     },
   });
 
+  setUser(useQuery(GET_ME))
+  console.log(user)
+
   const [updateUserMovie, { error }] = useMutation(UPDATE_USER_WATCHED)
   const [updateUserCompletedList, { error: errCompletedList }] = useMutation(UPDATE_COMPLETED_LIST)
 
