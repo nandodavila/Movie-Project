@@ -26,7 +26,7 @@ const ListPage = () => {
     onCompleted: (userInfo) => {
       if (!user) {
       setUser(userInfo.me)
-      setWatchedMovies(userInfo.me.watchedMovies)
+      // setWatchedMovies(userInfo.me.watchedMovies)
       }
     },
   });
@@ -123,8 +123,7 @@ const ListPage = () => {
         omdbId: id,
         isWatched: true
       }
-      setWatchedMovies([...watchedMovies, watchedMovieObj])
-      console.log(watchedMovies)
+      // setWatchedMovies([...watchedMovies, watchedMovieObj])
       try {
         const userUpdate = await updateUserMovie({
           variables: { UserMovieWatched: watchedMovieObj },
