@@ -34,7 +34,7 @@ function Nav() {
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <ul className=" d-flex flex-row justify-content-around fs-3 fw-bold" style={styles.width}>
+        <ul className=" d-flex flex-row justify-content-around fs-3 fw-bold" style={styles.width} id="navBarUL">
           <li className="mx-1">
             <Link to="/dashboard">
               Dashboard |
@@ -54,7 +54,7 @@ function Nav() {
       );
     } else {
       return (
-        <ul className="d-flex flex-row justify-content-around fs-3 fw-bold" style={styles.width}>
+        <ul className="d-flex flex-row justify-content-around fs-3 fw-bold" style={styles.width} id="navBarUL">
           <li className="mx-1">
             <Link to="/signup">
               Signup |
@@ -76,7 +76,7 @@ function Nav() {
   }
 
   return (
-    <header className=" d-flex flex-row px-1 " style={styles.header}>
+    <header className=" d-flex flex-row px-1 " style={styles.header} id="navBar">
       <h1 style={styles.blueColor}>
         <Link to="/">
           <span role="img" aria-label="shopping bag"><img style={styles.imgHeight} src="..\images\badges\Flicks-on-the-Record.png"/> </span>

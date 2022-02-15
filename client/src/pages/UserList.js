@@ -53,17 +53,24 @@ const removeMovie = (e) => {
     let id = event.target.id;
     if(id !== '')
     {
-      fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${id}`)
-      .then(response => response.json())
-      .then(data => {
-        console.log(data)
-        let movieObject = {
-          title: data.Title,
-          year: data.Year,
-          omdbId: data.imdbID
-        }
-        setMovieLists([...movieLists, movieObject])
-      });
+      try{
+        fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${id}`)
+        .then(response => response.json())
+        .then(data => {
+          let movieObject = {
+            title: data.Title,
+            year: data.Year,
+            omdbId: data.imdbID
+          }
+          if(data)
+          {
+            setMovieLists([...movieLists, movieObject])
+          }
+        });
+      }catch(error)
+      {
+        alert(error)
+      }
     }
   }
   //add list of movies to the database
@@ -147,7 +154,7 @@ const removeMovie = (e) => {
   }
   //html to return
   return (
-    <form className='container d-flex flex-column mt-5 justify-content-center align-items-center col-sm-12'>
+    <form className='container d-flex flex-column mt-5 align-items-center col-sm-12'>
       
         
       <div className='container col-12 d-flex flex-column justify-content-center'>
@@ -242,6 +249,7 @@ const removeMovie = (e) => {
             </div>
           </div>
         </div>
+        {results ?
         <div 
           id="searchResults"
           className="overflow-auto col-sm-6"
@@ -263,6 +271,9 @@ const removeMovie = (e) => {
             <h3 className='centered'> 
             {movie.Title} {movie.Year}</h3> </div>) }
         </div>
+        :
+        <div><h1>Movie Not Found</h1></div>      
+        }
     </form>
   );
   };
