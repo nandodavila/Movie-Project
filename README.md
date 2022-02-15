@@ -53,7 +53,7 @@ This application is written in HTML, CSS, and JavaScript.  It uses bootstrap for
 To review the refactored code, please go to the [Repository](https://github.com/nandodavila/Movie-Project).
 
 ## Deploy
-To deploy this web application, please visit the following [Deployed Application](https://just-fur-pets.herokuapp.com/api/pet).
+To deploy this web application, please visit the following [Deployed Application](https://flicksontherecord.herokuapp.com/).
 
 ## Wireframe
 To view our wireframe of the application, please visit the following [Wireframe](https://app.diagrams.net/#G1Wb9nN03YmZO5UW5iSe7vAvPSt4JDgqy1).
