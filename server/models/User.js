@@ -44,7 +44,7 @@ const userSchema = new Schema({
   completedLists: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'List'
+      ref: 'List',
     }
   ]
 });
