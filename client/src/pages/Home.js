@@ -1,9 +1,11 @@
 // import { Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
+import '../styles/Home.css';
 import Auth from "../utils/auth";
 import { GET_LISTS, GET_ME } from '../utils/queries'
 import { UPDATE_USER_WATCHED, UPDATE_COMPLETED_LIST } from '../utils/mutations'
 import React, { useState, useEffect } from 'react';
+import Carousel from '../components/Carousel';
 let apiKey = process.env.REACT_APP_API_KEY;
 
 const ListPage = () => {
@@ -267,7 +269,7 @@ const ListPage = () => {
     },
     overflow: {
       overFlow: 'auto',
-      maxHeight: '50vh'
+      maxHeight: '100vh'
     }
 
   }
@@ -346,10 +348,11 @@ const ListPage = () => {
                   <ul>
                     {list.movies.map((movie, index) =>
                       <li key={movie.omdbId}>
-                        <form>
+                        <form className="listForm">
                           <div
                             style={styles.blueColor}
-                            className="">
+                            className="listDiv">
+                            <label className="form-check-label fs-4" htmlFor={movie.omdbId} style={styles.blueColor}>
                             <input
                               style={styles.blueColor}
                               type="checkbox"
@@ -362,7 +365,9 @@ const ListPage = () => {
                               onClick={twoCalls}
                               onChange={(event) => setCheckbox(event.currentTarget.checked)}
                             />
-                            <label className="form-check-label fs-4" htmlFor={movie.omdbId} style={styles.blueColor}>{movie.title}</label>
+                            
+                            <span>{movie.title}</span>
+                            </label>
                           </div>
                         </form>
                       </li>
@@ -380,6 +385,7 @@ const ListPage = () => {
   } else {
     return (
       <div className='container d-flex flex-column align-items-center col-sm-9'>
+        <Carousel />
         <form className='container d-flex flex-column justify-content-center align-items-center col-sm-12'>
           <h1 style={styles.orangeColor}>Search By Title & Year</h1>
           <div className='container col-8 d-flex flex-column justify-content-center'>

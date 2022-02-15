@@ -1,0 +1,81 @@
+:root {
+    --blueBkg: #314E52;
+    --blue: #092640;
+    --orange: #F2A154;
+    --grey: #E7E6E1;
+    --light: #F7F6E7;
+    --gold: #D4AF37;
+  }
+
+/* custom scrollbar */
+::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: (--grey);
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--grey);
+  }
+
+
+  .carousel-caption {
+      background-color: #e7e6e1ce;
+  }
+
+
+
+  .form-check-label {
+    display: inline-flex;
+    cursor: pointer;
+    position: relative;
+}
+
+.form-check-label > span {
+    color: var(--blueBkg);
+    padding: 0.5rem 0.25rem;
+    font-weight: bold;
+}
+
+.form-check-label > input {
+    height: 25px;
+    width: 25px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    border: 1px solid var(--light);
+    border-radius: 4px;
+    outline: none;
+    transition-duration: 0.3s;
+    background-color: var(--light);
+    cursor: pointer;
+  }
+
+.form-check-label > input:checked {
+    border: 1px solid var(--grey);
+    background-color: var(--gold);
+}
+
+/* .form-check-label > input:checked + span::before {
+    content: '\2713';
+    display: block;
+    text-align: center;
+    color: var(--gold);
+    position: absolute;
+    left: 0.7rem;
+    top: 0.2rem;
+} */
+
+.form-check-label > input:active {
+    border: 2px solid var(--gold);
+}

@@ -8,12 +8,13 @@ const BadgesPanel = ({ allMovieLists }) => {
     const [user, setUser] = useState(null);
     const { loading, data } = useQuery(GET_ME, {
         onCompleted: (data) => {
-            setUser(data.me)
+            setUser(data.me);
+            
         },
     });
 
     //if data loads, run this again
-    useEffect(() => {setBadgeImage();}, [allMovieLists, user]);
+    useEffect(() => {setBadgeImage()}, [allMovieLists, user]);
 
     let hideBadgeImage = `/images/badges/Hidden-Badge.png`;
     let completedMovieList = [];
@@ -40,11 +41,12 @@ const BadgesPanel = ({ allMovieLists }) => {
             })
         });   
         setBadge(completedMovieList);
+        
     };
 
     // populate all lists, if movie in users list, then show badge, if not show not badge
     return (
-
+        
         <div className="badgesForUser ms-auto">
             {badge.map(award =>
                 <div key={"div" + award.id} className="listBadge m-3">
