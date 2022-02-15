@@ -13,6 +13,8 @@ const ListPage = () => {
   const [lists, setLists] = useState([]);
   const [checkbox, setCheckbox] = useState(false)
   const [completedList, setCompletedList] = useState([]);
+  const [watchedMovies, setWatchedMovies] = useState([])
+  
 
   const { loading, data } = useQuery(GET_LISTS);
   const allMovieLists = data?.lists || [];
@@ -20,7 +22,10 @@ const ListPage = () => {
   const [user, setUser] = useState(null);
   const { loading: loadingV2, data: userInfo } = useQuery(GET_ME, {
     onCompleted: (userInfo) => {
+      if (!user) {
       setUser(userInfo.me)
+      setWatchedMovies(userInfo.me.watchedMovies)
+      }
     },
   });
 
@@ -30,7 +35,7 @@ const ListPage = () => {
   const [updateUserMovie, { error }] = useMutation(UPDATE_USER_WATCHED)
   const [updateUserCompletedList, { error: errCompletedList }] = useMutation(UPDATE_COMPLETED_LIST)
 
-  useEffect(() => {setCompletedList();}, [checkbox ,completedList]);
+  // useEffect(() => {setCompletedList();}, [completedList]);
 
   let hideBadgeImage = `/images/badges/Hidden-Badge.png`;
   let foundListArr = []
@@ -107,69 +112,119 @@ const ListPage = () => {
 
   const movieWatchedChange = async (event) => {
     event.preventDefault();
-    console.log(event)
     if (event.target.checked === true) {
       let { id, title, value } = event.target
-      console.log(id);
       const watchedMovieObj = {
         title: title,
         year: value,
         omdbId: id,
         isWatched: true
       }
+      setWatchedMovies([...watchedMovies, watchedMovieObj])
+      console.log(watchedMovies)
       try {
         const userUpdate = await updateUserMovie({
           variables: { UserMovieWatched: watchedMovieObj },
         });
-        console.log(userUpdate)
+        // console.log("userUpdate", userUpdate)
+        console.log(user)
       } catch (err) {
         console.error(err);
       }
     }
   }
 
-  const handleCompletedList =  () => {
-    //get is watched list
-    let userWatchedMovies = user.watchedMovies.map((watchedMovie) => watchedMovie.omdbId)
+  const handleCompletedList = async (arrayOfArrayslmao) => {
+    let completedListObj = {}
+    //arrayOfArraysLmao is an array of objects that has the list name and ID and the list of movies the user has completed in that list
+    for (let i = 0; i < arrayOfArrayslmao.length; i++) {
+      lists.forEach(list => {
+        if (arrayOfArrayslmao[i].listId === list._id) {
+          console.log("found match " + arrayOfArrayslmao[i].listName)
+          if(arrayOfArrayslmao[i].theWatchedMovies.length === list.movies.length) {
+            
+            console.log(userInfo.me.username + " completed " + list.name)
+            completedListObj = {
+              _id: list._id
+            }  
+            try {
+              const userUpdateList = updateUserCompletedList({
+                variables: { UserCompletedList: completedListObj },
+              });
+              console.log(userUpdateList)
+              // window.location.reload()
+            } catch (err) {
+              console.log("you got an error dumb")
+              console.error(err);
+            }
+          }
+        }
+      })  
+    }
+    console.log(completedListObj)
+    
+    // setCompletedList(completedListArr)
+    // console.log(completedListArr)
+    // console.log(completedList)
+    // try {
+    //   const userUpdateList = updateUserCompletedList({
+    //     variables: { completedLists: completedListArr },
+    //   });
+    //   console.log(userUpdateList)
+    // } catch (err) {
+    //   console.error(err);
+    // }
+  }
+
+
+
     //get list with movies
-    let foundListMovieArray = foundListArr.movies.map((listedMovie) => listedMovie.omdbId)
-    console.log(userWatchedMovies);
-    console.log("above userwatched list");
-    console.log(foundListMovieArray);
-    foundListMovieArray.forEach((movie) => {
-      if (movie != userWatchedMovies) {
-          return
-      }
-      try {
-        const userUpdateList = updateUserCompletedList({
-          variables: { UserCompletedList: foundListArr._id },
-        });
-        console.log(userUpdateList)
-      } catch (err) {
-        console.error(err);
-      }
-  });
-};
+//     let foundListMovieArray = foundListArr.movies.map((listedMovie) => listedMovie.omdbId)
+//     console.log(userWatchedMovies);
+//     console.log("above userwatched list");
+//     console.log(foundListMovieArray);
+//     foundListMovieArray.forEach((movie) => {
+//       if (movie != userWatchedMovies) {
+//           return
+//       }
+//       try {
+//         const userUpdateList = updateUserCompletedList({
+//           variables: { UserCompletedList: foundListArr._id },
+//         });
+//         console.log(userUpdateList)
+//       } catch (err) {
+//         console.error(err);
+//       }
+//   });
+// };
     
     //if all movies === isWatched: true on user, call function
       
-  // function checkMovieWatched() {
-  //   const arrayOfArrayslmao = []
-  //   lists.forEach(list => {
-  //     let moviesWatchedArr = []
-  //     let listName = list.name
-  //     list.movies.forEach(movie => {
-  //       userInfo.me.watchedMovies.forEach(watchedMovie => {
-  //         if (watchedMovie.omdbId === movie.omdbId) {
-  //           moviesWatchedArr.push(movie)
-  //         }
-  //       })
-  //     })
-  //     arrayOfArrayslmao.push({listName: listName, listId: list._id, theWatchedMovies: moviesWatchedArr})
-  //   })
-  //   return arrayOfArrayslmao
-  // }
+  function checkMovieWatched() {
+    const arrayOfArrayslmao = []
+    lists.forEach(list => {
+      let moviesWatchedArr = []
+      let listName = list.name
+      list.movies.forEach(movie => {
+        watchedMovies.forEach(watchedMovie => {
+          if (watchedMovie.omdbId === movie.omdbId) {
+            moviesWatchedArr.push(movie)
+          }
+        })
+      })
+      arrayOfArrayslmao.push({listName: listName, listId: list._id, theWatchedMovies: moviesWatchedArr})
+    })
+    console.log(arrayOfArrayslmao)
+    handleCompletedList(arrayOfArrayslmao)
+    setCheckbox(!checkbox)
+  }
 
+  function twoCalls(event) {
+    movieWatchedChange(event)
+    checkMovieWatched()
+
+    
+  }
 
   function CheckingFunc(movie) {
     let checkingBox = ""
@@ -179,7 +234,6 @@ const ListPage = () => {
         return "true"
       }
     })
-    console.log(checkingBox)
     return checkingBox
   }
 
@@ -297,7 +351,7 @@ const ListPage = () => {
                               title={movie.title}
                               value={movie.year}
                               defaultChecked={CheckingFunc(movie.title)}
-                              onChange={movieWatchedChange}
+                              onChange={twoCalls}
                             />
                             <label className="form-check-label fs-4" htmlFor={movie.omdbId} style={styles.blueColor}>{movie.title}</label>
                           </div>
