@@ -2,7 +2,7 @@ import { useQuery, useMutation} from '@apollo/client';
 import Auth from "../utils/auth";
 import { CREATE_LIST } from '../utils/mutations';
 import { GET_ME } from '../utils/queries'
-import React, { useEffect, useState, setState } from 'react';
+import React, { useState } from 'react';
 let apiKey = process.env.REACT_APP_API_KEY;
 const Home = () => {
   const [title, setTitle] = useState('');
