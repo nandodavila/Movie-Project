@@ -10,7 +10,7 @@ const styles = {
 
 function RightImage() {
   return (
-    <div>
+    <div id="rightImage">
         <aside>
             <img
             style={styles.sideImage}
