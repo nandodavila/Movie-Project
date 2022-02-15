@@ -47,6 +47,10 @@ type Query {
   lists: [List]
 }
 
+input CreatedBy {
+  username: String!
+}
+
 input MovieInput {
   title: String!
   year: String!
@@ -65,7 +69,7 @@ input UserCompletedList {
 }
 
 type Mutation {
-    createList(name: String!, message: String!, badge: String, movies: [MovieInput], createdBy: String!): List
+    createList(name: String!, message: String!, badge: String, movies: [MovieInput], createdBy: CreatedBy!): List
     updateUser(username: String, email: String, password: String): User
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
