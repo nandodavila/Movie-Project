@@ -68,6 +68,8 @@ input UserCompletedList {
   _id: ID!
 }
 
+
+
 type Mutation {
     createList(name: String!, message: String!, badge: String, movies: [MovieInput], createdBy: CreatedBy!): List
     updateUser(username: String, email: String, password: String): User
