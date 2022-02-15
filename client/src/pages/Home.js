@@ -13,6 +13,8 @@ const ListPage = () => {
   const [lists, setLists] = useState([]);
   const [checkbox, setCheckbox] = useState(false)
   const [completedList, setCompletedList] = useState([]);
+  const [watchedMovies, setWatchedMovies] = useState([])
+  
 
   const { loading, data } = useQuery(GET_LISTS);
   const allMovieLists = data?.lists || [];
@@ -20,7 +22,10 @@ const ListPage = () => {
   const [user, setUser] = useState(null);
   const { loading: loadingV2, data: userInfo } = useQuery(GET_ME, {
     onCompleted: (userInfo) => {
+      if (!user) {
       setUser(userInfo.me)
+      setWatchedMovies(userInfo.me.watchedMovies)
+      }
     },
   });
 
@@ -112,11 +117,14 @@ const ListPage = () => {
         omdbId: id,
         isWatched: true
       }
+      setWatchedMovies([...watchedMovies, watchedMovieObj])
+      console.log(watchedMovies)
       try {
         const userUpdate = await updateUserMovie({
           variables: { UserMovieWatched: watchedMovieObj },
         });
-        console.log("userUpdate", userUpdate)
+        // console.log("userUpdate", userUpdate)
+        console.log(user)
       } catch (err) {
         console.error(err);
       }
@@ -131,26 +139,27 @@ const ListPage = () => {
         if (arrayOfArrayslmao[i].listId === list._id) {
           console.log("found match " + arrayOfArrayslmao[i].listName)
           if(arrayOfArrayslmao[i].theWatchedMovies.length === list.movies.length) {
+            
             console.log(userInfo.me.username + " completed " + list.name)
             completedListObj = {
               _id: list._id
             }  
+            try {
+              const userUpdateList = updateUserCompletedList({
+                variables: { UserCompletedList: completedListObj },
+              });
+              console.log(userUpdateList)
+              // window.location.reload()
+            } catch (err) {
+              console.log("you got an error dumb")
+              console.error(err);
+            }
           }
         }
-      })
-
-      
+      })  
     }
     console.log(completedListObj)
-    try {
-      const userUpdateList = await updateUserCompletedList({
-        variables: { UserCompletedList: completedListObj },
-      });
-      console.log(userUpdateList)
-    } catch (err) {
-      console.log("you got an error dumb")
-      console.error(err);
-    }
+    
     // setCompletedList(completedListArr)
     // console.log(completedListArr)
     // console.log(completedList)
@@ -194,7 +203,7 @@ const ListPage = () => {
       let moviesWatchedArr = []
       let listName = list.name
       list.movies.forEach(movie => {
-        user.watchedMovies.forEach(watchedMovie => {
+        watchedMovies.forEach(watchedMovie => {
           if (watchedMovie.omdbId === movie.omdbId) {
             moviesWatchedArr.push(movie)
           }
