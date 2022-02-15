@@ -32,7 +32,7 @@ const ListPage = () => {
   const [updateUserMovie, { error }] = useMutation(UPDATE_USER_WATCHED)
   const [updateUserCompletedList, { error: errCompletedList }] = useMutation(UPDATE_COMPLETED_LIST)
 
-  useEffect(() => {setCompletedList();}, [checkbox ,completedList]);
+  // useEffect(() => {setCompletedList();}, [completedList]);
 
   let hideBadgeImage = `/images/badges/Hidden-Badge.png`;
   let foundListArr = []
@@ -213,6 +213,7 @@ const ListPage = () => {
     })
     console.log(arrayOfArrayslmao)
     handleCompletedList(arrayOfArrayslmao)
+    setCheckbox(!checkbox)
   }
 
   function twoCalls(event) {
