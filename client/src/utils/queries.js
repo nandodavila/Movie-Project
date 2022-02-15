@@ -38,6 +38,22 @@ query getLists {
 }
 `;
 
+export const GET_LIST = gql`
+query getList($listId: ID!) {
+  list(listId: $listId) {
+      _id
+      name
+      message
+      badge
+      movies{
+        title
+        year
+        omdbId
+      }
+  }
+}
+`;
+
 export const QUERY_USER = gql`
 query user  {
     user {

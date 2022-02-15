@@ -45,6 +45,7 @@ type Query {
   users: [User]
   user: User
   lists: [List]
+  list(listId: ID!): List
 }
 
 input MovieInput {
