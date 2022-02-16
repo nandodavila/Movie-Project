@@ -43,7 +43,7 @@ export default function ScratchOff() {
           {list.message}
         </h1>
         <h2 className='text-center'>
-          Congradulations!  You've watched all the movies in the {list.name} list.
+          Congratulations!  You've watched all the movies in the {list.name} list.
         </h2>
         <img src={list.badge} style={styles.badgeImage} alt="BadgeIcon"/>
         </main>
