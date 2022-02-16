@@ -137,7 +137,7 @@ h2, h3, h4 {
   }
 
   .listBadge img {
-    max-width: 40px!important;
+    max-width: 50px!important;
     flex-wrap: nowrap!important;
     flex:none!important;
   }
