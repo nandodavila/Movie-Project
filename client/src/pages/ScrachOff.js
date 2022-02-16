@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { GET_LIST } from '../utils/queries';
 import { useQuery } from '@apollo/client';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 export default function ScratchOff() {
-  const listId='620b00000c02da49fc705620'
+  const {listId} = useParams();
+  // const listId='620b00000c02da49fc705620'
   const {loading, error, data, refetch } = useQuery(GET_LIST, {variables: {listId}});
   const list = data?.list || {};
   const styles = {

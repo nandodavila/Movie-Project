@@ -56,7 +56,7 @@ function App() {
               <Route exact path="/dashboard">
                 <Dashboard className="col-sm-6"/>
               </Route>
-              <Route exact path="/scratch">
+              <Route exact path="/scratch/:listId">
                 <ScratchOff className="col-sm-6"/>
               </Route>
               <Route exact path="/user-list">
