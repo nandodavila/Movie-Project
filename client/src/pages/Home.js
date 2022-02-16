@@ -1,4 +1,4 @@
-// import { Link } from 'react-router-dom';
+
 import { useQuery, useMutation } from '@apollo/client';
 import Auth from "../utils/auth";
 import { GET_LISTS, GET_ME } from '../utils/queries'
@@ -14,7 +14,6 @@ const ListPage = () => {
   const [checkbox, setCheckbox] = useState(false)
   const [completedList, setCompletedList] = useState([]);
   const [watchedMovies, setWatchedMovies] = useState([])
-  
 
   const { loading, data } = useQuery(GET_LISTS);
   const allMovieLists = data?.lists || [];
@@ -160,6 +159,11 @@ const ListPage = () => {
               // console.log("you got an error dumb")
               console.error(err);
             }
+            if (window.confirm(`You completed ${list.name}!!!`)==true ) {
+              window.location.pathname=`/scratch/${list._id}`
+            } else { 
+              window.location.pathname=`/scratch/${list._id}`
+            }  
           }
         }
       })  
