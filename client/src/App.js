@@ -8,7 +8,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import { setContext } from '@apollo/client/link/context';
 import UserList from './pages/UserList';
-import ScratchOff from './pages/ScratchOff/ScrachOff';
+import ScratchOff from './pages/ScrachOff';
 
 import Footer from './components/Footer';
 import LeftImage from './components/LeftImage';
