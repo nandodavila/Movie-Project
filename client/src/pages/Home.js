@@ -1,4 +1,4 @@
-// import { Link } from 'react-router-dom';
+
 import { useQuery, useMutation } from '@apollo/client';
 import '../styles/Home.css';
 import Auth from "../utils/auth";
@@ -16,7 +16,6 @@ const ListPage = () => {
   const [checkbox, setCheckbox] = useState(false)
   const [completedList, setCompletedList] = useState([]);
   const [watchedMovies, setWatchedMovies] = useState([])
-  
 
   const { loading, data } = useQuery(GET_LISTS);
   const allMovieLists = data?.lists || [];
@@ -31,8 +30,7 @@ const ListPage = () => {
     },
   });
 
-  // setUser(useQuery(GET_ME))
-  // console.log(user)
+ 
 
   const [updateUserMovie, { error }] = useMutation(UPDATE_USER_WATCHED)
   const [updateUserCompletedList, { error: errCompletedList }] = useMutation(UPDATE_COMPLETED_LIST)
@@ -53,12 +51,11 @@ const ListPage = () => {
         if (eachMovieId === searched[0].imdbID) {
           //trying to hide badge for users that dont have that list
           // if (user) {
-            console.log(user.completedLists)
+          
           //   userCompletedLists = user.completedLists._id;
-          //   console.log(user.completedLists)
+          
           // } else {
-          //   console.log("user list not found")
-          // }
+                   // }
           // foundListArr.forEach((listItem) => {
           //   let badgePopulateImg = listItem.badge;
           //   let badgePopulateId = listItem._id;
@@ -80,7 +77,6 @@ const ListPage = () => {
     if (foundListArr.length === 0){
       alert("No List Found With This Movie")
     } else {
-      // console.log("Found " + foundListArr.length + " List with this movie")
       setLists(foundListArr) 
     }
 }
@@ -128,11 +124,9 @@ const ListPage = () => {
         const userUpdate = await updateUserMovie({
           variables: { UserMovieWatched: watchedMovieObj },
         });
-        console.log("userUpdate", userUpdate)
         checkMovieWatched(userUpdate)
-
-        console.log(user)
-      } catch (err) {
+      } 
+      catch (err) {
         console.error(err);
       }
     }
@@ -145,10 +139,7 @@ const ListPage = () => {
     for (let i = 0; i < arrayOfArrayslmao.length; i++) {
       lists.forEach(list => {
         if (arrayOfArrayslmao[i].listId === list._id) {
-          console.log("found match " + arrayOfArrayslmao[i].listName)
           if(arrayOfArrayslmao[i].theWatchedMovies.length === list.movies.length) {
-            
-            console.log(userInfo.me.username + " completed " + list.name)
             completedListObj = {
               _id: list._id
             }  
@@ -156,26 +147,24 @@ const ListPage = () => {
               const userUpdateList = updateUserCompletedList({
                 variables: { UserCompletedList: completedListObj },
               });
-              // console.log(userUpdateList)
-              // window.location.reload()
             } catch (err) {
-              // console.log("you got an error dumb")
               console.error(err);
             }
+            if (window.confirm(`You completed ${list.name}!!!`)==true ) {
+              window.location.pathname=`/scratch/${list._id}`
+            } else { 
+              window.location.pathname=`/scratch/${list._id}`
+            }  
           }
         }
       })  
     }
-    // console.log(completedListObj)
     
     // setCompletedList(completedListArr)
-    // console.log(completedListArr)
-    // console.log(completedList)
     // try {
     //   const userUpdateList = updateUserCompletedList({
     //     variables: { completedLists: completedListArr },
     //   });
-    //   console.log(userUpdateList)
     // } catch (err) {
     //   console.error(err);
     // }
@@ -185,9 +174,6 @@ const ListPage = () => {
 
     //get list with movies
 //     let foundListMovieArray = foundListArr.movies.map((listedMovie) => listedMovie.omdbId)
-//     console.log(userWatchedMovies);
-//     console.log("above userwatched list");
-//     console.log(foundListMovieArray);
 //     foundListMovieArray.forEach((movie) => {
 //       if (movie != userWatchedMovies) {
 //           return
@@ -196,7 +182,6 @@ const ListPage = () => {
 //         const userUpdateList = updateUserCompletedList({
 //           variables: { UserCompletedList: foundListArr._id },
 //         });
-//         console.log(userUpdateList)
 //       } catch (err) {
 //         console.error(err);
 //       }
@@ -213,7 +198,6 @@ const ListPage = () => {
       list.movies.forEach(movie => {
 
         userMovies.data.updateUserMovie.watchedMovies.forEach(watchedMovie => {
-          console.log(watchedMovie)
           if (watchedMovie.omdbId === movie.omdbId) {
             moviesWatchedArr.push(movie)
           }
@@ -221,7 +205,6 @@ const ListPage = () => {
       })
       arrayOfArrayslmao.push({listName: listName, listId: list._id, theWatchedMovies: moviesWatchedArr})
     })
-    // console.log(arrayOfArrayslmao)
     handleCompletedList(arrayOfArrayslmao)
     setCheckbox(!checkbox)
   }
@@ -339,7 +322,7 @@ const ListPage = () => {
                     aria-expanded="true"
                     aria-controls={list._id}>
                     {list.name}
-                    <img className="" style={styles.badgeImage} src={list.badge} />
+                    {/* <img className="" style={styles.badgeImage} src={list.badge} /> */}
                   </button>
                 </h2>
               </div>
