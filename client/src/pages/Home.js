@@ -261,8 +261,8 @@ const ListPage = () => {
   if (Auth.loggedIn()) {
     return (
       <div className="col-sm-9">
-        <form className='container d-flex flex-column justify-content-center align-items-center col-sm-12'>
         <Carousel />
+        <form className='container d-flex flex-column justify-content-center align-items-center col-sm-12'>
           <h1 style={styles.orangeColor}>Search By Title & Year</h1>
           <div className='container col-8 d-flex flex-column justify-content-center'>
             <div className="form-group d-flex  mt-1 mb-1">
@@ -367,69 +367,87 @@ const ListPage = () => {
 
   } else {
     return (
-      <div className='container d-flex flex-column align-items-center col-sm-9'>
-        <Carousel />
-        <form className='container d-flex flex-column justify-content-center align-items-center col-sm-12'>
-          <h1 style={styles.orangeColor}>Search By Title & Year</h1>
-          <div className='container col-8 d-flex flex-column justify-content-center'>
-            <div className="form-group d-flex  mt-1 mb-1">
-              <input
-                value={title}
-                onChange={handleInputChange}
-                type="text"
-                id="title"
-                name="title"
-                placeholder="Title"
-                className="form-control justify-content-center align-items-center col-sm-8" />
-            </div>
-            <div className="form-group d-flex mt-1">
-              <input
-                value={year}
-                onChange={handleInputChange}
-                type="text"
-                id="year"
-                name="year"
-                placeholder="Year"
-                className="form-control justify-content-center align-items-center col-sm-8"
-              />
-            </div>
-            <button
-              style={styles.orangeColorBg}
-              id="search-by-title-button"
-              type="submit"
-              className="btn d-flex justify-content-center align-items-center col-lg-8 m-auto mt-1"
-              onClick={apiCall}>
-
-              Search
-            </button>
+      <div className="col-sm-9">
+      <Carousel />
+      <form className='container d-flex flex-column justify-content-center align-items-center col-sm-12'>
+        <h1 style={styles.orangeColor}>Search By Title & Year</h1>
+        <div className='container col-8 d-flex flex-column justify-content-center'>
+          <div className="form-group d-flex  mt-1 mb-1">
+            {/* <label
+              style={styles.orangeColor}
+              htmlFor="title" 
+              className="control-label col-sm-1 col-form-label" >
+                Title:
+            </label> */}
+            <input
+              value={title}
+              onChange={handleInputChange}
+              type="text"
+              id="title"
+              name="title"
+              placeholder="Title"
+              className="form-control justify-content-center align-items-center col-sm-8"
+            />
           </div>
-        </form>
-        <div className="accordion list-accordion container">
-          {lists.map(list =>
-            <div className='card' key={list._id}>
-              <div className='card-header' id={list.name}>
-                <h2 className="mb-0">
-                  <button className="btn btn-link" type="button" data-toggle="collapse" data-target={`#${list._id}`} aria-expanded="true" aria-controls={list._id}>
-                    {list.name}
-                    <img src={list.badge} />
-                  </button>
-                </h2>
-              </div>
-              <div id={list._id} className="collapse show" aria-labelledby={list.name} data-parent="#list-accordion">
-                <div className="card-body">
-                  <ul>
-                    {list.movies.map(movie =>
-                      <li key={movie.omdbId}>
-                        {movie.title}
-                      </li>
-                    )}
-                  </ul>
-                </div>
+          <div className="form-group d-flex mt-1">
+            {/* <label 
+              style={styles.orangeColor}
+              className="control-label col-sm-1 col-form-label" >
+                Year:
+            </label> */}
+            <input
+              value={year}
+              onChange={handleInputChange}
+              type="text"
+              id="year"
+              name="year"
+              placeholder="Year"
+              className="form-control justify-content-center align-items-center col-sm-8" />
+          </div>
+          <button
+            style={styles.orangeColorBg}
+            id="search-by-title-button"
+            type="submit"
+            className="btn d-flex justify-content-center align-items-center col-lg-8 m-auto mt-1"
+            onClick={apiCall}>
+
+            Search
+          </button>
+        </div>
+      </form>
+      <div style={styles.overflow} className="accordion list-accordion container col-sm-6 overflow-auto">
+        {lists.map(list =>
+          <div className='card m-2' key={list._id}>
+            <div className='card-header d-flex justify-content-center' style={styles.orangeColorBg} id={list.name}>
+              <h2 className="mb-0" style={styles.blueColor}>
+                <button
+                  style={styles.blueColor}
+                  className="btn btn-link fs-3"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target={`#${list._id}`}
+                  aria-expanded="true"
+                  aria-controls={list._id}>
+                  {list.name}
+                  {/* <img className="" style={styles.badgeImage} src={list.badge} /> */}
+                </button>
+              </h2>
+            </div>
+            <div id={list._id} className="collapse show d-flex justify-content-center" aria-labelledby={list.name} data-parent="#list-accordion">
+              <div className="card-body d-flex justify-content-center">
+                <ul>
+                  {list.movies.map((movie, index) =>
+                    <li key={movie.omdbId}>
+                          {movie.title}
+                    </li>
+                  )}
+                </ul>
               </div>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
+    </div>
 
     );
 
