@@ -14,6 +14,9 @@ const resolvers = {
     lists: async (parent, args) => {
       return List.find({})
     },
+    list: async (parent, {listId}) => {
+      return List.findOne({_id: listId})
+    },
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({});

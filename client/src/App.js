@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import { setContext } from '@apollo/client/link/context';
 import UserList from './pages/UserList';
+import ScratchOff from './pages/ScrachOff';
 
 import Footer from './components/Footer';
 import LeftImage from './components/LeftImage';
@@ -54,6 +55,9 @@ function App() {
               </Route>
               <Route exact path="/dashboard">
                 <Dashboard className="col-sm-6"/>
+              </Route>
+              <Route exact path="/scratch">
+                <ScratchOff className="col-sm-6"/>
               </Route>
               <Route exact path="/user-list">
                 <UserList className="col-sm-12"/>
