@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { GET_LIST } from '../../utils/queries';
+import { GET_LIST } from '../utils/queries';
 import { useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
 
