@@ -14,6 +14,7 @@ export default function Dashboard() {
   const { loading, data } = useQuery(GET_LISTS);
   const allMovieLists = data?.lists || [];
 
+
 if (Auth.loggedIn()) {
   return (
     <div className="col-sm-9">

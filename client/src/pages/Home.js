@@ -279,6 +279,7 @@ const ListPage = () => {
     return (
       <div className="col-sm-9">
         <form className='container d-flex flex-column justify-content-center align-items-center col-sm-12'>
+        <Carousel />
           <h1 style={styles.orangeColor}>Search By Title & Year</h1>
           <div className='container col-8 d-flex flex-column justify-content-center'>
             <div className="form-group d-flex  mt-1 mb-1">
@@ -365,7 +366,7 @@ const ListPage = () => {
                               onChange={(event) => setCheckbox(event.currentTarget.checked)}
                             />
                             
-                            <span>{movie.title}</span>
+                            {movie.title}
                             </label>
                           </div>
                         </form>
