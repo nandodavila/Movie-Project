@@ -49,6 +49,10 @@ This application helps track the movies you have watched and includes the follow
 ## Technologies
 This application is written in HTML, CSS, and JavaScript.  It uses bootstrap for CSS components.  It uses GraphQL for back end routing, and React to handle front end components and state.  It uses bcrypt to encrypt passwords, and the OMIDB API to grab movie data.  It takes advantage of JWT, the cache, and React Router to quickly move through screens without having to reload.
 
+## Future Development
+-Add more user specific information on the user dashboard (such as username)
+-Allow more than one list on a page to be completed
+
 ## Review
 To review the refactored code, please go to the [Repository](https://github.com/nandodavila/Movie-Project).
 
